@@ -1,0 +1,1 @@
+start "" "dist\Main\Main.exe"
