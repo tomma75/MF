@@ -1,0 +1,11 @@
+event_id,label_version,asset_class,symbol,name,t_start,t0,Wd,collapse_stratum,gate_A_catalyst,gate_B_car_pct,gate_D_verdict,gate_D_kappa,gray_zone,detection_time,evidence_url,observed_at,notes
+SG-2023-하림지주,v0.2,kr_stock,003380,하림지주,2019-05-01,2023-04-24,20,collapsed,none(CFD은밀매집),113,,,false,2023-04-24,https://namu.wiki/w/SG증권발%20하한가%20사태,2026-07-01,REG-ENF앵커;t_start추정;PCR-MS게이트A미충족가능(C3후보);종목코드검증필요
+SG-2023-다올투자증권,v0.2,kr_stock,030210,다올투자증권,2019-05-01,2023-04-24,20,collapsed,none(CFD은밀매집),85,,,false,2023-04-24,https://www.sedaily.com/NewsView/29OFFH6L59,2026-07-01,동일스킴;상승률04-21기준;코드검증필요
+SG-2023-세방,v0.2,kr_stock,004360,세방,2019-05-01,2023-04-24,20,collapsed,none(CFD은밀매집),44,,,false,2023-04-24,https://www.sedaily.com/NewsView/29OFFH6L59,2026-07-01,동일스킴;코드검증필요
+SG-2023-다우데이타,v0.2,kr_stock,032190,다우데이타,2019-05-01,2023-04-24,20,collapsed,none(CFD은밀매집),40,,,false,2023-04-24,https://www.dnews.co.kr/uhtml/view.jsp?idxno=202304241508091730184,2026-07-01,동일스킴;코드검증필요
+SG-2023-삼천리,v0.2,kr_stock,004690,삼천리,2019-05-01,2023-04-24,20,collapsed,none(CFD은밀매집),,,,false,2023-04-24,https://www.sedaily.com/NewsView/29OFFH6L59,2026-07-01,동일스킴;사전상승률미확정;코드검증필요
+SG-2023-서울가스,v0.2,kr_stock,017390,서울가스,2019-05-01,2023-04-24,20,collapsed,none(CFD은밀매집),,,,false,2023-04-24,https://www.sedaily.com/NewsView/29OFFH6L59,2026-07-01,동일스킴;코드검증필요
+SG-2023-대성홀딩스,v0.2,kr_stock,016710,대성홀딩스,2019-05-01,2023-04-24,20,collapsed,none(CFD은밀매집),,,,false,2023-04-24,https://www.sedaily.com/NewsView/29OFFH6L59,2026-07-01,동일스킴;코드검증필요
+SG-2023-선광,v0.2,kr_stock,003100,선광,2019-05-01,2023-04-24,20,collapsed,none(CFD은밀매집),,,,false,2023-04-24,https://www.sedaily.com/NewsView/29OFFH6L59,2026-07-01,동일스킴;코드검증필요
+KR-2021고합135,v0.2,kr_stock,,무자본M&A+CB사건(판결문),,,20,collapsed,최대주주변경;유상증자;CB발행,133,yes,,false,2021,https://casenote.kr/서울남부지방법원/2021고합135,2026-07-01,교과서적PCR-MS양성;약1개월6000→14000원;허위보도자료;종목명판결문특정필요
+CRYPTO-SAITAMA-2021,v0.2,crypto,SAITAMA,Saitama,2021-07-01,,14,collapsed,프로모션;마켓메이커워시트레이딩,,yes,,false,2024,https://www.justice.gov/usao-ma/pr/eighteen-individuals-and-entities-charged-international-operation-targeting-widespread,2026-07-01,다수지갑분산매집(WCI대응);DOJ기소;t0(dump)미특정;id_unverified
