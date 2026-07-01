@@ -7,9 +7,10 @@
 
 **전체 정의·근거·임계값·개정규칙은 → `label_definitions.md`** (단일 정본). 여기선 요약만.
 
-- 채택: **PCR-MS v0.1** (Promotion-Coupled Runup, Market-Adjusted, with Collapse-Stratification).
-- 도출: 오푸스 멀티에이전트(5각도 생성 → 3렌즈 적대검증 → 종합). ⚠️ 생성 3각도 실패로 미탐색 → v0.2 보강 여지.
-- **여전히 잠정이다.** 미해결 질문 8건 + 전향적 검증 전까지 확정 아님. 임계값·유니버스 경계 등은 **사용자 결정 대기**.
+- 채택: **PCR-MS v0.2** (Promotion-Coupled Runup, Market-Adjusted, with Collapse-Stratification). 코어 불변.
+- 도출: 오푸스 멀티에이전트. v0.2에서 3각도(price_quant/regulatory/cross_asset) 탐색 완료 → 모두 코어 fatal, 보조 재배치.
+- **여전히 잠정이다.** 미해결 질문 8건은 **사전등록 기본값(잠정)** 부여됨(사용자 확정 시 `label_version`↑). 임계값·유니버스 경계 최종 확정 대기.
+- 연계 산출물: 시그널 `analysis/features.md`, 사전등록 `validation/pre_registration.md`.
 
 ### 핵심 원칙 (반드시 준수)
 1. **축 분리(construct separation)** — 라벨은 검증할 선행 시그널과 관찰축 공유 금지. `sentiment`/`flow-actors`/모멘텀은 라벨에서 빼고 **검증 대상 시그널로만** 둔다.
