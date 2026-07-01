@@ -26,3 +26,8 @@ asset_class, symbol, name, observed_at, published_at, source, url, payload(원�
 
 ## 수집 모드
 혼합(수동+자동) → 검증 후 자동화. 자동화 스크립트는 각 하위 디렉토리에 둔다.
+
+## 규격·템플릿
+- **데이터 사전**: `schema.md` (전 컬럼 정의)
+- **수집 체크리스트**: `COLLECTION_CHECKLIST.md` (as-of 동결·윤리·진입조건)
+- **템플릿**: 각 하위 디렉토리 `template.csv` (헤더 + 합성 예시 1행, `SYNTHETIC_EXAMPLE`)

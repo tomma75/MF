@@ -1,0 +1,2 @@
+asset_class,symbol,name,platform,post_count,mention_count,sentiment_score,keyword_freq,sample_texts_anon,observed_at,published_at,source,url,id_unverified
+kr_stock,EXAMPLE000,예시종목(합성),forum,320,540,0.42,급등:120;풀매수:45,[익명화 샘플],2026-07-01T09:00:00+09:00,2023-04-25T21:00:00+09:00,SYNTHETIC_EXAMPLE,https://example.invalid/sent,true

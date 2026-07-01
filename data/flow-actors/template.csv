@@ -1,0 +1,2 @@
+asset_class,symbol,name,actor_type,net_buy,broker_code,short_balance,onchain_flow,observed_at,published_at,source,url,id_unverified
+kr_stock,EXAMPLE000,예시종목(합성),broker,150000000,BRK_A(합성),0,,2026-07-01T09:00:00+09:00,2023-04-18T18:00:00+09:00,SYNTHETIC_EXAMPLE,https://example.invalid/flow,true

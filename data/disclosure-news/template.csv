@@ -1,0 +1,2 @@
+asset_class,symbol,name,doc_type,headline,body_or_summary,credibility,theme_tags,observed_at,published_at,source,url,id_unverified
+kr_stock,EXAMPLE000,예시종목(합성),disclosure,제3자배정 유상증자 결정(합성 예시),비구속 내러티브형 촉매 예시,official,자금조달;테마편입,2026-07-01T09:00:00+09:00,2023-04-20T16:00:00+09:00,SYNTHETIC_EXAMPLE,https://example.invalid/disc,true

@@ -1,0 +1,2 @@
+asset_class,symbol,name,interval,observed_at,published_at,open,high,low,close,volume,turnover_rate,market_cap,source,url,id_unverified
+kr_stock,EXAMPLE000,예시종목(합성),1d,2026-07-01T09:00:00+09:00,2023-05-02T15:30:00+09:00,1000,1080,990,1050,1234567,12.3,50000000000,SYNTHETIC_EXAMPLE,https://example.invalid/pv,true
