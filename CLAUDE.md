@@ -23,10 +23,10 @@
 
 ## 3. 절대 규칙: 모호한 것은 특정하지 않는다 (No Premature Specification)
 
-이 프로젝트의 핵심 미확정 항목은 **"작전주의 조작적 정의(operational label)"** 다.
-- 현재 상태: **미확정(UNDECIDED)**. → `labeling/CLAUDE.md` 참조.
-- 후보 정의는 **가설(hypothesis)로만** 보관한다. 임의로 하나를 정답처럼 고정하지 말 것.
-- 정의가 필요해지면 **사용자에게 질문**한다. 추측으로 진행 금지.
+이 프로젝트의 핵심 항목은 **"작전주의 조작적 정의(operational label)"** 다.
+- 현재 상태: **v0.1 잠정 채택(PROVISIONAL)** — `PCR-MS`. → `labeling/label_definitions.md`(정본) 참조.
+- **여전히 가설이다.** 미해결 질문 + 전향적 검증 전까지 확정 아님. 임계값·유니버스 경계 등은 임의 확정 금지.
+- 정의를 바꾸거나 미해결 항목을 정할 땐 **사용자에게 질문**하고, `label_version`을 올려 결정 로그에 기록한다.
 
 ## 4. 방법론 원칙 (Methodology — 합의된 설계)
 
