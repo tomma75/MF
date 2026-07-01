@@ -47,6 +47,9 @@
 | `detection_time` | (REG-ENF) 당국이벤트 published_at — **t0로 미사용** |
 | `evidence_url` | 근거 |
 
+## labeling/positives_seed.csv (실데이터 — 확장 스키마)
+`positives.csv` 컬럼에 **연구 필드 2개 추가**: `enforcement_status`(REG-ENF 앵커 강도/처벌 상태 서술), `pcr_ms_fit`(PCR-MS 게이트 적합 yes/partial/no + 사유). `gate_B_gain`은 상승폭 원문(정제 전). 앵커 강도·정합은 `analysis/case_findings.md` 참조.
+
 ## labeling/controls.csv
 `control_id`, `control_type`(C1 무조건부 / C2 hype-matched / C3 silent-positive), `matched_event_id`, `asset_class`, `symbol`, `name`, `placebo_t0`(C1 이식 t0), `match_market_cap`, `match_sector`, `match_period`, `notes`.
 
