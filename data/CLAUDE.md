@@ -30,4 +30,5 @@ asset_class, symbol, name, observed_at, published_at, source, url, payload(원�
 ## 규격·템플릿
 - **데이터 사전**: `schema.md` (전 컬럼 정의)
 - **수집 체크리스트**: `COLLECTION_CHECKLIST.md` (as-of 동결·윤리·진입조건)
+- **소스·런북**: `SOURCES.md` (공개 출처 카탈로그 + 9단계 수집 순서)
 - **템플릿**: 각 하위 디렉토리 `template.csv` (헤더 + 합성 예시 1행, `SYNTHETIC_EXAMPLE`)
