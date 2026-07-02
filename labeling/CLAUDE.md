@@ -11,8 +11,10 @@
 - 도출: 오푸스 멀티에이전트. v0.2에서 3각도(price_quant/regulatory/cross_asset) 탐색 완료 → 모두 코어 fatal, 보조 재배치.
 - **여전히 잠정이다.** 미해결 질문 8건은 **사전등록 기본값(잠정)** 부여됨(사용자 확정 시 `label_version`↑). 임계값·유니버스 경계 최종 확정 대기.
 - 연계 산출물: 시그널 `analysis/features.md`, 사전등록 `validation/pre_registration.md`.
-- 실데이터: `positives_seed.csv`(검증 통과 양성 **23건**: kr 12/crypto 6/global 5, REG-ENF 앵커, 1차출처 검증 대기) + 근거 `../data/disclosure-news/case_archive.md` + 발견 `../analysis/case_findings.md`. `positives.csv`는 스키마 템플릿.
-- ⚠️ 앵커 강도 층화: **형사 유죄 확정만 강한 양성**. 기소/시장경보/무죄는 `enforcement_status` 참조, 양성 단정 금지. 대조군(C1) 아직 0건 → 우도비 계산 전 필수.
+- 실데이터: `positives_seed.csv`(검증 통과 **38건**: kr 19/crypto 12/global 7, 1차출처 검증 대기) + 근거 `../data/disclosure-news/case_archive.md` + 발견 `../analysis/case_findings.md`. `positives.csv`는 스키마 템플릿.
+- 유형 분류: `manipulation_typology.md` — **T1~T7 + 앵커 A1~A5/A0**. 태그는 seed CSV의 `manip_type`/`anchor_grade`.
+- ⚠️ **A0(무혐의·무죄, T6 다수)은 양성 아님 = 대조 표본.** A3 이하 pending은 판결 확정 시 갱신. PCR-MS 정합은 T1·T5뿐 — T2/T3/T4 미검출 문제와 v0.3 옵션(O1/O2/O3)은 typology 문서 참조, **결정은 사용자 확인 필요.**
+- 대조군(C1 매칭) 아직 미확보 → 우도비 계산 전 필수.
 
 ### 핵심 원칙 (반드시 준수)
 1. **축 분리(construct separation)** — 라벨은 검증할 선행 시그널과 관찰축 공유 금지. `sentiment`/`flow-actors`/모멘텀은 라벨에서 빼고 **검증 대상 시그널로만** 둔다.

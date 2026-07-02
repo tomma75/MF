@@ -48,7 +48,8 @@
 | `evidence_url` | 근거 |
 
 ## labeling/positives_seed.csv (실데이터 — 확장 스키마)
-`positives.csv` 컬럼에 **연구 필드 2개 추가**: `enforcement_status`(REG-ENF 앵커 강도/처벌 상태 서술), `pcr_ms_fit`(PCR-MS 게이트 적합 yes/partial/no + 사유). `gate_B_gain`은 상승폭 원문(정제 전). 앵커 강도·정합은 `analysis/case_findings.md` 참조.
+`positives.csv` 컬럼에 **연구 필드 4개 추가**: `enforcement_status`(처벌 상태 서술), `pcr_ms_fit`(게이트 적합 + 사유), `manip_type`(**T1~T7** 조작 유형 → `labeling/manipulation_typology.md`), `anchor_grade`(**A1~A5, A0** 앵커 강도: A1 형사확정 > A2 plea > A3 기소 > A4 규제민사 > A5 시장경보 > A0 무혐의·무죄=대조). `gate_B_gain`은 상승폭 원문(정제 전).
+⚠️ `anchor_grade=A0`(T6 등)은 양성 아님 — 대조(control-side) 표본. A3 이하는 pending, 판결 확정 시 갱신.
 
 ## labeling/controls.csv
 `control_id`, `control_type`(C1 무조건부 / C2 hype-matched / C3 silent-positive), `matched_event_id`, `asset_class`, `symbol`, `name`, `placebo_t0`(C1 이식 t0), `match_market_cap`, `match_sector`, `match_period`, `notes`.
