@@ -43,3 +43,10 @@ validation/
 - 매집/셋업(급등 전): `preramp_watchlist.md` — 과거 전조와 유사한 셋업 관찰 리스트(회피 교육용, 매수신호 아님). 가장 순수한 out-of-sample 검증 자료 → 발화 여부 F/U로 리드타임·우도비 실측.
 - F/U: `daily_followup.md` — 매일(거래일) 예측 대비 실제 대조. **적중=어떤 근거로 맞았나 / 오류=왜 틀렸나** 기록 → 학습자료 축적.
 - ⚠️ 예측은 **가설적 시나리오**이며 확정 예언·매매 신호 아님. 반증조건 충족 시 즉시 오류 기록(사후합리화 금지).
+
+### F/U 실행은 하네스로만 (재현성 — 드라이버 모델 무관)
+"F/U 돌려줘" 요청 시 **`.claude/skills/fu-round/SKILL.md` 절차를 그대로 따른다.** 즉석 프롬프트 작성 금지.
+- 대상 정본: `harness/cohort_registry.json` (active만 재조회; 변경은 이 파일 편집+커밋으로만)
+- 판단: `harness/fu_workflow.js` (서브에이전트 **opus 고정** — 드라이버가 소넷이어도 동일)
+- 기록·상태전이: `harness/postprocess_fu.py` (라운드 번호·로그 블록·registry 전이 전부 결정론적)
+- 전이 규칙(자동): VOID/MISS/EARLY→closed, preramp HIT→collapse-watch

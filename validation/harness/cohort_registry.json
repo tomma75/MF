@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "as_of": "2026-07-02",
+  "note": "F/U 대상 단일 정본(single source of truth). status: active=재조회 대상, closed=판정 종료(사유 기재). layer: collapse=붕괴 관찰 / preramp=발화 관찰 / collapse-watch=발화 후 디스트리뷰션 관찰. Round 1 판정 반영(v2).",
+  "targets": [
+    {"name": "Inno Holdings", "symbol": "INHD", "mkt": "US", "layer": "collapse", "status": "active", "window": "2026-07~08", "trigger": "T12 정지해제 후 $60M ATM 출회. 해제 시초 갭 방향이 1차 관찰", "falsify": "재개후 $39유지/ATM철회/특별위 무혐의"},
+    {"name": "빛과전자(라이트론)", "symbol": "069540", "mkt": "KR", "layer": "collapse", "status": "active", "window": "2026-07~09", "trigger": "CB 분산엔진(바로저축은행 매도중) + 8월 중순 반기 검토보고서(감사의견)", "falsify": "CB 재락업/반기적정+실적정당화"},
+    {"name": "협진(앤로보틱스)", "symbol": "138360", "mkt": "KR", "layer": "collapse", "status": "active", "window": "2026-Q3(2차: 11/28 CB 전환개시)", "trigger": "촉매소진(합병 6/30 완료)+규제 에스컬레이션", "falsify": "신주 보호예수/로봇실적/추가테마"},
+    {"name": "Happy City Holdings", "symbol": "HCHL", "mkt": "US", "layer": "collapse", "status": "active", "window": "2026-07(수일~4주)", "trigger": "Nasdaq T12 정지해소 시 갭다운(SEC정지→T12 연속)", "falsify": "정보충족 질서재개/증자 상장유지"},
+    {"name": "넥써쓰", "symbol": "205500", "mkt": "KR", "layer": "collapse-watch", "status": "active", "window": "발화 후 디스트리뷰션 감시", "trigger": "원스토어 딜(유증395억+CB212억) 오버행 물량 출회·CB 전환 개시·매각주주 재참여 순환조달 후속", "falsify": "원스토어 실적 연결로 정당화/오버행 락업 유지"},
+    {"name": "이노진", "symbol": "344860", "mkt": "KR", "layer": "preramp", "status": "active", "window": "촉매 점화(6/30) → 발화 관찰", "trigger": "7/27 유증 납입 성사 → 게이트B 발화(거래량 폭증·급등) / 콘텐츠 IR 릴레이", "falsify": "7/27 납입 실패·철회 → VOID / 미발화 지속"},
+    {"name": "아미코젠", "symbol": "092040", "mkt": "KR", "layer": "collapse-watch", "status": "active", "window": "발화(6/23 +20%) 후 감시", "trigger": "7/15 납입 완료 여부·8/10 신주상장 전후 디스트리뷰션·시장경보 지정", "falsify": "납입 연기·미발화 회귀/실적정당화"},
+    {"name": "세니젠", "symbol": "188260", "mkt": "KR", "layer": "preramp", "status": "active", "window": "발화 대기(관리종목 해제 6/29 직후)", "trigger": "50억 CB 전환개시/마이크로바이옴·NGS IR/거래량 급증", "falsify": "정상 경영정상화/상폐로 소멸"},
+    {"name": "파이온엑스(구 애머릿지)", "symbol": "900100", "mkt": "KR", "layer": "preramp", "status": "active", "window": "발화 대기(상폐위험 병존, 사명변경+FIONX 암호화폐 테마 피벗)", "trigger": "CB 리픽싱/유증납입/암호화폐 플랫폼 테마 공시·거래량 급증", "falsify": "상폐/거래정지로 소멸"},
+    {"name": "아이오케이이엔엠", "symbol": "078860", "mkt": "KR", "layer": "preramp", "status": "active", "window": "발화 대기", "trigger": "7/31 콘트라31조합 유증 납입/엔터 IR/상승 개시", "falsify": "유증 철회·지연 반복/소멸"},
+    {"name": "나노캠텍(LSK아이로봇)", "symbol": "192410?", "mkt": "KR", "layer": "preramp", "status": "active", "window": "발화 대기(액면병합·리브랜딩 완료, 셋업 뜨거움)", "trigger": "12회차 등 CB 전환개시/최대주주 담보 반대매매/AI로봇 IR·변경상장", "falsify": "정상 사업재편/오버행 미출회"},
+    {"name": "로지스몬", "symbol": "223220", "mkt": "KR", "layer": "preramp", "status": "active", "window": "발화 대기(코넥스)", "trigger": "연쇄 3자배정 오버행 출회/아이케이조합 지배변경 후속/신테마 IR", "falsify": "정상 투자유치/미발화 소멸"},
+    {"name": "에이전트AI", "symbol": "060900", "mkt": "KR", "layer": "preramp", "status": "active", "window": "발화 대기 — 7/14 신주 399만주 상장이 분기 촉매", "trigger": "감자(20:1)+유증 신주 7/14 상장 전후 급변/AI 테마 IR", "falsify": "실적정당화/미발화 소멸"},
+    {"name": "Acco Group Holdings", "symbol": "ACCL", "mkt": "US", "layer": "preramp", "status": "active", "window": "발화 대기(low-float IPO 2025-10)", "trigger": "소셜 프로모션 개시/거래량 스파이크/테마 부착", "falsify": "미발화/상장유지 실패로 소멸"},
+    {"name": "상지건설", "symbol": "042940", "mkt": "KR", "layer": "collapse", "status": "closed", "closed_reason": "R1 EARLY — 2025-04 CB 오버행 57.76% 출회로 이미 붕괴 완료(-70%+). 트리거 모델 검증 사례로 보존", "window": "-", "trigger": "-", "falsify": "-"},
+    {"name": "광전자", "symbol": "017900", "mkt": "KR", "layer": "collapse", "status": "closed", "closed_reason": "R1 EARLY — 2026-Q2 블로우오프톱 후 -58% 이미 진행. 경보사다리 소진 모델 검증 사례", "window": "-", "trigger": "-", "falsify": "-"},
+    {"name": "우리기술", "symbol": "032820", "mkt": "KR", "layer": "collapse", "status": "closed", "closed_reason": "R1 VOID — CB 콜옵션 소각(15·16회차)으로 트리거 원천 제거 + 원전 538억 수주 실현. 교훈: CB 콜옵션 조건 사전확인", "window": "-", "trigger": "-", "falsify": "-"},
+    {"name": "엑시온그룹", "symbol": "069920", "mkt": "KR", "layer": "preramp", "status": "closed", "closed_reason": "R1 VOID — 흑자전환 정당화 + 저가권 잔류로 변별력 소멸", "window": "-", "trigger": "-", "falsify": "-"}
+  ]
+}
