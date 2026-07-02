@@ -7,9 +7,9 @@
 
 **전체 정의·근거·임계값·개정규칙은 → `label_definitions.md`** (단일 정본). 여기선 요약만.
 
-- 채택: **PCR-MS v0.2** (Promotion-Coupled Runup, Market-Adjusted, with Collapse-Stratification). 코어 불변.
-- 도출: 오푸스 멀티에이전트. v0.2에서 3각도(price_quant/regulatory/cross_asset) 탐색 완료 → 모두 코어 fatal, 보조 재배치.
-- **여전히 잠정이다.** 미해결 질문 8건은 **사전등록 기본값(잠정)** 부여됨(사용자 확정 시 `label_version`↑). 임계값·유니버스 경계 최종 확정 대기.
+- 채택: **v0.3 이원 라벨** — **L1=PCR-MS**(T1·T5용, 코어 불변) + **L2=REG-ENF-C**(T2·T3·T4용, 형사 A1/A2만 양성). fold 분리로 축 분리 유지(BCI/APS는 L2 fold 대비 산출).
+- 도출: 오푸스 멀티에이전트 + 실사례 38건 유형 분석. v0.3 결정 로그는 `label_definitions.md` 참조.
+- **여전히 잠정이다.** 미해결 질문 8건은 **사전등록 기본값(잠정)**. 전향적 스크리닝 점수는 검증된 확률이 아니라 **보정 전 유사도**로만 표기.
 - 연계 산출물: 시그널 `analysis/features.md`, 사전등록 `validation/pre_registration.md`.
 - 실데이터: `positives_seed.csv`(검증 통과 **38건**: kr 19/crypto 12/global 7, 1차출처 검증 대기) + 근거 `../data/disclosure-news/case_archive.md` + 발견 `../analysis/case_findings.md`. `positives.csv`는 스키마 템플릿.
 - 유형 분류: `manipulation_typology.md` — **T1~T7 + 앵커 A1~A5/A0**. 태그는 seed CSV의 `manip_type`/`anchor_grade`.
