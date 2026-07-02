@@ -25,7 +25,14 @@
 ## 권장 파일
 ```
 validation/
-  prospective_log.md   # 사전 등록 예측 + 실제 결과(날짜 동결)
-  holdout_report.md    # train/test 성능 비교
+  pre_registration.md        # 사전등록(결정규칙·홀드아웃·전향적 계획) — 동결
+  prospective_candidates.md  # 전향적 모니터링 코호트 v1 (2026-07-02 추출, 15건+제외4)
+  prospective_log.md         # 사전 등록 예측 + 실제 결과(날짜 동결)
+  holdout_report.md          # train/test 성능 비교
 ```
 검증 통과 시그널만 `outputs/`로 승격. **검증 후 자동화 단계 진입.**
+
+## 전향적 코호트 규칙 (v1 운영 중)
+- 점수는 **보정 전 유사도** — "작전 확률" 해석 금지. 종목 단정 금지(모니터링 후보).
+- 관찰 시작일 이후 정보로 점수 소급 수정 금지(as-of 동결). 재채점은 새 버전으로.
+- 코호트 적중률(붕괴/제재 도달 비율)이 루브릭의 첫 캘리브레이션 데이터.
