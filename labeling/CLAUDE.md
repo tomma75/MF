@@ -14,7 +14,7 @@
 - 실데이터: `positives_seed.csv`(검증 통과 **38건**: kr 19/crypto 12/global 7, 1차출처 검증 대기) + 근거 `../data/disclosure-news/case_archive.md` + 발견 `../analysis/case_findings.md`. `positives.csv`는 스키마 템플릿.
 - 유형 분류: `manipulation_typology.md` — **T1~T7 + 앵커 A1~A5/A0**. 태그는 seed CSV의 `manip_type`/`anchor_grade`.
 - ⚠️ **A0(무혐의·무죄, T6 다수)은 양성 아님 = 대조 표본.** A3 이하 pending은 판결 확정 시 갱신. PCR-MS 정합은 T1·T5뿐 — T2/T3/T4 미검출 문제와 v0.3 옵션(O1/O2/O3)은 typology 문서 참조, **결정은 사용자 확인 필요.**
-- 대조군(C1 매칭) 아직 미확보 → 우도비 계산 전 필수.
+- 대조군 후보: `controls_seed.csv`(**14건**: C1 7+C2 7, 강앵커 양성 5그룹 매칭) + 규칙 `controls_matching_notes.md`. ⚠️ 전량 candidate — **일별 OHLCV로 no_spike 확정 전 우도비 분모 사용 금지.**
 
 ### 핵심 원칙 (반드시 준수)
 1. **축 분리(construct separation)** — 라벨은 검증할 선행 시그널과 관찰축 공유 금지. `sentiment`/`flow-actors`/모멘텀은 라벨에서 빼고 **검증 대상 시그널로만** 둔다.
