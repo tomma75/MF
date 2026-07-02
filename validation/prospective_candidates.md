@@ -245,3 +245,268 @@
 - KIND/DART 원문 전건(프록시 차단), 상지건설 실제 유통주식수(발행총수와 별개), 우리기술 52주 최고 30,200원과 3월 고점 26,800의 관계, 협진 일별 OHLC, ZKC 거래소 체결 원천.
 
 **종합**: 상위 후보의 골격(급등 배수·CB 구조·시장경보)은 전부 유지 — 점수 순위를 바꿀 정정 없음. 세부 표현 4건 정정, 신뢰도 태그는 confirmed_secondary가 상한(환경 제약).
+
+
+---
+
+# 코호트 v1 확장 — global_stock(미국) 트랙 (2026-07-02 추출)
+
+> 스캔 27 → 검증 통과(중복 통합 후 22) → **편입 20 + 제외 2**. 한국 트랙과 **동일 루브릭**(비교 가능).
+> 동일 해석 규칙: 점수 = 보정 전 유사도, 작전 확률 아님. 단정 금지. SEC 임시 거래정지는 예방적 조치(확정 판정 아님), 기소·제소는 무죄추정.
+> ※ CLEU는 기존 seed 앵커(global_stock-2024-cleu)의 재확인이며 신규 후보 아님.
+
+## 미국 트랙 요약 (유사도 내림차순)
+
+| # | 점수 | 종목 | 유형 유사 | 비고 |
+|---|---|---|---|---|
+| 1 | **99** | Ostin Technology Group (OST) | T1 (소매 홍보결합형 ramp-and-dump; 희석연쇄 결합) |  |
+| 2 | **97** | QMMM Holdings Limited (QMMM) | T1 (소매 홍보결합형; 테마전환+소셜 ramp) |  |
+| 3 | **94** | China Liberal Education Holdings (CLEU (現 OTC: C) | T1 (소매 홍보결합형 ramp-and-dump) | seed 앵커 재확인 |
+| 4 | **88** | Smart Digital Group Limited (SDM) | T1 (소매 홍보결합형; 테마 모호성+소셜 ramp) |  |
+| 5 | **81** | Empro Group Inc. (EMPG) | T1 (소매 홍보결합형; 신규 IPO 소셜 ramp) |  |
+| 6 | **80** | Pitanium Limited (PTNM) | T1 (소매 홍보결합형; 신규 IPO 소셜 ramp) |  |
+| 7 | **79** | Inno Holdings Inc. (INHD) | T1 (소매 홍보결합형; 미국형 신사업 PR 펌프) + 희석 자본구조 결합 |  |
+| 8 | **74** | Jayud Global Logistics Ltd (JYD) | T1 (소매 홍보결합형 ramp-and-dump) |  |
+| 9 | **74** | SharpLink Gaming (SBET) | T1 (소매 홍보결합형; 테마전환+유명인 후광 crypto 펌프) |  |
+| 10 | **73** | BitMine Immersion Technologies (BMNR) | T1 (소매 홍보결합형; 테마전환+유명인 후광 crypto 펌프) |  |
+| 11 | **72** | Happy City Holdings Ltd (HCHL) | T1 (소매 홍보결합형; 소셜 ramp) |  |
+| 12 | **72** | Premium Catering (Holdings) Limited (PC) | T1 (소매 홍보결합형; 소형 IPO 소셜 ramp) |  |
+| 13 | **72** | 2025-07 중국계 소형주 급락 클러스터 (Concorde Intern (복수(개별 티커 id_un) | T1 (소매 홍보결합형 ramp-and-dump 군집) |  |
+| 14 | **70** | CCH Holdings (Chicken Claypot House) (CCHH) | T1 (소매 홍보결합형; 소형 IPO 소셜 ramp) |  |
+| 15 | **69** | Pheton Holdings (PTHL) | T1 (소매 홍보결합형; 루머성 ramp-and-dump) |  |
+| 16 | **63** | Classover Holdings (KIDZ) | T1 (소매 홍보결합형; 연쇄 테마전환 펌프) |  |
+| 17 | **59** | CEA Industries Inc. (BNC (구 VAPE)) | T1 (소매 홍보결합형; crypto DAT 테마전환 펌프) + 희석연쇄 |  |
+| 18 | **56** | Eyenovia, Inc. → Hyperion DeFi (HYPD (구 EYEN)) | T1 (소매 홍보결합형; 바이오→crypto 피벗 펌프) + 희석연쇄 |  |
+| 19 | **54** | Upexi (UPXI) | T1 (소매 홍보결합형; crypto DAT 테마 펌프) + 희석연쇄 |  |
+| 20 | **45** | Regencell Bioscience Holdings (RGC) | T5 (착시·군중 자기조직형; 초저플로트 스퀴즈/밈) |  |
+
+## 미국 트랙 상세
+
+### US-1. Ostin Technology Group — 99/100 · OST
+- **유형 유사**: T1 (소매 홍보결합형 ramp-and-dump; 희석연쇄 결합)
+- **점수 내역**: 게이트A 24/25(등록직접공모+워런트 무상 이전 희석연쇄 + 딥페이크·자문사 사칭 소셜 프로모션) + 게이트B 25/25(+1,175% 인위적 상승 후 6/26 단일세션 -94%, $9.40→$0.55) + 유형프록시 30/30(중국계 저플로트 Nasdaq ramp + 조직적 SNS 프로모션 + 희석연쇄 = CLEU 원형 완전 부합) + REG-ENF 20/20(DOJ 형사기소·FBI 피해자페이지·집단소송) = 99
+- **게이트 A(촉매)**: 2025-04-15 52주저점 $0.78에서 registered direct offering + Warrant Exchange로 약 80M주(발행주식 ~75%)를 15인 공모자에 평균 ~$0.06 배정(희석), SNS·왓츠앱 조직 프로모션 + FINRA등록 자문 신원도용 + David Kostin/Musk 딥페이크 광고(공개 사실·기소장)
+- **게이트 B(급등)**: 약 2개월간 +1,175%(4월 $0.78→6/26 장중 $9.40), 2025-06-26 하루 -94%(종가 $0.55), 거래량 평균 5배+, 시총 약 $950M 소멸(DOJ/보도 일치)
+- **유형 프록시**: 중국계 소형 Nasdaq, low float, 딥페이크·사칭 SNS 조직 프로모션, 등록직접공모+워런트 희석연쇄 — 프레임워크 CLEU형 전부 관측
+- **실시간 REG-ENF**: 2025-09-12 DOJ 형사기소(co-CEO 및 재무자문, 증권·전신사기·공모, 순취득 $110M+ 주장); FBI OST 피해자 양식; SDNY 다수 집단소송(약 $950M 손실 주장). ⚠️기소·제소 단계로 유무죄 미확정
+- **가장 유사한 과거 사례**: global_stock-2024-cleu (동일 T1 중국계 ramp-and-dump+희석+사칭, DOJ 기소/몰수) — 거의 동형. 사후 REG-ENF 확정으로 라벨 앵커급
+- **⚖️ 대안 설명(필독)**: 기소=혐의 확정 아님(무죄추정). 급등률·손실액은 공소/소송 주장 인용값(as-of '주장'으로 동결 필요). 대안설명: 실체 없는 무매출성 종목의 투기적 급등 자체가 조작 없이도 붕괴 가능하나, 본 건은 DOJ가 희석·사칭·딥페이크를 구체 적시. DOJ 관할(EDVA) 표기는 재확인 안 됨(uncertain).
+- **출처**: https://www.investmentnews.com/regulation-legal-compliance/legal-shareholders-accuse-ostin-technology-of-deepfake-driven-950m-pump-and-dump-scheme/265308 · https://www.tipranks.com/news/class-action/ostin-technology-group-ost-faces-federal-lawsuit-over-alleged-950-million-pump-and-dump-scheme · https://forms.fbi.gov/victims/OSTVictims
+
+### US-2. QMMM Holdings Limited — 97/100 · QMMM
+- **유형 유사**: T1 (소매 홍보결합형; 테마전환+소셜 ramp)
+- **점수 내역**: 게이트A 23/25(디지털광고→암호화폐 트레저리 테마전환 PR) + 게이트B 25/25(3주 미만 +959%~2,100%대, $4 IPO 대비 장중 $303) + 유형프록시 29/30(Cayman/홍콩 저가 소형 IPO ramp, low float, SEC 명시 소셜 프로모션, <2년 상장) + REG-ENF 20/20(SEC 임시 거래정지 34-104113 + Nasdaq halt + 이후 상폐 예정) = 97
+- **게이트 A(촉매)**: 2025-09-09 $100M 암호화폐(BTC/ETH/SOL) 트레저리 전략 발표 — 본업(디지털 광고) 무관 테마전환형 신사업 PR(GlobeNewswire/StockTitan)
+- **게이트 B(급등)**: 약 3주 미만 +959%(Bloomberg), YTD +2,100%대 보도, 장중 고점 $303.00(2025-09-08, $4 IPO 대비), 정지 직전 종가 ~$119.40. 수치 출처별 편차 → uncertain 처리
+- **유형 프록시**: Cayman 지주·홍콩 본사 저가 소형 IPO(2024-07 $4.00), low float, SEC가 '불특정인의 소셜미디어 매수권유로 가격·거래량 인위적 부양' 명시
+- **실시간 REG-ENF**: SEC 임시 거래정지 Release 34-104113(실효 2025-09-29~10-10); Nasdaq 추가정보 요청 halt; 2026-06 상장폐지 예정 통지
+- **가장 유사한 과거 사례**: global_stock-2025-mctr-ctrl / global_stock-2024-cleu (아시아계 소셜 ramp + SEC/DOJ REG-ENF)
+- **⚖️ 대안 설명(필독)**: SEC 거래정지=예방적 조치이며 조작 확정(adjudicated) 아님. 급등 배율 출처별 편차 큼(장중 $303은 촉매일 2025-09-09 하루 전으로 보도된 시점 불일치 존재). 대안설명: crypto 테마 리레이팅에 대한 소매 FOMO·초저플로트 변동성 가능.
+- **출처**: https://www.sec.gov/enforcement-litigation/trading-suspensions/34-104113-ts · https://ir.nasdaq.com/news-releases/news-release-details/nasdaq-halts-qmmm-holdings-limited · https://www.pymnts.com/cryptocurrency/2025/sec-suspends-trading-of-qmmm-shares-alleging-crypto-stock-pump/
+
+### US-3. China Liberal Education Holdings — 94/100 · CLEU (現 OTC: CLEUF)
+- **유형 유사**: T1 (소매 홍보결합형 ramp-and-dump)
+- **점수 내역**: 게이트A 24/25(2024-12 대량 미공개 신주발행 희석 + 미국 소재 투자자문 사칭 SNS 프로모션) + 게이트B 20/25(미공개 발행주식 공시 후 ~98% 급락; 고점 배율은 uncertain) + 유형프록시 30/30(중국계 소형 Nasdaq, low float, pig-butchering식 사칭, 희석연쇄 = 프레임워크 원형) + REG-ENF 20/20(Nasdaq 거래정지·상폐 + DOJ 7인 기소 + ~$214M 몰수 + 피해자 보상) = 94
+- **게이트 A(촉매)**: 2024-12 대규모 신주발행(공익 우려 사유 적시) + 2024-11~2025-02 중국 소재 인물의 미국 투자자문 사칭 SNS/메신저 조직 프로모션(DOJ/FBI)
+- **게이트 B(급등)**: 정상 발행주식수 공시(2025-01 말) 후 종가 ~$0.148, 약 98% 급락. 고점 배수는 미확인(uncertain)
+- **유형 프록시**: 중국계 소형 IPO, low float, SNS 투자자문 사칭('pig-butchering'), 미공개 대량발행 희석 — 프레임워크가 명시한 CLEU 원형
+- **실시간 REG-ENF**: Nasdaq 거래정지 2025-06-03·상폐; DOJ 일리노이 북부지검 7인(말레이시아·대만) 기소; ~$214M 몰수; 2026 피해자 remission
+- **가장 유사한 과거 사례**: global_stock-2024-cleu (본 후보 자체가 우리 seed 양성 앵커) — 완전 동일 사건
+- **⚖️ 대안 설명(필독)**: 본 종목은 이미 seed positives(global_stock-2024-cleu)에 등재된 앵커 케이스 — 신규 전향적 후보가 아니라 기준 사례로 재확인됨. 피고인은 말레이시아·대만 국적(사칭 발신은 중국). 개인 익명화. 기소=유무죄 미확정. 검증서 정정: 급락일 2025-01-30(종가 $0.1482), '~$480M 이익' 주장은 미확인(입증치는 ~$214M 몰수).
+- **출처**: https://www.justice.gov/usao-ndil/pr/federal-law-enforcement-chicago-seizes-214-million-alleged-pump-and-dump-investment · https://www.prnewswire.com/news-releases/china-liberal-education-holdings-limited-announces-suspension-of-nasdaq-trading-302470103.html · https://www.stocktitan.net/news/CLEU/china-liberal-education-holdings-limited-announces-suspension-of-hbkn6sjhhp0t.html
+
+### US-4. Smart Digital Group Limited — 88/100 · SDM
+- **유형 유사**: T1 (소매 홍보결합형; 테마 모호성+소셜 ramp)
+- **점수 내역**: 게이트A 20/25(암호화폐 전환 모호성 + AI 마케팅툴 출시 지연 = 저품질 촉매) + 게이트B 20/25(장중 고점 $16.19≈IPO $4의 4배, 2025-09-26 하루 -86.41% 급락) + 유형프록시 28/30(Cayman/싱가포르 저가 소형 IPO, low float, SEC 명시 소셜 프로모션, <2년 상장) + REG-ENF 20/20(SEC 거래정지 34-104112 + Nasdaq halt + 2026-06 상폐결정) = 88
+- **게이트 A(촉매)**: crypto 전환 모호성 + AI 마케팅툴 출시 지연이 촉매(실적 아님). SEC 정지명령: 불특정인의 소셜미디어 추천으로 가격·거래량 인위적 팽창
+- **게이트 B(급등)**: IPO $4.00(2024-05-01) 대비 장중 고점 $16.19(약 4배), 2025-09-26 하루 -86.41%→종가 $1.78, 정지명령 기재 종가 $1.85
+- **유형 프록시**: Cayman 지주·싱가포르 본사 저가 소형 IPO, low float, 소셜미디어 프로모션(SEC 명시), 최근 상장
+- **실시간 REG-ENF**: SEC 임시 거래정지(실효 2025-09-29~10-10, QMMM과 동시); Nasdaq halt 2025-10-11; 2026-06-17 Nasdaq 상폐결정(IM-5101-4)
+- **가장 유사한 과거 사례**: global_stock-2024-cleu / global_stock-2025-mctr-ctrl (아시아계 소셜 ramp + REG-ENF)
+- **⚖️ 대안 설명(필독)**: SEC 거래정지=예방적, 조작 확정 아님. QMMM 대비 급등 배율 완만(4배). SEC 정지 '개시'는 명령 발표일(09-26)이 아닌 실효일(09-29). Cross-Border Task Force 명시 여부는 보도 프레이밍(uncertain).
+- **출처**: https://www.sec.gov/enforcement-litigation/trading-suspensions/34-104112-ts · https://markets.financialcontent.com/stocks/article/marketminute-2025-9-26-smart-digital-group-sdm-plummets-over-86-as-valuation-concerns-crypto-ambiguity-and-ai-delays-rock-investors · https://www.securitieslawyer101.com/2025/09/30/sec-trading-suspensions-of-qmmm-sdm-new-sec-cross-border-task-force/
+
+### US-5. Empro Group Inc. — 81/100 · EMPG
+- **유형 유사**: T1 (소매 홍보결합형; 신규 IPO 소셜 ramp)
+- **점수 내역**: 게이트A 14/25(말레이시아 Cayman 소형 F-1 IPO 신규 상장 램프, 뚜렷한 테마 촉매는 약함) + 게이트B 19/25(IPO $4 → 정지 시 $17.36, 약 4.3배) + 유형프록시 28/30(말레이시아계 소형 IPO ramp, SEC 명시 소셜 프로모션, low-float 마이크로캡 IPO 스파이크, 2025-07 상장) + REG-ENF 20/20(SEC 거래정지 34-104166 + Nasdaq halt) = 81
+- **게이트 A(촉매)**: 말레이시아 소재 Cayman 지주 소형 IPO(뷰티/퍼스널케어). 실적 촉매 부재, SEC: 불특정인의 소셜미디어 권유로 가격·거래량 인위적 부양 정황
+- **게이트 B(급등)**: IPO $4.00(2025-07-02) → 정지 시 최근가 $17.36(약 4.3배), 52주 고점 $18.14 근접
+- **유형 프록시**: 말레이시아계 저가 소형 IPO ramp, 소셜미디어 조직 프로모션(SEC 명시), low-float 마이크로캡 IPO 스파이크, 최근 상장
+- **실시간 REG-ENF**: SEC 임시 거래정지 34-104166(실효 2025-10-09~10-22); Nasdaq 추가정보 요청 halt(2025-10-23). 회사는 조작 관여 부인
+- **가장 유사한 과거 사례**: global_stock-2025-mctr-ctrl / global_stock-2024-cleu (아시아계 소형 IPO 소셜 ramp)
+- **⚖️ 대안 설명(필독)**: SEC 거래정지=예방적, 조작 확정 아님. 회사 부인 입장 병기. 급등이 소셜 프로모션발인지 신규 상장 저유동 변동성인지 개별 미시구조 데이터로 재확인 필요.
+- **출처**: https://www.tipranks.com/news/company-announcements/empro-group-faces-sec-trading-suspension-amid-manipulation-concerns · https://www.nasdaq.com/press-release/nasdaq-halts-empro-group-inc-2025-10-23 · https://www.investing.com/news/sec-filings/sec-suspends-trading-of-empro-group-shares-amid-investigation-into-social-media-activity-93CH-4282732
+
+### US-6. Pitanium Limited — 80/100 · PTNM
+- **유형 유사**: T1 (소매 홍보결합형; 신규 IPO 소셜 ramp)
+- **점수 내역**: 게이트A 14/25(홍콩 소재 소형 IPO 신규 상장 램프, 명시적 테마 촉매 약함) + 게이트B 18/25(IPO $4 → 52주고점 $14.79≈3.7배, 정지/halt 시 최근가 $10.39) + 유형프록시 28/30(홍콩계 소형 IPO ramp, SEC 패턴 소셜 프로모션, low-float 마이크로캡 IPO, 2025-05 상장) + REG-ENF 20/20(SEC 거래정지 34-104165 + Nasdaq T12 halt) = 80
+- **게이트 A(촉매)**: 홍콩 소재(스킨케어/화장품) 소형 Nasdaq IPO. SEC: 불특정인의 소셜미디어 매수권유로 가격·거래량 인위적 팽창 정황. 회사는 6-K로 관여 부인
+- **게이트 B(급등)**: IPO $4.00(2025-05-30) → 52주 고점 $14.79(약 3.7배), SEC 정지/Nasdaq halt 시점 last sale $10.39(약 2.6배)
+- **유형 프록시**: 홍콩계 소형 IPO ramp, 소셜미디어 조직 프로모션(SEC 패턴), low-float 마이크로캡 IPO 스파이크, 최근 상장
+- **실시간 REG-ENF**: SEC 임시 거래정지 Release 34-104165(실효 2025-10-06~10-17); Nasdaq T12(추가정보) halt 2025-10-18(last sale $10.39)
+- **가장 유사한 과거 사례**: global_stock-2025-mctr-ctrl / global_stock-2024-cleu (아시아계 소형 IPO 소셜 ramp)
+- **⚖️ 대안 설명(필독)**: SEC 거래정지=예방적, 조작 확정 아님. 원 후보의 기준선 '$4.80' 및 'BVI 지주'는 출처 미확인(uncertain, 소재는 홍콩/구룡). 회사 부인 병기.
+- **출처**: https://www.sec.gov/files/litigation/suspensions/2025/34-104165-ts.pdf · https://finance.yahoo.com/news/nasdaq-halts-pitanium-limited-140000099.html · https://www.securitieslawyer101.com/2026/02/03/latest-sec-trading-suspensions-should-be-a-wake-up-call-for-foreign-issuers/
+
+### US-7. Inno Holdings Inc. — 79/100 · INHD
+- **유형 유사**: T1 (소매 홍보결합형; 미국형 신사업 PR 펌프) + 희석 자본구조 결합
+- **점수 내역**: 게이트A 22/25(홍콩 AI사와 $3M 개발용역 계약 PR = 신사업 테마전환형 저품질 촉매) + 게이트B 25/25(2025-06-08 하루 +3,660.95%, $1.05→$39.49, 장중 $66+) + 유형프록시 20/30(미국 텍사스 마이크로캡, 초저가·저유동, 연쇄 감자 누적 1:4,800 희석/자본구조 취약 — 단 중국계 ramp·조직적 SNS 프로모션 증거 없음) + REG-ENF 12/20(Nasdaq T12 halt, 특별위 자체조사; SEC 조치 없음) = 79
+- **게이트 A(촉매)**: 홍콩 AI 업체와 $3M 개발용역 계약(중고폰 판매 에이전트 시스템) PR — 매출 아닌 초기 '빌드 오더', 상업배포·시기 보장 없음(Benzinga/Finbold/EBC)
+- **게이트 B(급등)**: 2025-06-08 하루 +3,660.95%(전일 $1.05→종가 $39.49, 장중 $66+), 단일세션 시총 ~$100M 근접
+- **유형 프록시**: 미국 마이크로캡, 초저가·저유동, 연쇄 감자(2024-10 1:10→2025-12 1:24→2026-05 1:20, 누적 1:4,800) 최소호가 대응 = 희석/자본구조 취약, AI 테마전환. ⚠️중국계 ramp·조직적 소셜 프로모션은 미관측
+- **실시간 REG-ENF**: Nasdaq T12(추가정보) halt 2025-06-08(halted $39.49), 이사회 독립이사 특별위 자체조사(8-K). SEC 조치 여부 uncertain
+- **가장 유사한 과거 사례**: 아시아 IPO 클러스터와 달리 미국 상장·Nasdaq(SEC 아님) halt형 대조 케이스. seed 내 근접 직접 대응 없음; 급등 패턴은 global_stock-2025-mctr-ctrl, 촉매형은 crypto/AI 테마 코호트와 유사
+- **⚖️ 대안 설명(필독)**: 조작 단정 아님 — 특별위 조사 진행형, SEC 조치 미확인. 소셜미디어 조직 프로모션 증거가 없어 아시아 소셜 ramp형과 기전이 다를 수 있음(대안: 신사업 PR발 소매 투기 + 초저플로트 스퀴즈). 유형프록시 점수는 희석연쇄만으로 부분 충족.
+- **출처**: https://www.nasdaq.com/press-release/nasdaq-halts-inno-holdings-inc-2026-06-11 · https://www.stocktitan.net/sec-filings/INHD/8-k-inno-holdings-inc-reports-material-event-6d4d84bad5f3.html · https://finbold.com/inno-holdings-stock-surge-over-3600-in-a-day-after-a-new-ai-deal/
+
+### US-8. Jayud Global Logistics Ltd — 74/100 · JYD
+- **유형 유사**: T1 (소매 홍보결합형 ramp-and-dump)
+- **점수 내역**: 게이트A 18/25(공격적 소셜미디어 캠페인 + 준수/발행 기반 급등, 사업개선 무관) + 게이트B 23/25(~$1→$7.97 +700%, 2025-04-02 -95.6%→$0.35) + 유형프록시 26/30(중국계 소형 물류주, Discord/왓츠앱/유튜브 조직 프로모션, 희석+급등/붕괴, 준수용 감자) + REG-ENF 7/20(Nasdaq 최소주가 미달통지 + 증권 집단소송; SEC/FINRA/DOJ 조치 미확인) = 74
+- **게이트 A(촉매)**: 공격적 소셜미디어(디스코드/왓츠앱/유튜브 '애널리스트'·금융전문가 사칭) 캠페인 후 급등, 급등이 사업개선 아닌 준수·주식발행 기반이라는 지적(집단소송/Seeking Alpha)
+- **게이트 B(급등)**: 2025 초 ~$1 → 2025-04-01 고점 $7.97(약 +700%), 2025-04-02 하루 -95.6%→$0.35
+- **유형 프록시**: 중국계 소형 물류주, low-float(2023-04 IPO ~1.25M 공개주식), SNS 조직 프로모션 의혹, 희석+급등/붕괴 사이클, 2025-10 1:50 감자(준수용)
+- **실시간 REG-ENF**: Nasdaq 최소 입찰가($1) 미준수 통지 2025-05-15(유예 2025-11-11, 2025-10-27 회복); 증권사기 집단소송 다수(lead deadline 2026-01-20). SEC/FINRA/DOJ 조치 미확인
+- **가장 유사한 과거 사례**: global_stock-2024-cleu (중국계 소셜 ramp+희석) — 단 REG-ENF 강도는 CLEU(DOJ)보다 약함(거래소 통지+집단소송 수준)
+- **⚖️ 대안 설명(필독)**: 정식 형사·SEC 제재 미확인 — 거래소 통지+민사 집단소송 단계. 조작 단정 금지, 의혹은 소장·보도 인용만. '~$9M 소각' 수치는 미확인(uncertain).
+- **출처**: https://seekingalpha.com/article/4760977-jayud-global-logistics-sell-walk-away-from-compliance-surge · https://www.ainvest.com/news/resurgence-pump-dump-schemes-chinese-stocks-listed-exchanges-red-flags-systemic-vulnerabilities-retail-investors-2507/ · https://stockanalysis.com/stocks/jyd/
+
+### US-9. SharpLink Gaming — 74/100 · SBET
+- **유형 유사**: T1 (소매 홍보결합형; 테마전환+유명인 후광 crypto 펌프)
+- **점수 내역**: 게이트A 21/25(스포츠베팅→ETH treasury 사업 정체성 전환, Ethereum 공동창립자 후광) + 게이트B 24/25(고점 +2,600%대 후 -86% 반락, 52주 $2.26~$124.12, 베타~12) + 유형프록시 18/30(crypto DAT 테마전환, 유명인 후광, 초고변동성, mNAV 디스카운트 — low-float 아시아 IPO·SNS ramp형과는 상이) + REG-ENF 11/20(SEC·FINRA 200+개사 스윕 조사에 명시 거론, 발표 5일 전 급등 보도; 조사=혐의 확정 아님) = 74
+- **게이트 A(촉매)**: 스포츠베팅/iGaming 제휴마케터 → ETH treasury vehicle 전환(2025), Ethereum 공동창립자 Joseph Lubin 의장. 861k+ ETH 매집·스테이킹. 2025 순손실 $734.6M(ETH 미실현손 $616.2M 포함)
+- **게이트 B(급등)**: 고점까지 +2,600%대 급등 후 피크 대비 약 -86% 반락, 52주 레인지 $2.26~$124.12(ts2/CoinDesk)
+- **유형 프록시**: crypto DAT 테마전환, 유명인 후광, 초고변동성(베타~12), NAV 대비 프리미엄→디스카운트 전환. ⚠️저플로트 아시아 IPO·조직 SNS ramp 프록시와는 상이
+- **실시간 REG-ENF**: SEC·FINRA가 crypto-treasury 발표 前 비정상 거래(insider trading/Reg FD 의혹)로 200+개사 스윕 조사 보도(2025-09), SharpLink 명시 거론(약 $425M ETH 발표 5일 전 급등 보도). ⚠️조사=혐의 확정 아님
+- **가장 유사한 과거 사례**: crypto-2021-emax(셀럽/테마 crypto 펌프) + global_stock-2025-sirc(미국 프로모션형). 유형프록시는 마이크로캡 IPO ramp보다 '테마전환 DAT'축
+- **⚖️ 대안 설명(필독)**: 규제 조사는 보도·조사 단계로 위법 확정 아님 — '보도된 의혹'으로만 인용. 대량 실제 ETH 보유(실체 일부 존재)로 순수 무실체 펌프와 구분 필요 — event study t0=ETH 전환/$425M 발표일(2025-05). 급등-급락은 사후 서술.
+- **출처**: https://ts2.tech/en/sharplink-gaming-sbet-stock-in-december-2025-ethereum-treasury-giant-at-a-discount-after-2600-spike-and-86-crash/ · https://unchainedcrypto.com/sec-and-finra-scrutinize-200-crypto-treasury-firms-report/ · https://cryptopotato.com/sec-finra-probe-suspicious-trading-before-crypto-treasury-announcements/
+
+### US-10. BitMine Immersion Technologies — 73/100 · BMNR
+- **유형 유사**: T1 (소매 홍보결합형; 테마전환+유명인 후광 crypto 펌프)
+- **점수 내역**: 게이트A 21/25(ETH treasury 전략 전환 + $250M PIPE + Tom Lee 의장 유명인 후광) + 게이트B 24/25($4.67→$46.58 1주 ~10x) + 유형프록시 18/30(crypto DAT 테마전환, 대형 dilutive PIPE, 유명인 후광, mNAV 변동 — 아시아 IPO ramp·SNS 프록시와 상이) + REG-ENF 10/20(SEC·FINRA 200+개사 스윕 조사에 명시 거론; 조사=혐의 확정 아님) = 73
+- **게이트 A(촉매)**: 2025-06-30 $250M private placement으로 ETH treasury 전략 개시, Tom Lee(Fundstrat) 이사회 의장 선임(PR Newswire/CoinDesk) — 테마전환형 신사업
+- **게이트 B(급등)**: 2025-06-27 $4.67 → 2025-07-02 $46.58, 1주 약 10배(출처별 400%/695%/~1000% 편차 → uncertain, 종가 기반 재계산 필요)
+- **유형 프록시**: crypto treasury(DAT) 테마전환, 대형 dilutive PIPE(정정: 55,555,556주 @$4.50 ≈ $250M), 유명인 후광, mNAV 프리미엄/디스카운트
+- **실시간 REG-ENF**: SEC·FINRA가 crypto-treasury 발표 前 비정상 거래로 200+개사 조사 중 보도(2025-09)에서 BitMine 명시 거론(insider trading/Reg FD 의혹). ⚠️조사=혐의 확정 아님
+- **가장 유사한 과거 사례**: crypto-2021-emax(셀럽/테마 crypto 펌프) + global_stock-2025-sirc(미국 프로모션형)
+- **⚖️ 대안 설명(필독)**: 규제 조사는 보도 단계로 위법 확정 아님. 검증 정정: PIPE는 5,555,556주가 아닌 55,555,556주(@$4.50≈$250M). 급등률 출처 편차 큼 → as-of 종가로 재계산. 대량 실제 ETH 보유로 실체 일부 존재.
+- **출처**: https://www.prnewswire.com/news-releases/bitmine-immersion-technologies-announces-250-million-private-placement-to-initiate-ethereum-treasury-strategy-expected-to-become-one-of-the-largest-publicly-traded-eth-holders-302494355.html · https://unchainedcrypto.com/sec-and-finra-scrutinize-200-crypto-treasury-firms-report/ · https://www.theblock.co/post/360322/bitmine-stock-surges-400-as-firm-eyes-250-million-raise-for-ethereum-treasury-in-bid-to-become-top-public-eth-holder
+
+### US-11. Happy City Holdings Ltd — 72/100 · HCHL
+- **유형 유사**: T1 (소매 홍보결합형; 소셜 ramp)
+- **점수 내역**: 게이트A 15/25(홍콩 훠궈 3개 매장 소형주, 실적 촉매 부재 + 소셜 프로모션 정황) + 게이트B 10/25(급등 구체수치 미확인 uncertain, 정지 직전 마지막 체결 $3.96) + 유형프록시 27/30(홍콩/중화권 소형주, 최근 상장<2년, SNS 조직 프로모션, 이전 Nasdaq 자기자본·시총 규정 경고 = 재무 취약) + REG-ENF 20/20(SEC 임시 거래정지 2026-06 + Nasdaq halt) = 72
+- **게이트 A(촉매)**: 홍콩 소재 훠궈(hotpot) 3개 매장 운영 소형 지주. 실적 아닌 불특정인의 소셜미디어 매수·보유·매도 권유 및 거래 스크린샷 게시 정황(SEC). 회사는 어떤 소셜 프로모션도 승인한 바 없다고 부인
+- **게이트 B(급등)**: 정지 직전 급등률 구체 수치 보도상 미확인(uncertain). 정지 직전 관련 마지막 체결가 $3.96(급등률 아님)
+- **유형 프록시**: 홍콩/중화권 소형주, 최근 상장(<2년), 소셜미디어 조직 프로모션 의혹, 이전 Nasdaq 최소 자기자본/시총 규정 경고 이력(재무 취약)
+- **실시간 REG-ENF**: SEC 임시 거래정지(실효 2026-06-12~06-26); Nasdaq 추가정보 요청 halt(2026-06-29~ 진행). 2026년 가장 최신 진행형
+- **가장 유사한 과거 사례**: global_stock-2024-cleu / global_stock-2025-mctr-ctrl (중화권 소형 소셜 ramp)
+- **⚖️ 대안 설명(필독)**: 게이트B(급등) 정량 미확인이 최대 약점 — 코호트 정식 편입 전 시세데이터로 급등 배율 확보 필요. SEC 거래정지=예방적, 조작 확정 아님. 회사 부인 병기. 가장 최신(2026-06)이라 전향적 모니터링 가치 높음. 검증정정: SEC 정지 종료 2026-06-26, Nasdaq halt는 별도 2026-06-29 개시.
+- **출처**: https://www.sahmcapital.com/news/content/sec-suspends-trading-in-happy-city-holdings-shares-over-potential-social-media-driven-manipulation-2026-06-16 · https://www.globenewswire.com/news-release/2026/06/29/3318893/6948/en/Nasdaq-Halts-Happy-City-Holdings-Ltd.html · https://www.stocktitan.net/sec-filings/HCHL/6-k-happy-city-holdings-ltd-current-report-foreign-issuer-c4e914696b7a.html
+
+### US-12. Premium Catering (Holdings) Limited — 72/100 · PC
+- **유형 유사**: T1 (소매 홍보결합형; 소형 IPO 소셜 ramp)
+- **점수 내역**: 게이트A 13/25(싱가포르 Cayman 소형 IPO, 명시 테마 촉매 약함) + 게이트B 13/25(IPO $4.75 → 정지 전 ~$9.40, 약 +98%; 상장 첫날 종가 $3.72로 IPO 미달) + 유형프록시 26/30(싱가포르계 소형 IPO ramp, SEC 명시 소셜 프로모션, low float) + REG-ENF 20/20(SEC 거래정지 + Nasdaq halt) = 72
+- **게이트 A(촉매)**: 싱가포르 소재 Cayman 지주 소형 Nasdaq Capital Market IPO. SEC: 불특정인의 소셜미디어 매수권유로 가격·거래량 인위적 부양. 회사 6-K로 관여 부인
+- **게이트 B(급등)**: IPO $4.75(Nasdaq 데뷔 2024-09-25) → 정지 전 last sale ~$9.40(약 +98%); 상장 첫날 종가 $3.72(IPO 미달)
+- **유형 프록시**: 싱가포르계 소형 IPO, low float, 소셜미디어 프로모션(SEC 명시). ⚠️중화권 아님(싱가포르)
+- **실시간 REG-ENF**: SEC 임시 거래정지(명령 2025-10-16, 실효 2025-10-17~10-30); Nasdaq 추가정보 요청 halt 2025-10-31
+- **가장 유사한 과거 사례**: global_stock-2025-mctr-ctrl / global_stock-2024-cleu (아시아계 소형 IPO 소셜 ramp)
+- **⚖️ 대안 설명(필독)**: 검증 중대 정정: IPO는 2024-09-25(2025-09-25 아님) — 'IPO→정지 3주 급속 램프'는 오류, 실제 IPO~정지 간격 약 13개월. 급등 배율은 +98% 수준으로 QMMM/OST만큼 극단 아님. SEC 거래정지=예방적. 회사 부인 병기. 소재지 싱가포르(중화권 프레이밍 부정확).
+- **출처**: https://www.tipranks.com/news/company-announcements/sec-suspends-trading-of-premium-catering-amid-manipulation-concerns · https://www.investing.com/news/sec-filings/sec-suspends-trading-of-premium-catering-shares-on-nasdaq-through-october-30-93CH-4308436 · https://www.securitieslawyer101.com/2026/02/03/latest-sec-trading-suspensions-should-be-a-wake-up-call-for-foreign-issuers/
+
+### US-13. 2025-07 중국계 소형주 급락 클러스터 (Concorde International, Top KingWin, Skyline Builders, Everbright Digital, Park Ha Biological, +Ostin·Pheton) — 72/100 · 복수(개별 티커 id_unverified)
+- **유형 유사**: T1 (소매 홍보결합형 ramp-and-dump 군집)
+- **점수 내역**: 게이트A 20/25(왓츠앱/SNS 조직 프로모션 후 조율 매도, 집합 수준) + 게이트B 18/25(7종목 80%+ 급락, 총 ~$3.7B 손실; 개별 급등/급락률 uncertain) + 유형프록시 26/30(중국계 low-float 소형 Nasdaq, SNS 조직 프로모션, 동시다발 붕괴 = CLEU형 군집) + REG-ENF 8/20(SEC Cross-Border Task Force·Nasdaq 규정 강화 배경; 개별 정식 조치는 종목마다 상이/uncertain) = 72
+- **게이트 A(촉매)**: 보도: 페이스북 광고→왓츠앱 그룹 조직 프로모션 후 coordinated dumping. 애널리스트 pump-and-dump 지목, 영국 로펌 100명+ 피해자 대리(Mitrade/Cryptopolitan)
+- **게이트 B(급등)**: 2025-07 한 달간 7개 중국계 소형주 80%+ 급락, 총 약 $3.7B(nearly $4B) 손실. 개별 종목별 급등/급락률·타임스탬프는 추가 확인 필요(uncertain)
+- **유형 프록시**: 중국계 low-float 소형 Nasdaq, SNS 조직 프로모션, 동시다발 붕괴 — CLEU형 패턴의 군집 발생
+- **실시간 REG-ENF**: 클러스터 전반이 SEC Cross-Border Task Force(2025-09-05 신설) 및 Nasdaq 규정 강화 배경. 개별 종목 정식 조치는 종목마다 상이·미확인(개별 검증 필요)
+- **가장 유사한 과거 사례**: global_stock-2024-cleu (중국계 ramp-and-dump 원형의 군집 버전)
+- **⚖️ 대안 설명(필독)**: 집합(aggregate) 후보 — 개별 종목 단위로 as-of 타임스탬프·급등락률·티커 확정해야 정식 편입 가능(id_unverified). 개별 조작 단정 금지. Ostin·Pheton은 본 코호트에 개별 후보로도 등재됨(중복 주의). 검증정정: 손실 $3.7B(Mitrade)~nearly $4B(Cryptopolitan), TF 신설일 2025-09-05.
+- **출처**: https://www.mitrade.com/au/insights/news/live-news/article-3-1047043-20250818 · https://www.cryptopolitan.com/investors-lose-nearly-4b-in-microcap-stocks/ · https://finance.yahoo.com/news/480-million-scam-playbook-chinese-200526769.html
+
+### US-14. CCH Holdings (Chicken Claypot House) — 70/100 · CCHH
+- **유형 유사**: T1 (소매 홍보결합형; 소형 IPO 소셜 ramp)
+- **점수 내역**: 게이트A 15/25(말레이시아 훠궈 소형 IPO + closing-bell '정당성 각인' 이벤트, 실적 촉매 부재) + 게이트B 22/25($4 IPO→ATH $15.39(+285%) 후 익일 80%+ 급락, 저점 $0.36) + 유형프록시 27/30(말레이시아 초소형 Nasdaq IPO, low float, 왓츠앱 프로모션(Bloomberg 문서화), 최근 상장) + REG-ENF 6/20(Nasdaq 최저입찰가 미달 통지만; SEC/DOJ 개별 조치 없음) = 70
+- **게이트 A(촉매)**: 말레이시아(페낭) 훠궈 체인 소형 IPO(~$5M). 2025-12-05 Nasdaq 종가 벨 세리머니 등 '정당성 각인' 이벤트 직후 급등, 이후 붕괴. Bloomberg가 왓츠앱 조작 의심 사례로 지목
+- **게이트 B(급등)**: IPO $4.00(2025-10-03) → ATH $15.39(2025-12-11, 약 +285%), 익일 80%+ 단일세션 급락, 저점 $0.36(2026-02-03), 고점-저점 ~-97%
+- **유형 프록시**: 말레이시아 초소형 Nasdaq Capital Market IPO(underwriter Cathay Securities), low float, closing-bell 후 왓츠앱 프로모션(Bloomberg/VampireStocks reddit 스크린샷), 최근 상장
+- **실시간 REG-ENF**: Nasdaq 최저입찰가 미달 통지 2026-02-03(유예 2026-08-03) — 컴플라이언스 통지이지 조작 halt 아님. SEC/DOJ 개별 조치 없음(uncertain). Bloomberg 2026 조사 대표 케이스
+- **가장 유사한 과거 사례**: global_stock-2024-cleu / global_stock-2025-mctr-ctrl (아시아계 소형 IPO 소셜 ramp) — 단 REG-ENF 강도는 훨씬 약함(거래소 컴플라이언스 통지뿐)
+- **⚖️ 대안 설명(필독)**: 정식 조작 REG-ENF 부재 — 거래소 컴플라이언스 통지 + 언론(Bloomberg) 지목 단계. 프로모션 의혹은 Bloomberg/reddit 인용만, 조작 단정 금지. 검증정정: 고점은 $11.47가 아닌 $15.39(+285%). 가장 최신(2025Q4~2026) 진행형.
+- **출처**: https://www.bloomberg.com/graphics/2026-wall-street-apparent-pump-and-dump-investor-scam/ · https://www.stocktitan.net/news/CCHH/announcement-of-receipt-of-notice-from-nasdaq-regarding-minimum-bid-f6aicybulste.html · https://stockanalysis.com/stocks/cchh/
+
+### US-15. Pheton Holdings — 69/100 · PTHL
+- **유형 유사**: T1 (소매 홍보결합형; 루머성 ramp-and-dump)
+- **점수 내역**: 게이트A 18/25(Gilead M&A 조작 루머 = 구속력 없는 M&A 루머성 저품질 촉매) + 게이트B 22/25(2025-07-29 $31.25→$1.65 ~94.7% 1일, 직전 YTD +600%) + 유형프록시 24/30(중국계 헬스케어 소형 IPO, thin float, M&A 루머 촉매, 1일 붕괴 = ramp-and-dump; 조직 SNS 프로모션은 덜 문서화) + REG-ENF 5/20(정식 SEC/DOJ 조치 없음; Bear Cave 독립 리서치 + Bloomberg 경고 단계) = 69
+- **게이트 A(촉매)**: Bear Cave(Edwin Dorsey) 보고서가 Gilead Sciences(GILD) 임박 인수 허위 루머(주장 거래일 2025-08-06)로 급등 후 덤핑 의혹 제기. 회사는 Gilead 접촉·관여 전면 부인
+- **게이트 B(급등)**: 2025-07-29 $31.25→~$1.65, ~94.7% 1일 급락(8회+ 변동성 halt), 시총 ~$765M→~$40.8M. 직전 YTD +600%+
+- **유형 프록시**: 중국계 헬스케어 마이크로캡, thin float, 약한 펀더멘털(2024 매출 ~$448K, 순손실 ~$661K), M&A 루머 촉매, 1일 붕괴 = ramp-and-dump
+- **실시간 REG-ENF**: 정식 SEC/DOJ 개별 조치 미확인(uncertain). Bear Cave 독립 리서치 의혹 + Bloomberg 2025-07 클러스터 보도 = 규제/언론 경고 단계
+- **가장 유사한 과거 사례**: global_stock-2024-cleu(중국계 ramp) + global_stock-2020-atlas(루머·hype 기반, 미시적으로 언론·의혹 단계)
+- **⚖️ 대안 설명(필독)**: 정식 REG-ENF 없음 — Bear Cave=독립 리서치 의혹, 회사 부인. 조작 단정 금지. 급락은 ~89~95% 출처별 반올림 차이(as-is 허용). 대안설명: 루머 신뢰붕괴발 자연 급락 가능.
+- **출처**: https://www.bloomberg.com/news/articles/2025-07-29/chinese-stock-loses-90-in-minutes-after-pump-and-dump-warning · https://www.ainvest.com/news/pheton-holdings-plunges-89-24-market-meltdown-2507/ · https://mlq.ai/news/pheton-holdings-stock-suffers-95-collapse-amid-manipulation-allegations-and-unsubstantiated-ma-rumors/
+
+### US-16. Classover Holdings — 63/100 · KIDZ
+- **유형 유사**: T1 (소매 홍보결합형; 연쇄 테마전환 펌프)
+- **점수 내역**: 게이트A 22/25(에듀테크→SOL treasury→AI 연쇄 테마전환 + $400M equity facility + $500M 전환사채) + 게이트B 22/25(+366% 당일 종가 $5.36, 이후 주간 +510% $6.78) + 유형프록시 19/30(저품질 대형 facility, 연쇄 테마전환 crypto→AI, thinly-traded 소형주, dilutive equity facility — 아시아 IPO ramp·SNS 프록시와 상이) + REG-ENF 0/20(SEC/FINRA 개별 조치 없음) = 63
+- **게이트 A(촉매)**: 2025-05-01 Solana Strategies와 $400M equity purchase facility(에듀테크→crypto), 별도 $500M 전환사채 facility; 2026-03-02 해당 facility 종료 후 AI·로보틱스 재전환(연쇄 테마 로테이션)
+- **게이트 B(급등)**: 2025-05-01 +366.06% 종가 $5.36(시가 $1.15), 이후 주간 +510% $6.78(Benzinga/Ainvest)
+- **유형 프록시**: 실체(에듀테크 소형주) 대비 과대한 $400M facility, 연쇄 테마전환(crypto→AI), thinly-traded 소형주, dilutive equity purchase facility. ⚠️아시아 IPO ramp·조직 SNS 프록시와 상이
+- **실시간 REG-ENF**: SEC/FINRA 개별 조치·거래정지 미확인(uncertain). 200+ crypto-treasury 스윕은 거시 맥락이며 KIDZ 개별 조치 아님
+- **가장 유사한 과거 사례**: crypto-2021-emax(테마 crypto 펌프) + global_stock-2025-sirc(미국 프로모션형)
+- **⚖️ 대안 설명(필독)**: 정식 REG-ENF 없음 — 공개 facility 구조·급등 보도만 인용, 조작 단정 금지. 연쇄 테마전환(crypto→AI)이 '신사업 PR 연쇄' 프록시에 부합하나 유형프록시는 마이크로캡 IPO ramp가 아닌 테마전환축. 검증정정: 2세션 $7+ 아닌 당일 +366%($5.36)→주간 +510%($6.78).
+- **출처**: https://www.benzinga.com/trading-ideas/movers/25/05/45151295/classover-holdings-kidz-announces-400-million-equity-deal-to-back-solana-based-treasury-stra · https://www.stocktitan.net/news/KIDZ/classover-terminates-equity-purchase-facility-to-pivot-from-digital-oqmv4wk2pbop.html · https://www.coindesk.com/press-release/2025/05/01/classover-holdings-enters-into-400-million-equity-purchase-facility-agreement-to-launch-sol-based-treasury-strategy
+
+### US-17. CEA Industries Inc. — 59/100 · BNC (구 VAPE)
+- **유형 유사**: T1 (소매 홍보결합형; crypto DAT 테마전환 펌프) + 희석연쇄
+- **점수 내역**: 게이트A 20/25(crypto DAT 테마전환 BNB treasury + $500M PIPE) + 게이트B 22/25(발표 직후 약 +550%, 발표 후 한 달 +72%) + 유형프록시 17/30(crypto DAT 테마전환, 대형 PIPE+초대형 워런트 희석, NAV 프리미엄 의존 자기강화 — 아시아 IPO·SNS·중국 ramp 프록시 부재) + REG-ENF 0/20(규제·집행 조치 없음, SEC 등록서류는 제재 아님) = 59
+- **게이트 A(촉매)**: 2025-08-05 $500M common equity PIPE 종결(YZi Labs 주도, 10X Capital 관리)로 BNB(Binance Coin) treasury 전략 채택, 티커 VAPE→BNC 전환(GlobeNewswire/Nasdaq)
+- **게이트 B(급등)**: BNB treasury 공개 후 약 +550% 급등(일부 매체 장중 +650%), 발표 후 한 달 약 +72%(ainvest). 매체별 편차는 측정창 차이
+- **유형 프록시**: crypto DAT 테마전환, 대형 PIPE + 초대형 stapled warrant(전량 행사 시 최대 추가 $750M) 희석 구조가 급등과 동시 설정, NAV 프리미엄 의존 자기강화 사이클. ⚠️중국계 ramp·SNS 프록시 부재
+- **실시간 REG-ENF**: 실시간 규제·집행 조치 미확인(uncertain, 제재 아님). PIPE 재판매 등록(POSASR)은 규제서류이지 제재 아님
+- **가장 유사한 과거 사례**: crypto-2021-emax(테마 crypto 펌프) + global_stock-2025-sirc(미국 프로모션형)
+- **⚖️ 대안 설명(필독)**: REG-ENF 없음 — 조작/사기 단정 금지, 공개 PIPE/워런트 구조·급등 보도만 인용. DAT 프리미엄 붕괴 시 워런트 행사가 희석 전환되는 구조적 리스크는 문헌 지적. 워런트 세부(49,504,988주 @$15.15)는 SEC 원문 대조 권장(uncertain).
+- **출처**: https://www.globenewswire.com/news-release/2025/08/05/3127489/0/en/CEA-Industries-Closes-500-Million-Private-Placement-to-Advance-Its-BNB-Treasury-Strategy-Common-Stock-Ticker-to-Become-BNC.html · https://coincentral.com/cea-industries-inc-vape-stock-surges-on-500m-bnb-treasury-strategy-and-ticker-change-to-bnc/ · https://www.ainvest.com/news/cea-industries-rises-72-month-500m-bnb-treasury-raise-2508/
+
+### US-18. Eyenovia, Inc. → Hyperion DeFi — 56/100 · HYPD (구 EYEN)
+- **유형 유사**: T1 (소매 홍보결합형; 바이오→crypto 피벗 펌프) + 희석연쇄
+- **점수 내역**: 게이트A 21/25(바이오(안과)→crypto HYPE treasury 피벗 + $50M PIPE 전환우선주 + 워런트 30.8M주) + 게이트B 18/25(2025-06-17 정규장 종가 +134.6%, 애프터 -7.7%) + 유형프록시 17/30(crypto DAT 테마전환, 소형 바이오→crypto 피벗, PIPE 전환우선주+대량 워런트 희석 — 아시아 IPO·SNS 프록시 부재) + REG-ENF 0/20(규제·집행 조치 없음) = 56
+- **게이트 A(촉매)**: 2025-06-17 $50M PIPE(전환우선주 $3.25 + 워런트 30.8M주, 전량 행사 시 최대 +$150M)로 Hyperliquid(HYPE) treasury 전략, 'Hyperion DeFi' 리브랜딩(EYEN→HYPD). HYPE 100만+ 토큰 매집
+- **게이트 B(급등)**: 2025-06-17 정규장 종가 +134.6%(발표일), 애프터마켓 -7.7%(StockTitan/Investing). '+50% 익일 종가'는 출처 미확인
+- **유형 프록시**: crypto DAT 테마전환, 소형 바이오(안과/Optejet)→crypto treasury 피벗, PIPE 전환우선주 + 대량 워런트 희석 구조가 급등과 동시 설정. ⚠️중국계 ramp·SNS 프록시 부재
+- **실시간 REG-ENF**: SEC 거래정지/거래소 halt/SEC·DOJ 조치 미확인(uncertain). PIPE·전환우선주·워런트는 공개 발표
+- **가장 유사한 과거 사례**: crypto-2021-emax(테마 crypto 펌프) + global_stock-2025-sirc(미국 프로모션형)
+- **⚖️ 대안 설명(필독)**: REG-ENF 없음 — 조작 단정 금지, 공개 PIPE/급등 보도만 인용. 검증정정: +134.6%는 '종가' 상승이며 '장중'이 아님; '익일 종가 +50%'는 출처 미확인 → 제거/uncertain. 단일세션 상승이라 지속 급등 아님.
+- **출처**: https://ir.eyenovia.com/news-releases/news-release-details/eyenovia-announces-50-million-investment-launch-hyperliquid-hype · https://www.stocktitan.net/news/EYEN/eyenovia-announces-50-million-investment-to-launch-a-hyperliquid-toq8d97ai2kv.html · https://beincrypto.com/eyenovia-hyperliquid-hype-reserve/
+
+### US-19. Upexi — 54/100 · UPXI
+- **유형 유사**: T1 (소매 홍보결합형; crypto DAT 테마 펌프) + 희석연쇄
+- **점수 내역**: 게이트A 19/25(SOL treasury 전략 + $200M PIPE(보통주+전환사채) + $1B 셸프 연쇄 희석) + 게이트B 13/25(매입 발표 당일 장중 +28.5%, 발표 후 주간 +67%; 월간 +56%는 uncertain — 수배 아닌 수십% 단위) + 유형프록시 18/30(crypto DAT, 전환사채+PIPE 연쇄 희석, '4위 SOL treasury' 마케팅, $1B 셸프 지속 발행압력) + REG-ENF 4/20(개별 조치 없음, 200+ 스윕 업권 소속이나 개별 지목 아님) = 54
+- **게이트 A(촉매)**: $200M private placement($50M 지분 12.45M주 @$4.00 + $150M SOL 담보 전환사채 2.0%, 전환가 $4.25)로 SOL 172% 증량(2M SOL 돌파, ~8% 스테이킹), 2025-12-23 최대 $1B 셸프 신청(StockTitan/CoinDesk)
+- **게이트 B(급등)**: 2025-07-22 매입 발표 당일 장중 +28.5%, 발표 후 주간 +67%(ainvest). '월간 +56%'는 재확인 실패(uncertain). 2025 통산 -50%+ 반락
+- **유형 프록시**: crypto DAT, 전환사채+PIPE 연쇄 희석, '4위 SOL treasury' 마케팅, 최대 $1B 셸프로 지속 발행압력. ⚠️중국계 ramp·SNS 프록시 부재
+- **실시간 REG-ENF**: 개별 SEC/FINRA 조치 미확인(uncertain). 200+ crypto-treasury 스윕 조사 업권에 속하나 Upexi 개별 지목은 미확인
+- **가장 유사한 과거 사례**: crypto-2021-emax(테마 crypto 펌프) — 단 급등 강도가 수배가 아닌 수십% 단위로 게이트B 약함
+- **⚖️ 대안 설명(필독)**: 게이트B 강도 재검증 필요 — 수십% 단위로 BMNR/SBET 대비 완만, t0 정렬 후 시장 대비 극단성 측정 필요. REG-ENF 개별 조치 없음. 대량 실제 SOL 보유로 실체 일부 존재. 조작 단정 금지.
+- **출처**: https://www.coindesk.com/markets/2025/08/05/solana-treasury-company-upexi-surpasses-2m-in-sol-holdings · https://www.ainvest.com/news/solana-news-today-upexi-boosts-solana-treasury-16-7m-purchase-stock-surges-28-5-2507/ · https://www.coindesk.com/business/2025/12/23/solana-treasury-focused-upexi-files-for-up-to-usd1-billion-capital-raise
+
+### US-20. Regencell Bioscience Holdings — 45/100 · RGC
+- **유형 유사**: T5 (착시·군중 자기조직형; 초저플로트 스퀴즈/밈)
+- **점수 내역**: 게이트A 8/25(무매출 한방 바이오, 조직 프로모션·테마전환 촉매 미확인 — 언론은 조작 아닌 스퀴즈로 해석) + 게이트B 25/25(YTD +9,800% 검증, 고점 $83.60 후 -78%) + 유형프록시 12/30(초저플로트·무매출 소형주는 부합하나 조직 SNS ramp-and-dump 증거 없음 → 기전 상이) + REG-ENF 0/20(개별 조치 없음) = 45
+- **게이트 A(촉매)**: 홍콩 소재 무매출 전통 한약(TCM) 바이오(ADHD/자폐 대상), 2021~2025 매출 $0. ⚠️저품질 촉매성 신사업 PR·조직 프로모션 미확인 — 언론은 조작보다 '숏스퀴즈+밈+초저플로트'로 해석
+- **게이트 B(급등)**: 2025 YTD 약 +9,800%(Motley Fool, 검증), 고점 $83.60(2025-06-16, 분할 후), 이후 고점 대비 -78%(약 1개월; 개별 재확인 못함 uncertain). '82,000%'는 미확인
+- **유형 프록시**: 초저플로트(창업자·배우자 락업, 유통 ~6%), 무매출 소형주, 극단 단기 급등락. ⚠️조직 SNS ramp-and-dump 증거 없음 = 유형 상이(short-squeeze/meme)
+- **실시간 REG-ENF**: 개별 SEC/DOJ 조치 없음(uncertain). 규제·언론 경고 프레임워크의 low-float 위험군에만 해당
+- **가장 유사한 과거 사례**: kr T5 노터스/조광ILI/품절주(kr_stock-2022-notus-bonus 등, 착시·군중 자기조직형) — 케이스-컨트롤에서 '유형 다른 급등주' 대조군으로 유용
+- **⚖️ 대안 설명(필독)**: 경계/대조 사례로 포함 — 게이트B는 극단이나 게이트A(저품질 촉매)·조직 프로모션·REG-ENF 모두 미확인. 대안설명(유력): 조직적 ramp-and-dump가 아닌 초저플로트 float-mechanics 스퀴즈·밈. 40 근접 저점수 — 정식 코호트보다 '희석/조직조작 없이도 극단 급등 가능'을 보여주는 T5 대조군 가치. 38:1 분할(2025-06) 후 시총 ~$120억 도달 보도.
+- **출처**: https://www.fool.com/investing/2025/11/24/stock-rose-9800-in-2025-regencell-bioscience-rgc/ · https://www.ainvest.com/news/regencell-82-000-surge-perfect-storm-short-squeeze-meme-stock-madness-2507/ · https://stockanalysis.com/stocks/rgc/
+
+## 미국 트랙 제외 (점수<40)
+
+- **Smith Micro Software, Inc. (SMSI)**: 보정 전 유사도 ~19점(<40) — 게이트B(단기 극단 급등) 미충족. 만성 희석형 하락(2026-05 기준 $0.84, 52주 $0.42~$1.30)으로 급등 이벤트 자체가 없음. 게이트A(저품질 촉매성 신사업)도 부재 — 자본조달 목적 반복 희석(1:8·1:5 역병합, 전환사채 전환가 $0.68, 워런트, 18.2M주 재판매)뿐. 유형프록시는 '희석 금융 체인' 자체의 교과서 사례로 부분 부합(~12/30)하나, REG-ENF 0. → 정식 모니터링 후보 부적격이나 케이스-컨트롤에서 '희석≠급등' 변별력 점검용 control-like 대조군으로 보존 가치 높음. 검증정정: 1:5 역병합은 '예정' 아닌 2026-06-05 발효 완료(25.4M→5.09M주).
+- **Trump Media & Technology Group / GameStop (DJT/GME)**: 보정 전 유사도 ~29점(<40) — 유형프록시 결정적 불일치. low-float 마이크로캡이 아닌 대형·고인지 종목으로 프레임워크의 핵심 유형(아시아계 소형 IPO ramp/초소형 마이크로캡)과 상이(~5/30). 게이트B(급등)도 미확인/미미(DJT 반응 +3~5% 수준, 급등 수치 미수집). 게이트A(BTC/crypto treasury 테마)와 SEC·FINRA 200+ 스윕 조사 거론(insider/Reg FD 의혹, 조사=혐의 확정 아님)은 있으나, 대형주 유형 불일치로 코호트 편입 부적격. 핵심 마이크로캡 코호트(BMNR/SBET/KIDZ/UPXI)의 저(低)우선 대조·참고 사례로만 유지.
+
+## 미국 트랙 방법론 노트(심판 원문)
+
+[채점 기준] 점수는 한국 코호트 v1과 동일 루브릭의 **보정 전 유사도(similarity, 0~100)이며 조작 확률(P)이 아니다.** 기저율·우도비 미반영, 검증된 확률 아님. 구성: 게이트A 저품질 촉매(0~25) + 게이트B 급등(0~25) + 유형 프록시(0~30: low-float·소셜 프로모션·희석 체인·중국계 ramp 패턴) + 실시간 REG-ENF(0~20: SEC 임시 거래정지 최고, 거래소 halt, 조사·집단소송 보도 순). 실적·실체가 급등을 뒷받침하면 감점(대조 방향) — 예: RGC는 무실체지만 조직조작 증거 없는 float-mechanics 스퀴즈라 유형프록시에서 감점, crypto-treasury군(BMNR/SBET/UPXI)은 대량 실제 crypto 보유라는 부분 실체를 caveat에 명시. [단정 금지] 어떤 종목·개인도 '조작/사기 확정'으로 판정하지 않음. SEC 임시 거래정지는 예방적 조치(adjudicated finding 아님), DOJ/집단소송은 기소·제소 단계(무죄추정), Bear Cave/Bloomberg는 독립 리서치·언론 의혹, SEC·FINRA 스윕은 조사 단계 보도. 전부 '게이트 조건 충족 모니터링 코호트 후보'로만 분류. 개인·세력 익명화, 회사 부인 입장 병기. 교육·연구용이며 투자 판단 자료 아님. [중복 제거] 원 입력 27개 항목에서 QMMM·Pitanium·Premium Catering·CLEU·Ostin 각 2회 등장 → 22개 유니크로 통합, 각 검증서(ver)의 corrected 사실 반영(PC IPO 2024-09-25, BitMine 55.5M주, CCHH 고점 $15.39, Eyenovia +134.6% 종가, CLEU 급락 2025-01-30). 40 미만 2건 제외(SMSI 19, DJT/GME 29). [유형 매핑] manip_type_analog은 labeling/manipulation_typology.md의 T1~T5 기준: 소셜·테마 ramp-and-dump=T1(다수), 초저플로트 스퀴즈/밈=T5(RGC). 후보군 대부분이 T1에 집중되며, 우리 seed의 global 7건 중 특히 global_stock-2024-cleu(중국계 ramp+희석+사칭)·global_stock-2025-mctr-ctrl·global_stock-2020-atlas·global_stock-2025-sirc와 근접. Ostin·CLEU는 사후 REG-ENF(DOJ) 확정으로 라벨 앵커급이며 CLEU는 이미 seed 등재 사례. [분포·다음 단계] 최상위(90+): OST·QMMM·CLEU — 게이트 4축 전부 강함. 고득점(70~88): SEC 거래정지 아시아계 IPO 클러스터(SDM·EMPG·PTNM·HCHL·PC)+ 미국형 INHD + 중국 ramp(Jayud·클러스터·CCHH·Pheton). 중간(54~74): crypto/AI 트레저리군(SBET·BMNR·KIDZ·CEA·HYPD·UPXI) — 게이트A/B는 강하나 유형프록시(아시아 IPO ramp 아님)·REG-ENF(조사 보도/부재)에서 감점. 경계(45): RGC(T5 대조군). 급등률·티커·타임스탬프 uncertain 항목(HCHL 게이트B, 2025-07 클러스터 개별 종목, UPXI 월간)은 정식 편입 전 as-of 시세데이터로 재확인 필요. 모든 후보에 매칭 대조군(같은 시총·업종·시기·안 터진 종목) 확보 전 우도비 분모 사용 금지.
