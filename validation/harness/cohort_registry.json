@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "as_of": "2026-07-03",
   "note": "F/U 대상 단일 정본(single source of truth). status: active=재조회 대상, closed=판정 종료(사유 기재). layer: collapse=붕괴 관찰 / preramp=발화 관찰 / collapse-watch=발화 후 디스트리뷰션 관찰. Round 1 판정 반영(v2).",
   "targets": [
@@ -59,7 +59,7 @@
       "mkt": "KR",
       "layer": "preramp",
       "status": "active",
-      "window": "촉매 점화(6/30) → 발화 관찰",
+      "window": "발화창 2026-07-27~08-14(핵심 납입 7/27→신주상장·주총, low-med). 선행 7/06~24 IR float-up",
       "trigger": "7/27 유증 납입 성사 → 게이트B 발화(거래량 폭증·급등) / 콘텐츠 IR 릴레이",
       "falsify": "7/27 납입 실패·철회 → VOID / 미발화 지속"
     },
@@ -79,7 +79,7 @@
       "mkt": "KR",
       "layer": "preramp",
       "status": "active",
-      "window": "발화 대기(관리종목 해제 6/29 직후)",
+      "window": "발화창 2026-06-30~07-24(중심 7월 상·중순, med). 앵커=관리종목해제 6/29 + 7월 10억 유증납입",
       "trigger": "50억 CB 전환개시/마이크로바이옴·NGS IR/거래량 급증",
       "falsify": "정상 경영정상화/상폐로 소멸"
     },
@@ -99,7 +99,7 @@
       "mkt": "KR",
       "layer": "preramp",
       "status": "active",
-      "window": "발화 대기",
+      "window": "발화창 2026-07-28~08-14(납입 7/31±3거래일→신주상장 8/14, low-med). 신주 1년 락업",
       "trigger": "7/31 콘트라31조합 유증 납입/엔터 IR/상승 개시",
       "falsify": "유증 철회·지연 반복/소멸"
     },
@@ -109,7 +109,7 @@
       "mkt": "KR",
       "layer": "preramp",
       "status": "active",
-      "window": "발화 대기(액면병합·리브랜딩 완료, 셋업 뜨거움)",
+      "window": "발화창 2026-07-07~07-31(저신뢰 소프트, 실질 개방형). 사명변경·변경상장 이미 소진·1차 점화 실패. 앵커=6/27 담보만기 후속",
       "trigger": "12회차 등 CB 전환개시/최대주주 담보 반대매매/AI로봇 IR·변경상장",
       "falsify": "정상 사업재편/오버행 미출회"
     },
@@ -119,7 +119,7 @@
       "mkt": "KR",
       "layer": "preramp",
       "status": "active",
-      "window": "발화 대기(코넥스)",
+      "window": "개방형(확정 일정 앵커 소진, 날짜 특정 불가, low). 남은 트리거=신테마 IR 부착(미충족)",
       "trigger": "연쇄 3자배정 오버행 출회/아이케이조합 지배변경 후속/신테마 IR",
       "falsify": "정상 투자유치/미발화 소멸"
     },
@@ -129,7 +129,7 @@
       "mkt": "KR",
       "layer": "preramp",
       "status": "active",
-      "window": "발화 대기 — 7/14 신주 399만주 상장이 분기 촉매",
+      "window": "발화창 2026-07-14~07-28(거래재개일 7/14±3거래일, med). 이설 시 7/24~08-07",
       "trigger": "감자(20:1)+유증 신주 7/14 상장 전후 급변/AI 테마 IR",
       "falsify": "실적정당화/미발화 소멸"
     },
@@ -139,7 +139,7 @@
       "mkt": "US",
       "layer": "preramp",
       "status": "active",
-      "window": "발화 대기(low-float IPO 2025-10)",
+      "window": "개방형(소셜 프로모션 개시가 유일 트리거, 미개시, low). 상시 감시",
       "trigger": "소셜 프로모션 개시/거래량 스파이크/테마 부착",
       "falsify": "미발화/상장유지 실패로 소멸"
     },
