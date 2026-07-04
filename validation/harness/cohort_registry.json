@@ -1,6 +1,6 @@
 {
-  "version": 4,
-  "as_of": "2026-07-03",
+  "version": 5,
+  "as_of": "2026-07-04",
   "note": "F/U 대상 단일 정본(single source of truth). status: active=재조회 대상, closed=판정 종료(사유 기재). layer: collapse=붕괴 관찰 / preramp=발화 관찰 / collapse-watch=발화 후 디스트리뷰션 관찰. Round 1 판정 반영(v2).",
   "targets": [
     {
@@ -88,10 +88,11 @@
       "symbol": "900100",
       "mkt": "KR",
       "layer": "collapse-watch",
-      "status": "active",
+      "status": "closed",
       "window": "발화 대기(상폐위험 병존, 사명변경+FIONX 암호화폐 테마 피벗)",
       "trigger": "CB 리픽싱/유증납입/암호화폐 플랫폼 테마 공시·거래량 급증",
-      "falsify": "상폐/거래정지로 소멸"
+      "falsify": "상폐/거래정지로 소멸",
+      "closed_reason": "R3 VOID — 교훈: collapse-watch/'발화 대기' 셋업이 '자본이벤트(CB·유증)+테마 피벗(암호화폐 FIONX)'만으로 발화하리라 본 가설은, 종목이 실제로는 회생절차(법정관리)에 진입해 거래정지가 지속되며 무효화됨. 핵심 학습 — (1) CB/유증 같은 트리거가 '형식적으로' 발생해도"
     },
     {
       "name": "아이오케이이엔엠",
