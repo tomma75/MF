@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 8,
   "as_of": "2026-07-06",
   "note": "F/U 대상 단일 정본(single source of truth). status: active=재조회 대상, closed=판정 종료(사유 기재). layer: collapse=붕괴 관찰 / preramp=발화 관찰 / collapse-watch=발화 후 디스트리뷰션 관찰. Round 1 판정 반영(v2).",
   "targets": [
@@ -109,11 +109,12 @@
       "name": "나노캠텍(LSK아이로봇)",
       "symbol": "192410?",
       "mkt": "KR",
-      "layer": "preramp",
+      "layer": "collapse-watch",
       "status": "active",
-      "window": "발화창 2026-07-07~07-31(저신뢰 소프트, 실질 개방형). 사명변경·변경상장 이미 소진·1차 점화 실패. 앵커=6/27 담보만기 후속",
-      "trigger": "12회차 등 CB 전환개시/최대주주 담보 반대매매/AI로봇 IR·변경상장",
-      "falsify": "정상 사업재편/오버행 미출회"
+      "window": "발화 확인(사용자 실계좌 2026-07-06 ~3,010원, 7/3 대비 +17%) → 디스트리뷰션 감시로 전환",
+      "trigger": "발화 후: 12회차 CB 전환물량 출회·최대주주 담보(94%) 반대매매선 2,064원 이탈·급등 후 되돌림",
+      "falsify": "정상 사업재편/오버행 미출회",
+      "note_hit": "R5 PENDING(데이터 갭)이었으나 사용자 실계좌 스크린샷으로 게이트B 발화 확인 → preramp HIT(우리 매집단계 예측의 첫 전향적 발화 적중). 단정 아님, 관찰 후보."
     },
     {
       "name": "로지스몬",
