@@ -1,6 +1,6 @@
 {
-  "version": 6,
-  "as_of": "2026-07-04",
+  "version": 7,
+  "as_of": "2026-07-06",
   "note": "F/U 대상 단일 정본(single source of truth). status: active=재조회 대상, closed=판정 종료(사유 기재). layer: collapse=붕괴 관찰 / preramp=발화 관찰 / collapse-watch=발화 후 디스트리뷰션 관찰. Round 1 판정 반영(v2).",
   "targets": [
     {
@@ -28,10 +28,11 @@
       "symbol": "138360",
       "mkt": "KR",
       "layer": "collapse",
-      "status": "active",
+      "status": "closed",
       "window": "2026-Q3(2차: 11/28 CB 전환개시)",
       "trigger": "촉매소진(합병 6/30 완료)+규제 에스컬레이션",
-      "falsify": "신주 보호예수/로봇실적/추가테마"
+      "falsify": "신주 보호예수/로봇실적/추가테마",
+      "closed_reason": "R5 EARLY — 교훈: 규제 신호(투자경고 지정)가 사실상의 고점·디스트리뷰션 개시 시점이었고, 시장은 예정된 촉매(6/30 합병)를 '완료'가 아니라 '지정~발표' 단계에서 선반영하며 반토막을 냈다 → 촉매소진형 붕괴는 촉매 '완료일'이 아니라 '경보/지정일'을 기점으로 잡아야 함(창을 Q3가 아닌 "
     },
     {
       "name": "Happy City Holdings",
