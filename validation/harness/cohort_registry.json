@@ -1,6 +1,6 @@
 {
-  "version": 8,
-  "as_of": "2026-07-06",
+  "version": 10,
+  "as_of": "2026-07-08",
   "note": "F/U 대상 단일 정본(single source of truth). status: active=재조회 대상, closed=판정 종료(사유 기재). layer: collapse=붕괴 관찰 / preramp=발화 관찰 / collapse-watch=발화 후 디스트리뷰션 관찰. Round 1 판정 반영(v2).",
   "targets": [
     {
@@ -78,7 +78,7 @@
       "name": "세니젠",
       "symbol": "188260",
       "mkt": "KR",
-      "layer": "preramp",
+      "layer": "collapse-watch",
       "status": "active",
       "window": "발화창 2026-06-30~07-24(중심 7월 상·중순, med). 앵커=관리종목해제 6/29 + 7월 10억 유증납입",
       "trigger": "50억 CB 전환개시/마이크로바이옴·NGS IR/거래량 급증",
@@ -107,7 +107,7 @@
     },
     {
       "name": "나노캠텍(LSK아이로봇)",
-      "symbol": "192410?",
+      "symbol": "091970",
       "mkt": "KR",
       "layer": "collapse-watch",
       "status": "active",
