@@ -44,18 +44,26 @@ def pull_apks_from_device(package, dest_dir):
 
     os.makedirs(dest_dir, exist_ok=True)
     local_paths = []
+    notes = []
+    used_names = set()
     for i, remote in enumerate(sorted(remote_paths)):
         name = os.path.basename(remote) or f"split_{i}.apk"
+        if name in used_names:                      # basename 충돌 시 접미사로 구분
+            base, ext = os.path.splitext(name)
+            name = f"{base}_{i}{ext}"
+        used_names.add(name)
         local = os.path.join(dest_dir, name)
         print(f"복사 중: {remote} → {local}")
         pull = adb.run(["pull", remote, local], timeout=180)
         if pull.returncode != 0 or not os.path.exists(local):
-            print("  경고: 복사 실패:", pull.stderr.decode(errors="replace").strip())
+            reason = pull.stderr.decode(errors="replace").strip()
+            print("  경고: 복사 실패:", reason)
+            notes.append(f"split APK 복사 실패: {remote} ({reason}) — 분석 결과가 불완전할 수 있음")
             continue
         local_paths.append(local)
     if not local_paths:
         raise RuntimeError("APK를 하나도 복사하지 못했습니다.")
-    return local_paths
+    return local_paths, notes
 
 
 def main():
@@ -69,6 +77,7 @@ def main():
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     from hoicho.apk_analyzer import analyze
 
+    notes = []
     if args.apk:
         apk_paths = args.apk
         for p in apk_paths:
@@ -76,10 +85,10 @@ def main():
                 print(f"APK 파일 없음: {p}")
                 return 1
     else:
-        apk_paths = pull_apks_from_device(args.package, args.cache_dir)
+        apk_paths, notes = pull_apks_from_device(args.package, args.cache_dir)
 
     print(f"분석 대상 {len(apk_paths)}개 APK...")
-    report, _ = analyze(apk_paths)
+    report, _ = analyze(apk_paths, extra_notes=notes)
 
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
     with open(args.out, "w", encoding="utf-8") as f:
