@@ -43,6 +43,20 @@ hoicho.cmd          (더블클릭)   또는   python run_hoicho.py
 - `hoicho/knowledge/` — 자체 갱신 지식: 획초방 규칙, 화면 구조, 반사 규칙, 게임 로그
 - `hoicho/config.json` — 선택적 오버라이드 (없어도 동작)
 
+## 통신 방식 조사 (선택) — 정적 분석 하네스
+패킷/메모리 경로를 검토하기 위한 1단계 정적 분석 도구. 폰만 연결하면 APK를
+자동 추출해 엔진·전송 프로토콜·서버 엔드포인트·인증서 피닝을 판별한다.
+```
+python analyze_apk.py                    # 폰에서 APK 추출 후 분석
+python analyze_apk.py --apk base.apk     # 로컬 APK 직접 분석 (폰 불필요)
+```
+- `hoicho/apk_analyzer.py` — 판정 로직이 전부 시그니처 테이블 + 규칙에 codified.
+  외부 도구(strings/aapt) 없이 순수 파이썬으로 문자열을 추출하므로 **동일 APK면
+  어떤 모델/환경에서 실행해도 동일 리포트**가 나온다(결정론).
+- 결과는 `hoicho/knowledge/mafia42_protocol.md`에 저장된다.
+- 이후 단계(PCAPdroid 캡처 → mitmproxy 복호화 → Frida 후킹)는 리포트의
+  "다음 단계" 권장에 따라 본인 PC에서 진행한다.
+
 ## 주의
 - 게임 자동화는 마피아42 이용약관 위반으로 계정 제재를 받을 수 있다. 본인 계정
   책임 하에 사용할 것.
