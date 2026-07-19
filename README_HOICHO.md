@@ -18,10 +18,14 @@ hoicho.cmd          (더블클릭)   또는   python run_hoicho.py
 
 ## 실시간 구조
 ```
-[캡처 0.5s 주기] → 화면 변화 없으면 스킵
+[화면 읽기 0.5s 주기]
+   ├─ 1순위: uiautomator dump — UI 트리에서 텍스트+좌표 직접 추출 (OCR 불필요, 오인식 0)
+   ├─ 폴백: 스크린샷 + OCR — 덤프가 실패하거나 텍스트가 안 잡히는 화면에서만
+   │        (OCR 백엔드도 이때 처음 설치되므로, UI 덤프가 되는 한 OCR 세팅 자체가 없음)
+   ├─ 화면 텍스트 변화 없으면 스킵
    ├─ 반사 규칙(reflexes.json) 매칭 → Claude 없이 즉시 실행   ← ms 단위 반응
    └─ 새 상황 → Claude 판단 (백그라운드 스레드, 기본 haiku 모델)
-        → 행동 실행 + knowledge 갱신 (판단 중에도 캡처/반사는 계속 동작)
+        → 행동 실행 + knowledge 갱신 (판단 중에도 읽기/반사는 계속 동작)
 ```
 - **반사 규칙**: 반복 상황(밤 스킵, 다시하기 버튼, 자백자 지목 등)은 Claude가
   직접 `reflexes.json`에 규칙으로 기록하고, 이후에는 프레임마다 즉시 반응한다.
@@ -30,7 +34,8 @@ hoicho.cmd          (더블클릭)   또는   python run_hoicho.py
 
 ## 파일 구성
 - `hoicho/bootstrap.py` — 제로 세팅 (기기/해상도/키보드/OCR/CLI 자동 준비)
-- `hoicho/agent.py` — 실시간 메인 루프 (변화 감지, 반사, 비동기 판단)
+- `hoicho/agent.py` — 실시간 메인 루프 (하이브리드 읽기, 변화 감지, 반사, 비동기 판단)
+- `hoicho/ui_reader.py` — uiautomator dump 리더 (OCR 없는 1순위 화면 읽기)
 - `hoicho/reflex.py` — 반사 규칙 엔진 (Claude 없는 fast path)
 - `hoicho/brain.py` — `claude -p` 헤드리스 판단 (JSON 행동 + md 갱신)
 - `hoicho/adb_client.py` — 스크린샷, 탭, 한글 채팅 입력

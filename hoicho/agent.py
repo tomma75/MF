@@ -1,10 +1,15 @@
-"""메인 루프: 캡처 → 변화 감지 → (반사 즉시 실행 | Claude 비동기 판단) → ADB 실행.
+"""메인 루프: 화면 읽기 → 변화 감지 → (반사 즉시 실행 | Claude 비동기 판단) → ADB 실행.
+
+화면 읽기 (하이브리드):
+- 1순위 uiautomator dump: UI 트리에서 텍스트+좌표를 직접 추출. OCR 불필요, 오인식 0.
+- 덤프가 연속 실패하거나 텍스트가 안 잡히면 스크린샷+OCR로 자동 폴백.
+  OCR 백엔드는 이때 처음으로 준비(설치)하므로, UI 덤프가 되는 한 OCR 세팅도 안 한다.
 
 실시간 설계:
-- 캡처 루프는 짧은 주기로 계속 돌고, 화면이 변하지 않으면 OCR을 생략한다.
+- 짧은 주기로 계속 돌고, 화면 텍스트가 변하지 않으면 판단을 생략한다.
 - 반사 규칙(reflexes.json)에 걸리는 상황은 Claude 없이 즉시 실행한다.
-- Claude 판단은 백그라운드 스레드에서 돌리고, 그동안 캡처/반사는 계속 동작한다.
-- 판단이 돌아왔을 때 화면이 크게 바뀌었으면 탭 액션은 버린다(오탭 방지).
+- Claude 판단은 백그라운드 스레드에서 돌리고, 그동안 읽기/반사는 계속 동작한다.
+- 판단이 돌아왔을 때 화면 요소가 크게 바뀌었으면 탭 액션은 버린다(오탭 방지).
 """
 
 import json
@@ -12,18 +17,18 @@ import os
 import threading
 import time
 
-import cv2
-
 from . import bootstrap
 from .adb_client import AdbClient
 from .brain import ClaudeBrain
 from .memory import KnowledgeStore
-from .ocr import OcrEngine, split_by_region, tokens_to_chat_lines
+from .ocr import split_by_region, tokens_to_chat_lines
 from .reflex import ReflexEngine
+from .ui_reader import UiDumpReader
 
 DEFAULT_CONFIG = {
     "adb_path": None,               # None이면 자동 탐색
-    "poll_interval_sec": 0.5,       # 캡처 주기 (실시간)
+    "reader": "auto",               # "auto" | "ui" | "ocr"
+    "poll_interval_sec": 0.5,       # 읽기 주기 (실시간)
     "chat_region": [0, 300, 1080, 1700],   # 기준 해상도(1080x2400) 좌표, 자동 스케일링됨
     "chat_input": {"x": 400, "y": 2300},
     "send_button": {"x": 1000, "y": 2300},
@@ -33,8 +38,9 @@ DEFAULT_CONFIG = {
     "ocr_backend": "auto",
     "knowledge_dir": "hoicho/knowledge",
     "max_chat_lines": 30,
-    "frame_diff_threshold": 4.0,    # 이 값 이상 화면이 변해야 OCR 수행
-    "stale_diff_threshold": 25.0,   # 판단 중 화면이 이만큼 변했으면 탭 액션 폐기
+    "ui_min_tokens": 5,             # 덤프에서 이보다 적은 텍스트만 잡히면 OCR 병행 고려
+    "ui_max_failures": 5,           # 덤프 연속 실패 허용 횟수 (초과 시 OCR 전환)
+    "stale_overlap_ratio": 0.5,     # 판단 전후 화면 요소 겹침이 이 미만이면 탭 폐기
     "min_decision_interval_sec": 8.0,  # 새 채팅이 없을 때 Claude 재호출 최소 간격
 }
 
@@ -61,41 +67,73 @@ class HoichoAgent:
         width, height = bootstrap.get_resolution(self.adb)
         self.config = bootstrap.scale_config_coords(dict(config), width, height)
 
-        cache_dir = os.path.join(config["knowledge_dir"], "..", "cache")
-        bootstrap.ensure_adb_keyboard(self.adb, os.path.normpath(cache_dir))
-
-        ocr_backend = config["ocr_backend"]
-        if ocr_backend == "auto":
-            ocr_backend = bootstrap.ensure_ocr_backend()
-        self.ocr = OcrEngine(ocr_backend)
-
+        cache_dir = os.path.normpath(os.path.join(config["knowledge_dir"], "..", "cache"))
+        bootstrap.ensure_adb_keyboard(self.adb, cache_dir)
         bootstrap.check_claude(config["claude_command"])
+
+        # 화면 리더: UI 덤프 우선, OCR은 실제 필요해질 때 lazy 준비
+        self.ui_reader = UiDumpReader(self.adb)
+        self.use_ui = self.config["reader"] in ("auto", "ui")
+        self._ui_failures = 0
+        self._ocr = None
+        if self.use_ui:
+            probe = self.ui_reader.read()
+            if probe:
+                print(f"화면 읽기: UI 덤프 (텍스트 {len(probe)}개 감지, OCR 불필요)")
+            elif self.config["reader"] == "ui":
+                print("경고: UI 덤프가 지금은 비어 있음 (게임 화면에서 다시 시도됨)")
+            else:
+                print("UI 덤프 미동작 — OCR 모드로 시작")
+                self.use_ui = False
+
         self.brain = ClaudeBrain(
             config["claude_command"], config["claude_timeout_sec"],
             model=config.get("claude_model"))
-
         self.knowledge = KnowledgeStore(config["knowledge_dir"])
         self.reflex = ReflexEngine()
         self.reflex.load(self.knowledge.load("reflexes.json"))
 
         self.seen_chat_lines = []
+        self._last_signature = None
+        self._last_screen_texts = frozenset()
         self._last_decision_at = 0.0
-        self._last_frame_small = None
         self._decision_thread = None
         self._decision_result = None
-        self._decision_frame_small = None
+        self._decision_screen_texts = frozenset()
         self._act_lock = threading.Lock()
 
-    # ---- 화면 변화 감지 ----
+    # ---- 화면 읽기 (하이브리드) ----
 
-    def _downscale(self, image):
-        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        return cv2.resize(gray, (72, 160))
+    def _get_ocr(self):
+        if self._ocr is None:
+            from .ocr import OcrEngine
+            backend = self.config["ocr_backend"]
+            if backend == "auto":
+                backend = bootstrap.ensure_ocr_backend()
+            self._ocr = OcrEngine(backend)
+        return self._ocr
 
-    def _frame_diff(self, small_a, small_b):
-        if small_a is None or small_b is None:
-            return float("inf")
-        return float(cv2.absdiff(small_a, small_b).mean())
+    def _read_tokens(self):
+        """토큰 목록을 반환. 읽기 실패 시 None."""
+        if self.use_ui:
+            tokens = self.ui_reader.read()
+            if tokens is not None:
+                self._ui_failures = 0
+                if len(tokens) >= self.config["ui_min_tokens"]:
+                    return tokens
+                # 텍스트가 거의 없음 = 커스텀 렌더링 화면일 가능성 → OCR로 보강
+                if self.config["reader"] == "ui":
+                    return tokens
+            else:
+                self._ui_failures += 1
+                if (self.config["reader"] == "auto"
+                        and self._ui_failures >= self.config["ui_max_failures"]):
+                    print("UI 덤프 연속 실패 — OCR 모드로 전환")
+                    self.use_ui = False
+        image = self.adb.screenshot()
+        if image is None:
+            return None
+        return self._get_ocr().read(image)
 
     # ---- 메인 루프 ----
 
@@ -118,20 +156,20 @@ class HoichoAgent:
     def step(self):
         self._collect_finished_decision()
 
-        image = self.adb.screenshot()
-        if image is None:
+        tokens = self._read_tokens()
+        if tokens is None:
             return
-        frame_small = self._downscale(image)
-        changed = self._frame_diff(self._last_frame_small, frame_small)
-        if changed < self.config["frame_diff_threshold"]:
-            return  # 화면 정지 상태: OCR/판단 생략
-        self._last_frame_small = frame_small
-
-        tokens = self.ocr.read(image)
         chat_tokens, screen_tokens = split_by_region(tokens, self.config["chat_region"])
         chat_lines = tokens_to_chat_lines(chat_tokens)[-self.config["max_chat_lines"]:]
-        new_lines = self._diff_chat(chat_lines)
         screen_texts = [t.text for t in screen_tokens]
+
+        signature = hash((tuple(chat_lines), tuple(screen_texts)))
+        self._last_screen_texts = frozenset(screen_texts)
+        if signature == self._last_signature:
+            return  # 화면 정지 상태: 판단 생략
+        self._last_signature = signature
+
+        new_lines = self._diff_chat(chat_lines)
 
         # 1) 반사 규칙: Claude 없이 즉시 실행
         reflex_actions = self.reflex.match(new_lines, screen_texts)
@@ -147,19 +185,19 @@ class HoichoAgent:
         )
         if should_consult and not self._decision_in_flight():
             self._last_decision_at = time.time()
-            self._request_decision(chat_lines, new_lines, screen_tokens, frame_small)
+            self._request_decision(chat_lines, new_lines, screen_tokens)
 
     # ---- 비동기 판단 ----
 
     def _decision_in_flight(self):
         return self._decision_thread is not None and self._decision_thread.is_alive()
 
-    def _request_decision(self, chat_lines, new_lines, screen_tokens, frame_small):
+    def _request_decision(self, chat_lines, new_lines, screen_tokens):
         knowledge_text = self.knowledge.load_all()
         reflexes = self.knowledge.load("reflexes.json").strip()
         if reflexes:
             knowledge_text += f"\n\n=== reflexes.json (현재 반사 규칙) ===\n{reflexes}"
-        self._decision_frame_small = frame_small
+        self._decision_screen_texts = frozenset(t.text for t in screen_tokens)
 
         def worker():
             self._decision_result = self.brain.decide(
@@ -185,19 +223,21 @@ class HoichoAgent:
         self.reflex.load(self.knowledge.load("reflexes.json"))
 
         actions = decision.get("actions", [])
-        # 판단하는 사이 화면이 크게 바뀌었으면 좌표 기반 액션은 위험하므로 버린다
-        drift = self._frame_diff(self._decision_frame_small, self._last_frame_small)
-        if drift > self.config["stale_diff_threshold"]:
-            dropped = [a for a in actions if a.get("type") == "tap"]
-            if dropped:
-                print(f"화면이 바뀌어 탭 {len(dropped)}건 폐기")
-            actions = [a for a in actions if a.get("type") != "tap"]
+        # 판단하는 사이 화면 요소가 크게 바뀌었으면 좌표 기반 액션은 위험하므로 버린다
+        requested = self._decision_screen_texts
+        if requested:
+            overlap = len(requested & self._last_screen_texts) / len(requested)
+            if overlap < self.config["stale_overlap_ratio"]:
+                dropped = [a for a in actions if a.get("type") == "tap"]
+                if dropped:
+                    print(f"화면이 바뀌어 탭 {len(dropped)}건 폐기")
+                actions = [a for a in actions if a.get("type") != "tap"]
         self.execute_actions(actions)
 
     # ---- 채팅 diff / 실행 ----
 
     def _diff_chat(self, chat_lines):
-        """직전 캡처와 비교해 새로 나타난 채팅 줄만 골라낸다."""
+        """직전 읽기와 비교해 새로 나타난 채팅 줄만 골라낸다."""
         previous = self.seen_chat_lines
         new_lines = list(chat_lines)
         for anchor in reversed(previous):

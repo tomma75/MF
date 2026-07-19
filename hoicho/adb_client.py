@@ -1,9 +1,6 @@
 import base64
 import subprocess
 
-import cv2
-import numpy as np
-
 
 class AdbClient:
     """adb 명령 단위 실행 클라이언트.
@@ -34,7 +31,13 @@ class AdbClient:
         return self.run(["shell", command], timeout=timeout)
 
     def screenshot(self):
-        """화면을 캡처해 BGR ndarray로 반환. 실패 시 None."""
+        """화면을 캡처해 BGR ndarray로 반환. 실패 시 None.
+
+        OCR 폴백 경로에서만 쓰이므로 cv2/numpy는 여기서 지연 임포트한다.
+        """
+        import cv2
+        import numpy as np
+
         result = self.run(["exec-out", "screencap", "-p"], timeout=30)
         if result.returncode != 0 or not result.stdout:
             print("스크린샷 실패:", result.stderr.decode(errors="replace").strip())
