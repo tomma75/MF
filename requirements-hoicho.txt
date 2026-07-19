@@ -1,0 +1,5 @@
+opencv-python
+numpy
+# OCR 백엔드: 둘 중 하나 설치 (Windows는 winocr 권장)
+winocr; sys_platform == "win32"
+# easyocr
