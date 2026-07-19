@@ -5,7 +5,7 @@ import time
 
 
 class KnowledgeStore:
-    ALLOWED_FILES = {"screens.md", "hoicho_rules.md", "game_log.md"}
+    ALLOWED_FILES = {"screens.md", "hoicho_rules.md", "game_log.md", "reflexes.json"}
 
     def __init__(self, knowledge_dir):
         self.knowledge_dir = knowledge_dir
@@ -26,7 +26,7 @@ class KnowledgeStore:
     def load_all(self):
         """모든 md를 파일명 헤더를 붙여 하나의 문자열로 합친다 (프롬프트용)."""
         parts = []
-        for name in sorted(self.ALLOWED_FILES):
+        for name in sorted(f for f in self.ALLOWED_FILES if f.endswith(".md")):
             content = self.load(name)
             if content.strip():
                 parts.append(f"=== {name} ===\n{content.strip()}")

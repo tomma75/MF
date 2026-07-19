@@ -28,13 +28,24 @@ SYSTEM_RULES = """너는 마피아42 '획초방'(획득 한도 초과 파밍방)
 - 획초방 규칙이 채팅 공지로 갱신되면 hoicho_rules.md에 기록해라.
 - 게임의 중요한 사건(직업 확인, 자백, 투표 결과)은 game_log.md에 기록해라.
 - 확신이 없으면 행동하지 말고 wait를 반환해라. 오판으로 게임을 그르치는 것이 최악이다.
+
+실시간성 (매우 중요):
+- 너의 판단은 수 초가 걸리므로, 같은 패턴이 반복되는 상황은 반사 규칙으로 만들어라.
+- 반사 규칙은 memory_updates로 reflexes.json 전체를 mode="replace"로 갱신한다. 형식:
+  {"rules": [{"name": "...", "where": "chat"|"screen", "match": "정규식",
+              "actions": [...], "cooldown_sec": 10}]}
+- 반사 규칙으로 만들기 좋은 것: 밤 스킵, 게임 종료 후 다시하기 버튼, 준비 버튼,
+  자백 키워드에 대한 지목 채팅 등 좌표/반응이 검증된 반복 동작.
+- 이미 반사 규칙이 처리하는 상황에는 중복 행동을 반환하지 마라.
 """
 
 
 class ClaudeBrain:
-    def __init__(self, claude_command="claude", timeout=120):
+    def __init__(self, claude_command="claude", timeout=60, model="haiku"):
         self.claude_command = claude_command
         self.timeout = timeout
+        self.model = model  # 실시간성을 위해 기본은 빠른 모델
+        self._model_supported = True
 
     def decide(self, knowledge_text, chat_lines, screen_elements, extra_context=""):
         prompt = self._build_prompt(knowledge_text, chat_lines, screen_elements, extra_context)
@@ -60,9 +71,12 @@ class ClaudeBrain:
         return "\n\n".join(parts)
 
     def _call_claude(self, prompt):
+        cmd = [self.claude_command, "-p", "--output-format", "json"]
+        if self.model and self._model_supported:
+            cmd += ["--model", self.model]
         try:
             result = subprocess.run(
-                [self.claude_command, "-p", "--output-format", "json"],
+                cmd,
                 input=prompt.encode("utf-8"),
                 capture_output=True,
                 timeout=self.timeout,
@@ -74,7 +88,13 @@ class ClaudeBrain:
             print("claude CLI 응답 시간 초과")
             return None
         if result.returncode != 0:
-            print("claude CLI 오류:", result.stderr.decode(errors="replace").strip()[:500])
+            stderr = result.stderr.decode(errors="replace").strip()
+            if self.model and self._model_supported and "model" in stderr.lower():
+                # 모델 별칭 미지원 CLI 버전이면 기본 모델로 폴백
+                print(f"모델 '{self.model}' 미지원, 기본 모델로 재시도")
+                self._model_supported = False
+                return self._call_claude(prompt)
+            print("claude CLI 오류:", stderr[:500])
             return None
         try:
             envelope = json.loads(result.stdout.decode("utf-8"))
