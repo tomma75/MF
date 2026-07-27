@@ -1,0 +1,313 @@
+<title>작전주 조기경보 모니터 · Operation-Stock Early-Signal Monitor</title>
+<style>
+:root{
+  --paper:#eceef1; --surface:#ffffff; --surface2:#f6f7f9;
+  --ink:#14181d; --text:#20262d; --muted:#616b78; --faint:#9aa4b0;
+  --line:#dce0e6; --line2:#e8ebef;
+  --accent:#b8420b; --accent-soft:#f2e2d7;
+  --hit:#c0390b; --hit-bg:#f7e2d6;
+  --early:#1f5fa6; --early-bg:#dbe8f5;
+  --void:#556170; --void-bg:#e4e8ec;
+  --pending:#7b8794; --pending-bg:#eceff2;
+  --miss:#7a3aa6; --miss-bg:#ecdff5;
+  --nodata:#9aa4b0; --nodata-bg:#eef1f4;
+  --collapse:#b23a2e; --watch:#b07d12; --preramp:#0f7d84;
+  --shadow:0 1px 2px rgba(20,24,29,.06),0 1px 0 rgba(20,24,29,.03);
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#0b0e12; --surface:#141922; --surface2:#0f141b;
+  --ink:#f0f2f5; --text:#dee3ea; --muted:#8b95a3; --faint:#5d6774;
+  --line:#232b35; --line2:#1b222b;
+  --accent:#f6873f; --accent-soft:#31221a;
+  --hit:#f6803c; --hit-bg:#332016;
+  --early:#5aa0e6; --early-bg:#16283c;
+  --void:#8a97a6; --void-bg:#1c232c;
+  --pending:#79838f; --pending-bg:#181e26;
+  --miss:#b483dd; --miss-bg:#261a33;
+  --nodata:#5d6774; --nodata-bg:#151b22;
+  --collapse:#e0685a; --watch:#e0b141; --preramp:#3fb9c0;
+  --shadow:0 1px 0 rgba(0,0,0,.4);
+}}
+:root[data-theme="light"]{
+  --paper:#eceef1; --surface:#ffffff; --surface2:#f6f7f9;
+  --ink:#14181d; --text:#20262d; --muted:#616b78; --faint:#9aa4b0;
+  --line:#dce0e6; --line2:#e8ebef;
+  --accent:#b8420b; --accent-soft:#f2e2d7;
+  --hit:#c0390b; --hit-bg:#f7e2d6; --early:#1f5fa6; --early-bg:#dbe8f5;
+  --void:#556170; --void-bg:#e4e8ec; --pending:#7b8794; --pending-bg:#eceff2;
+  --miss:#7a3aa6; --miss-bg:#ecdff5; --nodata:#9aa4b0; --nodata-bg:#eef1f4;
+  --collapse:#b23a2e; --watch:#b07d12; --preramp:#0f7d84;
+  --shadow:0 1px 2px rgba(20,24,29,.06),0 1px 0 rgba(20,24,29,.03);
+}
+:root[data-theme="dark"]{
+  --paper:#0b0e12; --surface:#141922; --surface2:#0f141b;
+  --ink:#f0f2f5; --text:#dee3ea; --muted:#8b95a3; --faint:#5d6774;
+  --line:#232b35; --line2:#1b222b;
+  --accent:#f6873f; --accent-soft:#31221a;
+  --hit:#f6803c; --hit-bg:#332016; --early:#5aa0e6; --early-bg:#16283c;
+  --void:#8a97a6; --void-bg:#1c232c; --pending:#79838f; --pending-bg:#181e26;
+  --miss:#b483dd; --miss-bg:#261a33; --nodata:#5d6774; --nodata-bg:#151b22;
+  --collapse:#e0685a; --watch:#e0b141; --preramp:#3fb9c0;
+  --shadow:0 1px 0 rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--text);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;
+  font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;}
+.mono{font-family:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;font-variant-numeric:tabular-nums}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 22px 80px}
+a{color:var(--accent)}
+h1,h2,h3{text-wrap:balance;margin:0}
+
+/* header */
+.masthead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;
+  padding-bottom:18px;border-bottom:2px solid var(--ink)}
+.brand-k{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.brand-t{font-size:clamp(22px,3.2vw,32px);font-weight:800;letter-spacing:-.02em;color:var(--ink);line-height:1.08;margin-top:4px}
+.brand-s{font-size:13px;color:var(--muted);margin-top:6px;max-width:60ch}
+.meta{text-align:right;font-size:12px;color:var(--muted);line-height:1.7}
+.meta b{color:var(--ink)}
+.vpill{display:inline-block;padding:2px 8px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--text);font-weight:600}
+
+/* disclaimer */
+.disc{margin-top:16px;display:flex;gap:12px;align-items:flex-start;
+  background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);
+  border-left:3px solid var(--accent);border-radius:8px;padding:12px 15px}
+.disc svg{flex:0 0 auto;margin-top:1px}
+.disc p{margin:0;font-size:12.5px;color:var(--text)}
+.disc b{color:var(--accent)}
+
+/* kpi strip */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;
+  margin-top:22px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.kpi{background:var(--surface);padding:15px 16px}
+.kpi .n{font-size:26px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1}
+.kpi .n small{font-size:14px;color:var(--muted);font-weight:600}
+.kpi .l{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-top:7px}
+.kpi .sub{font-size:11px;color:var(--faint);margin-top:3px}
+
+/* section */
+section{margin-top:34px}
+.sec-h{display:flex;align-items:baseline;gap:12px;margin-bottom:12px}
+.sec-h h2{font-size:15px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+.sec-h .tag{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-family:ui-monospace,monospace}
+.sec-h .rule{flex:1;height:1px;background:var(--line)}
+
+/* verdict history */
+.hist{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px}
+.rd{flex:0 0 auto;min-width:104px;background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:11px 12px;box-shadow:var(--shadow)}
+.rd .rn{font-size:11px;color:var(--muted);font-family:ui-monospace,monospace;display:flex;justify-content:space-between}
+.rd .rn b{color:var(--ink)}
+.rd .bars{display:flex;height:8px;border-radius:3px;overflow:hidden;margin:9px 0 7px;background:var(--line2)}
+.rd .bars i{display:block}
+.rd .dd{font-size:10.5px;color:var(--faint);font-family:ui-monospace,monospace;line-height:1.6}
+.rd .dd span{color:var(--text)}
+
+/* legend */
+.legend{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  padding:3px 9px;border-radius:999px;font-family:ui-monospace,monospace;letter-spacing:.02em}
+.chip .dot{width:7px;height:7px;border-radius:50%}
+.v-HIT{background:var(--hit-bg);color:var(--hit)} .v-HIT .dot{background:var(--hit)}
+.v-EARLY{background:var(--early-bg);color:var(--early)} .v-EARLY .dot{background:var(--early)}
+.v-VOID{background:var(--void-bg);color:var(--void)} .v-VOID .dot{background:var(--void)}
+.v-PENDING{background:var(--pending-bg);color:var(--pending)} .v-PENDING .dot{background:var(--pending)}
+.v-MISS{background:var(--miss-bg);color:var(--miss)} .v-MISS .dot{background:var(--miss)}
+.v-NO_DATA{background:var(--nodata-bg);color:var(--nodata)} .v-NO_DATA .dot{background:var(--nodata)}
+.legend .desc{font-size:11px;color:var(--muted);font-weight:400;font-family:system-ui}
+
+/* layer group */
+.layer{margin-bottom:22px}
+.layer-h{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.layer-h .swatch{width:10px;height:10px;border-radius:2px}
+.layer-h h3{font-size:14px;font-weight:700;color:var(--ink)}
+.layer-h .cnt{font-size:11px;color:var(--muted);font-family:ui-monospace,monospace}
+.layer-h .en{font-size:11px;color:var(--faint);font-family:ui-monospace,monospace;letter-spacing:.03em}
+
+/* table */
+.twrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:13px}
+thead th{position:sticky;top:0;background:var(--surface2);text-align:left;
+  font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);font-weight:700;
+  padding:9px 12px;border-bottom:1px solid var(--line)}
+tbody td{padding:10px 12px;border-bottom:1px solid var(--line2);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:var(--surface2)}
+.nm{font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.badge-new{font-size:9px;font-weight:800;color:var(--accent);border:1px solid var(--accent);
+  border-radius:4px;padding:0 4px;margin-left:6px;letter-spacing:.06em;vertical-align:middle}
+.sym{font-family:ui-monospace,monospace;font-size:11.5px;color:var(--muted)}
+.mkt{display:inline-block;font-family:ui-monospace,monospace;font-size:10px;font-weight:700;
+  padding:1px 6px;border-radius:4px;border:1px solid var(--line);color:var(--muted)}
+.mkt.KR{color:var(--early)} .mkt.US{color:var(--accent)}
+.win{color:var(--text);font-size:12px;max-width:280px}
+.trig{color:var(--muted);font-size:11.5px;max-width:340px;line-height:1.45}
+.closed td{opacity:.62}
+.stat{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;font-family:ui-monospace,monospace;
+  padding:2px 8px;border-radius:999px}
+.stat.active{background:var(--preramp);background:color-mix(in srgb,var(--preramp) 16%,transparent);color:var(--preramp)}
+.stat.closed{background:var(--void-bg);color:var(--void)}
+.cell-v .chip{font-size:10px;padding:2px 7px}
+
+/* signatures */
+.sigs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.sig{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 15px;box-shadow:var(--shadow)}
+.sig .code{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;
+  background:var(--ink);color:var(--paper);font-weight:800;font-family:ui-monospace,monospace;font-size:14px}
+.sig .code.f{background:var(--accent);color:#fff}
+.sig p{margin:9px 0 0;font-size:12.5px;color:var(--text);line-height:1.5}
+.sig .ex{margin-top:8px;font-size:11px;color:var(--faint);font-family:ui-monospace,monospace}
+
+/* footer */
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:11.5px;color:var(--faint);line-height:1.7}
+footer b{color:var(--muted)}
+@media (max-width:640px){
+  .wrap{padding:20px 14px 60px}
+  .meta{text-align:left}
+  .masthead{border-bottom-width:1px}
+}
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <div>
+      <div class="brand-k">MF · 작전주 시그널 연구 워크스페이스</div>
+      <h1 class="brand-t">작전주 조기경보 모니터</h1>
+      <p class="brand-s">시세조종 의심주가 "터지기" 이전에 남기는 데이터 흔적을 사전등록·전향적으로 추적하는 감시 보드. 케이스-컨트롤 설계 · 사건연구 · 우도비 기반.</p>
+    </div>
+    <div class="meta">
+      코호트 <span class="vpill mono">v<b id="mv"></b></span><br>
+      as-of <b class="mono" id="mas"></b><br>
+      F/U <b id="mrd"></b>라운드 누적
+    </div>
+  </header>
+
+  <div class="disc">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+    <p><b>교육·연구용 · 회피 목적.</b> 모든 종목은 <b>모니터링 후보</b>이며 조작·작전으로 <b>단정하지 않는다.</b> 점수·판정은 <b>보정 전 유사도</b>이지 확률·투자자문·매매신호가 아니다. 공개 데이터만 사용, 실존 개인·세력은 일반화. <b>대부분의 셋업은 급등하지 않는다(거짓양성 지배).</b></p>
+  </div>
+
+  <div class="kpis" id="kpis"></div>
+
+  <section>
+    <div class="sec-h"><h2>F/U 판정 이력</h2><span class="tag">prospective log</span><div class="rule"></div></div>
+    <div class="legend" id="legend"></div>
+    <div class="hist" id="hist"></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>모니터링 코호트</h2><span class="tag">cohort_registry.json</span><div class="rule"></div></div>
+    <div id="layers"></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>검증 발화 시그니처</h2><span class="tag">A–F</span><div class="rule"></div></div>
+    <div class="sigs" id="sigs"></div>
+  </section>
+
+  <footer>
+    <b>방법론</b> — 케이스-컨트롤(대조군 매칭) · 사건연구(t0 정렬) · 우도비/lift · 기저율 명시 · as-of 동결(no look-ahead) · 전향적 검증(out-of-sample). 층: <b>collapse</b> 붕괴 관찰 / <b>collapse-watch</b> 발화 후 디스트리뷰션 감시 / <b>preramp</b> 발화(급등) 전 매집·셋업 관찰.<br>
+    판정 코드 — <b>HIT</b> 예측대로 붕괴/발화 관찰 · <b>EARLY</b> 창 이전 이미 발생 · <b>VOID</b> 반증(정상화) · <b>MISS</b> 빗나감 · <b>PENDING</b> 관찰 대기 · <b>NO_DATA</b> 데이터 공백. 재현 하네스: <b class="mono">validation/harness/</b> (opus 고정 워크플로우 + 결정론적 후처리기).
+  </footer>
+</div>
+
+<script>
+const D={"version": 14, "as_of": "2026-07-27", "targets": [{"name": "Inno Holdings", "symbol": "INHD", "mkt": "US", "layer": "collapse", "status": "active", "window": "2026-07~08", "trigger": "T12 정지해제 후 $60M ATM 출회. 해제 시초 갭 방향이 1차 관찰", "falsify": "재개후 $39유지/ATM철회/특별위 무혐의"}, {"name": "빛과전자(라이트론)", "symbol": "069540", "mkt": "KR", "layer": "collapse", "status": "active", "window": "2026-07~09", "trigger": "CB 분산엔진(바로저축은행 매도중) + 8월 중순 반기 검토보고서(감사의견)", "falsify": "CB 재락업/반기적정+실적정당화"}, {"name": "협진(앤로보틱스)", "symbol": "138360", "mkt": "KR", "layer": "collapse", "status": "closed", "window": "2026-Q3(2차: 11/28 CB 전환개시)", "trigger": "촉매소진(합병 6/30 완료)+규제 에스컬레이션", "falsify": "신주 보호예수/로봇실적/추가테마", "closed_reason": "R5 EARLY — 교훈: 규제 신호(투자경고 지정)가 사실상의 고점·디스트리뷰션 개시 시점이었고, 시장은 예정된 촉매(6/30 합병)를 '완료'가 아니라 '지정~발표' 단계에서 선반영하며 반토막을 냈다 → 촉매소진형 붕괴는 촉매 '완료일'이 아니라 '경보/지정일'을 기점으로 잡아야 함(창을 Q3가 아닌 "}, {"name": "Happy City Holdings", "symbol": "HCHL", "mkt": "US", "layer": "collapse", "status": "active", "window": "2026-07(수일~4주)", "trigger": "Nasdaq T12 정지해소 시 갭다운(SEC정지→T12 연속)", "falsify": "정보충족 질서재개/증자 상장유지"}, {"name": "넥써쓰", "symbol": "205500", "mkt": "KR", "layer": "collapse-watch", "status": "active", "window": "발화 후 디스트리뷰션 감시", "trigger": "원스토어 딜(유증395억+CB212억) 오버행 물량 출회·CB 전환 개시·매각주주 재참여 순환조달 후속", "falsify": "원스토어 실적 연결로 정당화/오버행 락업 유지"}, {"name": "이노진", "symbol": "344860", "mkt": "KR", "layer": "preramp", "status": "active", "window": "발화창 2026-07-27~08-14(핵심 납입 7/27→신주상장·주총, low-med). 선행 7/06~24 IR float-up", "trigger": "7/27 유증 납입 성사 → 게이트B 발화(거래량 폭증·급등) / 콘텐츠 IR 릴레이", "falsify": "7/27 납입 실패·철회 → VOID / 미발화 지속"}, {"name": "아미코젠", "symbol": "092040", "mkt": "KR", "layer": "collapse-watch", "status": "active", "window": "발화(6/23 +20%) 후 감시", "trigger": "7/15 납입 완료 여부·8/10 신주상장 전후 디스트리뷰션·시장경보 지정", "falsify": "납입 연기·미발화 회귀/실적정당화"}, {"name": "세니젠", "symbol": "188260", "mkt": "KR", "layer": "collapse-watch", "status": "active", "window": "발화창 2026-06-30~07-24(중심 7월 상·중순, med). 앵커=관리종목해제 6/29 + 7월 10억 유증납입", "trigger": "50억 CB 전환개시/마이크로바이옴·NGS IR/거래량 급증", "falsify": "정상 경영정상화/상폐로 소멸"}, {"name": "파이온엑스(구 애머릿지)", "symbol": "900100", "mkt": "KR", "layer": "collapse-watch", "status": "closed", "window": "발화 대기(상폐위험 병존, 사명변경+FIONX 암호화폐 테마 피벗)", "trigger": "CB 리픽싱/유증납입/암호화폐 플랫폼 테마 공시·거래량 급증", "falsify": "상폐/거래정지로 소멸", "closed_reason": "R3 VOID — 교훈: collapse-watch/'발화 대기' 셋업이 '자본이벤트(CB·유증)+테마 피벗(암호화폐 FIONX)'만으로 발화하리라 본 가설은, 종목이 실제로는 회생절차(법정관리)에 진입해 거래정지가 지속되며 무효화됨. 핵심 학습 — (1) CB/유증 같은 트리거가 '형식적으로' 발생해도"}, {"name": "아이오케이이엔엠", "symbol": "078860", "mkt": "KR", "layer": "preramp", "status": "active", "window": "발화창 2026-07-28~08-14(납입 7/31±3거래일→신주상장 8/14, low-med). 신주 1년 락업", "trigger": "7/31 콘트라31조합 유증 납입/엔터 IR/상승 개시", "falsify": "유증 철회·지연 반복/소멸"}, {"name": "나노캠텍(LSK아이로봇)", "symbol": "091970", "mkt": "KR", "layer": "collapse-watch", "status": "closed", "window": "발화 확인(사용자 실계좌 2026-07-06 ~3,010원, 7/3 대비 +17%) → 디스트리뷰션 감시로 전환", "trigger": "발화 후: 12회차 CB 전환물량 출회·최대주주 담보(94%) 반대매매선 2,064원 이탈·급등 후 되돌림", "falsify": "정상 사업재편/오버행 미출회", "note_hit": "R5 PENDING(데이터 갭)이었으나 사용자 실계좌 스크린샷으로 게이트B 발화 확인 → preramp HIT(우리 매집단계 예측의 첫 전향적 발화 적중). 단정 아님, 관찰 후보.", "closed_reason": "R8 VOID — 교훈: collapse-watch 층에서 '최대주주 고담보(94%)+반대매매선(2,064원)+CB 오버행'이라는 붕괴 셋업이 갖춰져 있어도, 발행사가 자산매각 현금으로 메자닌을 능동적으로 소각하면 디스트리뷰션 트리거가 무력화될 수 있다. 오버행은 '출회'(반증조건 false)와 '상환·"}, {"name": "로지스몬", "symbol": "223220", "mkt": "KR", "layer": "preramp", "status": "closed", "window": "개방형(확정 일정 앵커 소진, 날짜 특정 불가, low). 남은 트리거=신테마 IR 부착(미충족)", "trigger": "연쇄 3자배정 오버행 출회/아이케이조합 지배변경 후속/신테마 IR", "falsify": "정상 투자유치/미발화 소멸", "closed_reason": "R8 EARLY — 교훈: 셸/재무구조개선형 초소형주의 preramp에서는 '별도의 신테마 IR'을 기다리다 이미 진행된 발화를 놓칠 수 있다. 여기서는 투자조합 대상 연쇄 3자배정과 순차적 최대주주(아이케이조합) 변경이라는 공급측 리플렉시브 체인 자체가 발화 촉매로 작동했다 — 촉매를 '외생 테마'로만 "}, {"name": "에이전트AI", "symbol": "060900", "mkt": "KR", "layer": "preramp", "status": "active", "window": "발화창 2026-07-14~07-28(거래재개일 7/14±3거래일, med). 이설 시 7/24~08-07", "trigger": "감자(20:1)+유증 신주 7/14 상장 전후 급변/AI 테마 IR", "falsify": "실적정당화/미발화 소멸"}, {"name": "Acco Group Holdings", "symbol": "ACCL", "mkt": "US", "layer": "preramp", "status": "active", "window": "개방형(소셜 프로모션 개시가 유일 트리거, 미개시, low). 상시 감시", "trigger": "소셜 프로모션 개시/거래량 스파이크/테마 부착", "falsify": "미발화/상장유지 실패로 소멸"}, {"name": "상지건설", "symbol": "042940", "mkt": "KR", "layer": "collapse", "status": "closed", "closed_reason": "R1 EARLY — 2025-04 CB 오버행 57.76% 출회로 이미 붕괴 완료(-70%+). 트리거 모델 검증 사례로 보존", "window": "-", "trigger": "-", "falsify": "-"}, {"name": "광전자", "symbol": "017900", "mkt": "KR", "layer": "collapse", "status": "closed", "closed_reason": "R1 EARLY — 2026-Q2 블로우오프톱 후 -58% 이미 진행. 경보사다리 소진 모델 검증 사례", "window": "-", "trigger": "-", "falsify": "-"}, {"name": "우리기술", "symbol": "032820", "mkt": "KR", "layer": "collapse", "status": "closed", "closed_reason": "R1 VOID — CB 콜옵션 소각(15·16회차)으로 트리거 원천 제거 + 원전 538억 수주 실현. 교훈: CB 콜옵션 조건 사전확인", "window": "-", "trigger": "-", "falsify": "-"}, {"name": "엑시온그룹", "symbol": "069920", "mkt": "KR", "layer": "preramp", "status": "closed", "closed_reason": "R1 VOID — 흑자전환 정당화 + 저가권 잔류로 변별력 소멸", "window": "-", "trigger": "-", "falsify": "-"}, {"name": "제이케이시냅스", "symbol": "060230", "mkt": "KR", "layer": "collapse-watch", "status": "active", "window": "발화창 개방형(1차팝 후 냉각, 490~510원 횡보). 앵커=폐배터리·통신유통 매출/수주 IR 또는 추가조달 공시", "trigger": "신사업(폐배터리·통신유통) 수주·매출 공시 / 추가 CB·유증 / 병합후 신주 오버행 소화·거래대금 급증", "falsify": "정상 사업정상화·실적 / 감자성 리커캡 하방·상폐로 소멸", "note": "R2 신규(셋업 81, 시그 B/D). 소니드→제이케이시냅스 사명변경, 엠에이치테크 최대주주, 90%감자+5:1병합"}, {"name": "해성에어로보틱스", "symbol": "059270", "mkt": "KR", "layer": "preramp", "status": "active", "window": "발화창 개방형(1차팝 라운드트립 후 9,000~10,500원 냉각). 앵커=감속기 양산·수주 IR, CB전환 2027(오버행 미출회)", "trigger": "로봇 감속기 양산·대형수주·방산 IR / 200억 CB 자금사용 / 상상인계열 반복조달 / 거래대금 급증 재발화", "falsify": "실체 감속기사업 실적 정당화(순수 shell 아님) / 미발화 냉각 지속", "note": "R2 신규(셋업 70, 시그 D/E). 최대주주 체인(케이휴머스), 로봇/방산 사명변경, 200억 사모CB+주식담보"}, {"name": "크라우드웍스", "symbol": "355390", "mkt": "KR", "layer": "preramp", "status": "active", "window": "발화창 개방형(52주 바닥권 2,375~2,500원 횡보). 앵커=유증 잔금납입→최대주주(엑스알피1호조합) 확정 후 타법인취득(피인수사)·신테마 공시", "trigger": "타법인 취득 공시(피인수사) / 신테마 부착 / 추가 CB·유증(순환조달) / 거래대금 급증", "falsify": "현금 셸이 실사업 재투자로 정상화 / 미발화 소멸", "note": "R2 신규(셋업 68, 시그 E전조). 창업주→엑스알피1호조합 경영권매각, 유증목적=타법인 취득자금(M&A). 아직 (E) 전조 단계"}, {"name": "진시스템", "symbol": "363250", "mkt": "KR", "layer": "preramp", "status": "active", "window": "발화창 개방형(발행가 4,195 대비 5,960~6,060 완만). 앵커=에너지/배출권/SI 신사업 IR, 보호예수 해제 2027", "trigger": "에너지/배출권/SI 신사업 실체·수주 공시 / 추가 유증·CB / 조합 지분변동 / 거래대금 급증", "falsify": "신사업 실체·PCR 본업 정당화 / 미발화 소멸", "note": "R2 신규(셋업 67, 시그 A). PCR바이오에 에이치투자조합 인수+이종 신사업 대거부착"}, {"name": "이렘(구 코센)", "symbol": "009730", "mkt": "KR", "layer": "preramp", "status": "active", "window": "발화창 2026-07-20(재개)~08월 중순. 앵커=88.89% 무상감자 후 7/20 재개 + 주주배정 유증 청약 8/5~6", "trigger": "얇아진 float(806만주)에서 리튬·2차전지 신테마 재부착 거래대금 급증 / 유증 청약 성사 / 상장적격성 실질심사 해소 반등", "falsify": "실질심사 상폐결정·장기 거래정지 / 유증 대량실권·미달·철회 / 재개 후 거래대금 지속 저조", "note": "스캔 2026-07-27(셋업80, C/F). 최대주주=에스앤티제1호투자조합(조합 지배구조), 순차 조달. 실질심사 병존 리스크."}, {"name": "엣지파운드리(구 트루윈)", "symbol": "105550", "mkt": "KR", "layer": "preramp", "status": "active", "window": "발화창 2026-08 초순~하순. 앵커=508억 일반공모 청약 8/11~12·납입 8/14·신주상장 8/27", "trigger": "유증 성사+상장일 유동성 유입 / AI반도체·양자센싱 신사업 IR / 거래대금 급증", "falsify": "공모 청약 미달·철회·효력지연 / 거래정지·관리종목·실질심사 하방 / 라임트리·에이아이코어비즈 지배가 실체 대주주로 정리되어 셸 프로파일 소멸", "note": "스캔 2026-07-27(셋업61, E/F). 3년 CB·3자배정 7회 701억 조달 후 508억 공모유증, 만성 영업손실."}, {"name": "손오공", "symbol": "066910", "mkt": "KR", "layer": "preramp", "status": "active", "window": "발화창 2026-07-22(납입완료)~개방형", "trigger": "모빌리티·AI웰니스·완구IP 신테마 IR / 거래대금 급증 / 후속 조달", "falsify": "최대주주 변경 취소·철회 / 미발화 소멸 / 완구 본업 정당화", "note": "스캔 2026-07-27(하위, A). 파이브가이즈투자조합+HK모빌리티 대상 50억 3자배정 최대주주 변경. 잦은 최대주주 교체 이력."}, {"name": "디에이치엑스컴퍼니", "symbol": "031860", "mkt": "KR", "layer": "preramp", "status": "active", "window": "개방형(2026-04-03~ 거래정지 中, 재감사·실질심사 통과 후 거래재개가 발화 선행 관문)", "trigger": "거래재개 승인+감사의견 해소 / 프라임코어發 신사업 공시 / 마이크로바이옴·AI뇌진단 테마 / 150억 CB 전환청구", "falsify": "상폐확정(재개없이 정리매매) / 3자배정 유증 철회·최대주주 변경 취소 / 프라임코어 실사업 정상화·감사의견 투명 해소", "note": "스캔 2026-07-27(셋업80, A). 다회 사명변경(자전거→ICT→바이오→AI뇌진단) 셸, 의견거절 거래정지, 프라임코어 3자배정(500원·29.7%·1년 보호예수)."}, {"name": "휴림에이텍(구 두올산업)", "symbol": "078590", "mkt": "KR", "layer": "preramp", "status": "active", "window": "개방형(유증 납입 7/9·신주상장 7/22 소진). 잔존=14·15회차 CB 전환·조합 CB 출회", "trigger": "휴림로봇 로봇테마 재점화 / 14·15회차 CB(180억) 전환·제이디케이1호조합 보유 CB 출회 / 거래대금 급증", "falsify": "CB 전량 상환·소각으로 오버행 해소 / 제이디케이1호조합 지배고리 정리·최대주주 정상화 / 자동차부품 본업 실적회복", "note": "스캔 2026-07-27(셋업64, D/E/F). 두올산업→온코퀘스트→디아크→휴림에이텍, 휴림로봇 계열. 관계자간 CB 거래·오버행 논란."}, {"name": "하이딥", "symbol": "365590", "mkt": "KR", "layer": "preramp", "status": "active", "window": "개방형(연속 감자 5:1→9:1 진행, 완전자본잠식)", "trigger": "감자·3자배정 유증 후 얇은 float 발화 / 신테마 부착 / 거래대금 급증", "falsify": "자본잠식 상폐·거래정지 / 유증 철회 / 미발화 소멸", "note": "스캔 2026-07-27(하위, C). 1분기 완전자본잠식(자본총계 -7억), 3자배정 580만주(1,119원) 운영·채무상환."}, {"name": "코스모로보틱스(구 엑소아틀레트아시아)", "symbol": "439960", "mkt": "KR", "layer": "preramp", "status": "active", "window": "개방형(2026-05 사모CB 전환 추가상장·로봇AI 순환매 급등구간 진입)", "trigger": "로봇AI 순환매 / 사모CB 전환물량+거래대금 급증 / 신규수주 IR", "falsify": "CB 소각·상환 / 실체 로봇사업 실적 정당화 / 미발화 냉각", "note": "스캔 2026-07-27(하위, D). 엑소아틀레트아시아→코스모로보틱스 사명변경(로보틱스 테마)+CB 전환 물량 구조."}, {"name": "뉴엔AI(구 알에스엔/RSN)", "symbol": "463020", "mkt": "KR", "layer": "preramp", "status": "active", "window": "개방형(상장 첫날 156% 급등 소진, 미상환 CB 전환물량 대기)", "trigger": "미상환 CB 전환(전환가능주식 발행총수 대비 30.9%) / AI 테마 재점화 / 거래대금 급증", "falsify": "CB 상환·소각 / 실적 정당화(순수 AI워싱 아님) / 미발화 소멸", "note": "스캔 2026-07-27(하위, D). 상장 직전 '뉴엔AI' 사명변경(언론 AI워싱 지목), 높은 희석·전환물량 구조."}, {"name": "중앙첨단소재(구 중앙디앤엠)", "symbol": "051980", "mkt": "KR", "layer": "preramp", "status": "active", "window": "개방형(엔켐 CB 대용납입 경영권 확보)", "trigger": "엔켐 지배구조 후속 / 첨단소재 신테마 / CB 전환물량+거래대금 급증", "falsify": "실사업 재투자·실적 정당화 / 미발화 소멸", "note": "스캔 2026-07-27(하위, D). 중앙디앤엠→중앙첨단소재, 엔켐 CB 157억 대용납입 경영권(14.53%)."}, {"name": "NusaTrip Inc.", "symbol": "NUTR", "mkt": "US", "layer": "collapse", "status": "active", "window": "개방형(SEC 12(k) 정지 2025-10-09~22 후 Nasdaq halt 미해소)", "trigger": "정지해제 시 재개 첫 갭 방향(갭다운=붕괴) OR 재개없는 상폐결정(IM-5101-4)", "falsify": "무혐의·정보충족 질서재개·가격안정 / 회사·인수단 무관 제3자 홍보로 종결", "note": "스캔 2026-07-27(F). 소셜미디어 조작 의심 12(k) 정지 클러스터. HCHL/INHD 동일 패턴 대조군·케이스."}, {"name": "Empro Group Inc.", "symbol": "EMPG", "mkt": "US", "layer": "collapse", "status": "active", "window": "개방형(12(k) 정지 2025-10-08 → Nasdaq 상폐결정 통지 2026-07-16)", "trigger": "상폐결정 확정·심사패널 / 정지해제 시 갭다운", "falsify": "질서재개·상장유지 / 무혐의 종결", "note": "스캔 2026-07-27(F). 소셜조작 의심 12(k), 상폐결정 진행. 케이스 학습용."}, {"name": "Smart Digital Group Ltd", "symbol": "SDM", "mkt": "US", "layer": "collapse", "status": "active", "window": "개방형(12(k) 정지 2025-09-29 → Nasdaq halt → 상폐결정 통지)", "trigger": "상폐확정 / 재개 갭다운", "falsify": "무혐의 질서재개", "note": "스캔 2026-07-27(F). 중국(주하이) 마이크로캡, 소셜조작 의심 정지 클러스터."}, {"name": "MaxsMaking Inc.", "symbol": "MAMK", "mkt": "US", "layer": "collapse", "status": "active", "window": "개방형(SEC 임시정지 → Nasdaq halt 2025-12-02, IM-5101-4 적용)", "trigger": "IM-5101-4 재개없는 직행 상폐 OR 재개 시 갭다운", "falsify": "질서재개·상장유지", "note": "스캔 2026-07-27(F). 제3자 시세조종 취약성 사유 halt. IM-5101-4 신규규정 적용 사례."}, {"name": "Etoiles Capital Group", "symbol": "EFTY", "mkt": "US", "layer": "collapse", "status": "active", "window": "개방형(12(k) 정지 2025-10-06~17 후 Nasdaq halt 미해소, 재도메사일 계획)", "trigger": "정지해제 시 갭 방향 / 재도메사일·후속 조달", "falsify": "질서재개·상장유지", "note": "스캔 2026-07-27(F). 소셜조작 의심 12(k) 정지 클러스터."}, {"name": "PowerCompute(구 LM Funding America)", "symbol": "PWCM", "mkt": "US", "layer": "preramp", "status": "active", "window": "개방형(1:25 역분할 7/13·사명변경 7/22 소진, 근접 촉매 다수)", "trigger": "10MW AI 용량 고객·계약·LOI 발표 / 26MW buildout 신규 조달(주식·워런트) 공시 / 리프라이스 워런트 행사", "falsify": "실계약 AI 매출 지속 실체 확인 / float 재확대·워런트 오버행 소멸", "note": "스캔 2026-07-27(셋업77, C/E). BTC채굴→HPC/AI 피벗, 역분할+사명변경, 추가 외부조달 필요 명시."}], "rounds": [{"round": 2, "date": "2026-07-03", "n": 14, "dist": "HIT 1 · PENDING 13"}, {"round": 3, "date": "2026-07-04", "n": 14, "dist": "VOID 1 · PENDING 13"}, {"round": 4, "date": "2026-07-04", "n": 13, "dist": "HIT 1 · PENDING 12"}, {"round": 5, "date": "2026-07-06", "n": 13, "dist": "EARLY 1 · PENDING 12"}, {"round": 6, "date": "2026-07-08", "n": 12, "dist": "HIT 1 · PENDING 11"}, {"round": 7, "date": "2026-07-13", "n": 16, "dist": "HIT 2 · PENDING 14"}, {"round": 8, "date": "2026-07-27", "n": 16, "dist": "HIT 2 · EARLY 1 · VOID 1 · PENDING 11 · NO_DATA 1"}], "latest_verdicts": {"빛과전자": "HIT", "제이케이시냅스": "HIT", "로지스몬": "EARLY", "나노캠텍": "VOID", "Happy City Holdings": "PENDING", "Inno Holdings": "PENDING", "넥써쓰": "PENDING", "아미코젠": "PENDING", "Acco Group Holdings": "PENDING", "아이오케이이엔엠": "PENDING", "에이전트AI": "PENDING", "이노진": "PENDING", "진시스템": "PENDING", "크라우드웍스": "PENDING", "해성에어로보틱스": "PENDING", "세니젠": "NO_DATA"}};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const short=(s,n)=>{s=String(s||'');return s.length>n?esc(s.slice(0,n-1))+'…':esc(s)};
+const shortName=s=>String(s||'').split('(')[0].split('—')[0].trim();
+
+const VCODES=['HIT','EARLY','VOID','MISS','PENDING','NO_DATA'];
+const VLABEL={HIT:'예측대로 발화/붕괴',EARLY:'창 이전 발생',VOID:'반증·정상화',MISS:'빗나감',PENDING:'관찰 대기',NO_DATA:'데이터 공백'};
+const LAYERS=[
+ {k:'collapse',ko:'붕괴 관찰',en:'collapse'},
+ {k:'collapse-watch',ko:'발화 후 디스트리뷰션 감시',en:'collapse-watch'},
+ {k:'preramp',ko:'발화 전 매집·셋업 관찰',en:'preramp'}];
+const LC={'collapse':'var(--collapse)','collapse-watch':'var(--watch)','preramp':'var(--preramp)'};
+
+// header meta
+$('mv').textContent=D.version; $('mas').textContent=D.as_of;
+$('mrd').textContent=D.rounds.length?D.rounds[D.rounds.length-1].round:0;
+
+// parse dist string -> {code:count}
+function parseDist(s){const o={};(s||'').split('·').forEach(p=>{const m=p.trim().match(/(HIT|EARLY|VOID|MISS|PENDING|NO_DATA)\s+(\d+)/);if(m)o[m[1]]=+m[2]});return o}
+
+// cumulative signal tally
+let cumHit=0,cumEarly=0,cumVoid=0,cumNoData=0;
+D.rounds.forEach(r=>{const o=parseDist(r.dist);cumHit+=o.HIT||0;cumEarly+=o.EARLY||0;cumVoid+=o.VOID||0;cumNoData+=o.NO_DATA||0});
+
+const active=D.targets.filter(t=>t.status==='active');
+const closed=D.targets.filter(t=>t.status!=='active');
+const byLayer=k=>active.filter(t=>t.layer===k).length;
+const krN=active.filter(t=>t.mkt==='KR').length, usN=active.filter(t=>t.mkt==='US').length;
+const newN=D.targets.filter(t=>/스캔 2026-07-27/.test(t.note||'')).length;
+
+// KPIs
+const kpis=[
+ {n:active.length,l:'활성 추적 종목',sub:`KR ${krN} · US ${usN}`},
+ {n:byLayer('preramp'),l:'발화 관찰(preramp)',sub:'급등 전 매집·셋업'},
+ {n:byLayer('collapse')+byLayer('collapse-watch'),l:'붕괴·감시(collapse)',sub:`관찰 ${byLayer('collapse')} · 감시 ${byLayer('collapse-watch')}`},
+ {n:cumHit,l:'누적 HIT',sub:'전향적 발화/붕괴 적중'},
+ {n:cumVoid+cumEarly,l:'반증·조기(VOID·EARLY)',sub:`VOID ${cumVoid} · EARLY ${cumEarly}`},
+ {n:newN,l:'신규 편입',sub:'2026-07-27 스캔'},
+];
+$('kpis').innerHTML=kpis.map(k=>`<div class="kpi"><div class="n">${k.n}</div><div class="l">${k.l}</div><div class="sub">${k.sub}</div></div>`).join('');
+
+// legend
+$('legend').innerHTML=VCODES.map(c=>`<span class="chip v-${c}"><span class="dot"></span>${c}</span>`).join('')
+ +`<span class="desc">· 최신 라운드(R${D.rounds.length?D.rounds[D.rounds.length-1].round:''}) 판정을 종목 행에 표기</span>`;
+
+// verdict history cards
+const VCOL={HIT:'var(--hit)',EARLY:'var(--early)',VOID:'var(--void)',MISS:'var(--miss)',PENDING:'var(--pending)',NO_DATA:'var(--nodata)'};
+$('hist').innerHTML=D.rounds.map(r=>{
+  const o=parseDist(r.dist);const tot=Object.values(o).reduce((a,b)=>a+b,0)||1;
+  const bars=VCODES.filter(c=>o[c]).map(c=>`<i style="width:${o[c]/tot*100}%;background:${VCOL[c]}" title="${c} ${o[c]}"></i>`).join('');
+  const dd=VCODES.filter(c=>o[c]).map(c=>`<span>${c} ${o[c]}</span>`).join(' · ');
+  return `<div class="rd"><div class="rn">R<b>${r.round}</b><span>${r.date.slice(5)}</span></div><div class="bars">${bars}</div><div class="dd">${dd}</div></div>`;
+}).join('');
+
+// verdict lookup by shortName
+const VL={};Object.entries(D.latest_verdicts).forEach(([k,v])=>VL[shortName(k)]=v);
+function vchip(name){const v=VL[shortName(name)];return v?`<span class="chip v-${v}"><span class="dot"></span>${v}</span>`:'<span class="sym">—</span>'}
+
+// layers + tables
+$('layers').innerHTML=LAYERS.map(L=>{
+  const rows=D.targets.filter(t=>t.layer===L.k)
+    .sort((a,b)=>(a.status===b.status?0:a.status==='active'?-1:1));
+  if(!rows.length)return '';
+  const act=rows.filter(t=>t.status==='active').length;
+  const body=rows.map(t=>{
+    const isNew=/스캔 2026-07-27/.test(t.note||'');
+    const cls=t.status==='active'?'':'closed';
+    const winTitle=esc(t.window||''), trigTitle=esc((t.trigger||'')+' | 반증: '+(t.falsify||''));
+    return `<tr class="${cls}">
+      <td><div class="nm">${esc(shortName(t.name))}${isNew?'<span class="badge-new">NEW</span>':''}</div><span class="sym">${esc(t.symbol)}</span></td>
+      <td><span class="mkt ${t.mkt}">${t.mkt}</span></td>
+      <td><span class="stat ${t.status==='active'?'active':'closed'}">${t.status==='active'?'ACTIVE':'CLOSED'}</span></td>
+      <td class="cell-v">${vchip(t.name)}</td>
+      <td class="win" title="${winTitle}">${short(t.window||t.closed_reason||'—',68)}</td>
+      <td class="trig" title="${trigTitle}">${short(t.status==='active'?t.trigger:t.closed_reason,86)}</td>
+    </tr>`;
+  }).join('');
+  return `<div class="layer">
+    <div class="layer-h"><span class="swatch" style="background:${LC[L.k]}"></span>
+      <h3>${L.ko}</h3><span class="cnt">활성 ${act} / 총 ${rows.length}</span><span class="en">${L.en}</span></div>
+    <div class="twrap"><table>
+      <thead><tr><th>종목</th><th>시장</th><th>상태</th><th>최신판정</th><th>발화창 / 종료사유</th><th>트리거</th></tr></thead>
+      <tbody>${body}</tbody></table></div></div>`;
+}).join('');
+
+// signatures
+const SIGS=[
+ {c:'A',t:'신설법인·투자조합·SPC 대상 소규모 3자배정으로 경영권 이전 + 저가권(페니) + 신테마(AI·로봇·2차전지) 부착',ex:'디에이치엑스 · 손오공'},
+ {c:'B',t:'관리종목 지정해제 직후 최대주주 교체 + 신사업 IR 릴레이',ex:'세니젠'},
+ {c:'C',t:'무상감자 + 유상증자 후 거래재개 임박 · 얇은 유통주식(float)',ex:'이렘 · 하이딥'},
+ {c:'D',t:'연쇄 CB/BW 발행 + 사명변경(AI·로봇) + 최대주주 고비율 주식담보',ex:'빛과전자 · 코스모로보틱스'},
+ {c:'E',t:'과대 피인수사(자기자본 대비 큰 M&A) + 유증·CB 순환조달 무자본 M&A',ex:'넥써쓰'},
+ {c:'F',t:'과거 시세조종 확정/의심 셸의 재활용(사명변경+조합 인수 체인) · 소셜 홍보형 펌프',ex:'블루산업개발 · HCHL·12(k)군'},
+];
+$('sigs').innerHTML=SIGS.map(s=>`<div class="sig"><span class="code ${s.c==='F'?'f':''}">${s.c}</span><p>${esc(s.t)}</p><div class="ex">예: ${esc(s.ex)}</div></div>`).join('');
+</script>
