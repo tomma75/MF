@@ -1,6 +1,6 @@
 {
-  "version": 14,
-  "as_of": "2026-07-27",
+  "version": 15,
+  "as_of": "2026-08-01",
   "note": "F/U 대상 단일 정본(single source of truth). status: active=재조회 대상, closed=판정 종료(사유 기재). layer: collapse=붕괴 관찰 / preramp=발화 관찰 / collapse-watch=발화 후 디스트리뷰션 관찰. Round 1 판정 반영(v2).",
   "targets": [
     {
@@ -39,10 +39,11 @@
       "symbol": "HCHL",
       "mkt": "US",
       "layer": "collapse",
-      "status": "active",
+      "status": "closed",
       "window": "2026-07(수일~4주)",
       "trigger": "Nasdaq T12 정지해소 시 갭다운(SEC정지→T12 연속)",
-      "falsify": "정보충족 질서재개/증자 상장유지"
+      "falsify": "정보충족 질서재개/증자 상장유지",
+      "closed_reason": "R9 MISS — 교훈: 트리거가 외생적 규제 이벤트(Nasdaq의 T12 해제 결정)에 종속될 때, 규제 판단 타이밍은 예측창(수일~4주) 내로 좁히기 어렵다 — 회사 소명 제출 후에도 검토 장기화로 정지가 무기한 이어질 수 있음. 예측창을 규제 캘린더(소명 제출→검토→스태프 결정/청문패널)에 연동해 "
     },
     {
       "name": "넥써쓰",
@@ -229,7 +230,7 @@
       "name": "진시스템",
       "symbol": "363250",
       "mkt": "KR",
-      "layer": "preramp",
+      "layer": "collapse-watch",
       "status": "active",
       "window": "발화창 개방형(발행가 4,195 대비 5,960~6,060 완만). 앵커=에너지/배출권/SI 신사업 IR, 보호예수 해제 2027",
       "trigger": "에너지/배출권/SI 신사업 실체·수주 공시 / 추가 유증·CB / 조합 지분변동 / 거래대금 급증",
@@ -252,17 +253,18 @@
       "symbol": "105550",
       "mkt": "KR",
       "layer": "preramp",
-      "status": "active",
+      "status": "closed",
       "window": "발화창 2026-08 초순~하순. 앵커=508억 일반공모 청약 8/11~12·납입 8/14·신주상장 8/27",
       "trigger": "유증 성사+상장일 유동성 유입 / AI반도체·양자센싱 신사업 IR / 거래대금 급증",
       "falsify": "공모 청약 미달·철회·효력지연 / 거래정지·관리종목·실질심사 하방 / 라임트리·에이아이코어비즈 지배가 실체 대주주로 정리되어 셸 프로파일 소멸",
-      "note": "스캔 2026-07-27(셋업61, E/F). 3년 CB·3자배정 7회 701억 조달 후 508억 공모유증, 만성 영업손실."
+      "note": "스캔 2026-07-27(셋업61, E/F). 3년 CB·3자배정 7회 701억 조달 후 508억 공모유증, 만성 영업손실.",
+      "closed_reason": "R9 VOID — 교훈: 정책·규제 리스크(금감원/거래소 정정요구)에 유증 발화 시나리오가 취약함이 드러남 — 2026년 유증 정정요구 강화 국면에서 소형·셸형 종목의 발화창은 규제 순연으로 쉽게 밀린다. 오퍼링 자체는 철회가 아닌 '연기'로 생존하므로 발화 논지는 9월로 재앵커. 다음 관찰 포인트: ("
     },
     {
       "name": "손오공",
       "symbol": "066910",
       "mkt": "KR",
-      "layer": "preramp",
+      "layer": "collapse-watch",
       "status": "active",
       "window": "발화창 2026-07-22(납입완료)~개방형",
       "trigger": "모빌리티·AI웰니스·완구IP 신테마 IR / 거래대금 급증 / 후속 조달",
@@ -306,7 +308,7 @@
       "name": "코스모로보틱스(구 엑소아틀레트아시아)",
       "symbol": "439960",
       "mkt": "KR",
-      "layer": "preramp",
+      "layer": "collapse-watch",
       "status": "active",
       "window": "개방형(2026-05 사모CB 전환 추가상장·로봇AI 순환매 급등구간 진입)",
       "trigger": "로봇AI 순환매 / 사모CB 전환물량+거래대금 급증 / 신규수주 IR",
@@ -328,7 +330,7 @@
       "name": "중앙첨단소재(구 중앙디앤엠)",
       "symbol": "051980",
       "mkt": "KR",
-      "layer": "preramp",
+      "layer": "collapse-watch",
       "status": "active",
       "window": "개방형(엔켐 CB 대용납입 경영권 확보)",
       "trigger": "엔켐 지배구조 후속 / 첨단소재 신테마 / CB 전환물량+거래대금 급증",
