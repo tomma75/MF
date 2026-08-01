@@ -1,5 +1,5 @@
 {
-  "version": 15,
+  "version": 16,
   "as_of": "2026-08-01",
   "note": "F/U 대상 단일 정본(single source of truth). status: active=재조회 대상, closed=판정 종료(사유 기재). layer: collapse=붕괴 관찰 / preramp=발화 관찰 / collapse-watch=발화 후 디스트리뷰션 관찰. Round 1 판정 반영(v2).",
   "targets": [
@@ -402,6 +402,171 @@
       "trigger": "10MW AI 용량 고객·계약·LOI 발표 / 26MW buildout 신규 조달(주식·워런트) 공시 / 리프라이스 워런트 행사",
       "falsify": "실계약 AI 매출 지속 실체 확인 / float 재확대·워런트 오버행 소멸",
       "note": "스캔 2026-07-27(셋업77, C/E). BTC채굴→HPC/AI 피벗, 역분할+사명변경, 추가 외부조달 필요 명시."
+    },
+    {
+      "name": "CSA코스믹",
+      "symbol": "083660",
+      "mkt": "KR",
+      "layer": "preramp",
+      "status": "active",
+      "window": "준개방형. 앵커=93% 무상감자 후 6/4 변경상장·7월 유증(청약 7/13~20) 소진 / 지앤비조합 보호예수 1년 종료 2026말~2027(신주 전량 담보 예정)",
+      "trigger": "제주 카지노·레저 통합 플랫폼 등 신테마 인수·MOU / 추가 3자배정·CB 순환조달 / 보호예수 해제 물량 이벤트 / 거래대금 급증",
+      "falsify": "유증자금 실매출·흑자전환 회계 확인 / 무자본 M&A(블루산업개발 차입·담보) 구조 해소 / 재개 후 저회전 지속",
+      "note": "스캔 2026-08-01(셋업82, C/E/F). KH그룹+지앤비조합 인수, 지앤비조합이 블루산업개발(006740)서 차입→지분취득→신주담보. 셸 자금 네트워크 연결."
+    },
+    {
+      "name": "서울전자통신",
+      "symbol": "027040",
+      "mkt": "KR",
+      "layer": "preramp",
+      "status": "active",
+      "window": "개방형(6/8 150억 3자배정 결정, 배정대상=신생법인 트리니티하트)",
+      "trigger": "신생법인發 경영권·신테마 IR / 후속 조달 / 거래대금 급증",
+      "falsify": "정상 자금유치·실사업 / 최대주주 변경 취소 / 미발화 소멸",
+      "note": "스캔 2026-08-01(하위, A). 설립 약 한 달·자본금 100만원 신생법인 트리니티하트(공유오피스 주소) 대상 150억 3자배정(2,033원). 직전 다온인터 이력."
+    },
+    {
+      "name": "KS인더스트리",
+      "symbol": "101000",
+      "mkt": "KR",
+      "layer": "preramp",
+      "status": "active",
+      "window": "발화창 2026-09(75% 감자 후 100억 3자배정 청약·납입 9월 초)",
+      "trigger": "얇아진 float에서 신테마 부착 / 3자배정 성사 / 거래대금 급증",
+      "falsify": "청약 미달·철회 / 상폐·거래정지 / 미발화 소멸",
+      "note": "스캔 2026-08-01(하위, C). 4:1 병합 75% 무상감자(자본금 202억→50억)+100억 3자배정 병행, 배정대상 변경 공시."
+    },
+    {
+      "name": "판타지오",
+      "symbol": "032800",
+      "mkt": "KR",
+      "layer": "preramp",
+      "status": "active",
+      "window": "발화창 2026-07-28(35억 3자배정 결정)~개방형",
+      "trigger": "(주)엑스 경영권 교체+35억 3자배정 / 엔터 테마 IR / 거래대금 급증",
+      "falsify": "상장유지 요건용 정상 조달 / 최대주주 변경 취소 / 미발화 소멸",
+      "note": "스캔 2026-08-01(하위, A). 미래아이앤지→(주)엑스 외1인 경영권 교체(5/20)+7/28 35억 3자배정. 상장유지 요건 목적 명시."
+    },
+    {
+      "name": "알파AI(구 솔고바이오메디칼)",
+      "symbol": "043100",
+      "mkt": "KR",
+      "layer": "preramp",
+      "status": "active",
+      "window": "개방형(사명변경 2025-07-30, 최대주주 교체 180억)",
+      "trigger": "AI 비전데이터 신사업 실체·에이모 협업 공시 / 추가 조달 / 거래대금 급증",
+      "falsify": "실적·실사업 정당화 / 미발화 소멸",
+      "note": "스캔 2026-08-01(하위, B). 솔고바이오메디칼→알파AI(알파녹스 경유), 최대주주 MDS테크→에이아이홀딩스 외6인(180억), AI 신사업 부착."
+    },
+    {
+      "name": "다보링크",
+      "symbol": "340360",
+      "mkt": "KR",
+      "layer": "preramp",
+      "status": "active",
+      "window": "개방형(3자배정 유증·최대주주 변경 반복, 신주 1년 보호예수 해제)",
+      "trigger": "테라사이언스發 후속 지배구조 / 신테마 부착 / CB·유증 순환조달 / 거래대금 급증",
+      "falsify": "정상 투자유치·실사업 회복 / 미발화 소멸",
+      "note": "스캔 2026-08-01(셋업67, E/F). 유안타6호스팩 우회상장 네트워크장비사, 테라사이언스가 290억 인수(37%). 인수주체(테라사이언스)가 상폐확정 셸 — 고위험."
+    },
+    {
+      "name": "씨엔플러스",
+      "symbol": "115530",
+      "mkt": "KR",
+      "layer": "preramp",
+      "status": "active",
+      "window": "개방형(10:1 병합 효력 5/7·재상장 5/26 소진)",
+      "trigger": "AI데이터센터·신재생·전장 신테마 실체 / CB 전환물량 / 거래대금 급증",
+      "falsify": "의견거절 상폐·거래정지 / 실사업 정당화 / 미발화 소멸",
+      "note": "스캔 2026-08-01(셋업60, D/E). 커넥터→피케이풍력→AI데이터센터 신테마 이동, 의견거절 상폐사유·개선기간 이력."
+    },
+    {
+      "name": "한국유니온제약",
+      "symbol": "080720",
+      "mkt": "KR",
+      "layer": "preramp",
+      "status": "active",
+      "window": "개방형(회생인가 3:1 감자+부광약품 300억 3자배정 75%·출자전환 병행)",
+      "trigger": "부광약품 지배 후속·신약 파이프라인 IR / 거래재개 물량 / 거래대금 급증",
+      "falsify": "부광약품=실체 대주주 정상 회생·실적(셸 아님) / 미발화 소멸",
+      "note": "스캔 2026-08-01(하위, C). 회생 66.7% 감자+부광약품 300억 3자배정(500원, 지분 75%). 실체 제약사 대주주라 counterview 강함."
+    },
+    {
+      "name": "엔시트론",
+      "symbol": "123840",
+      "mkt": "KR",
+      "layer": "preramp",
+      "status": "active",
+      "window": "개방형(67% 감자+2:1 병합 4월 효력 소진)",
+      "trigger": "얇아진 float 신테마 부착 / 유증·CB / 거래대금 급증",
+      "falsify": "정상 재무정비·실사업 / 미발화 소멸",
+      "note": "스캔 2026-08-01(하위, C). 결손보전 3:1 감자(67%)+2:1 병합, 발행주식 7045만→1174만주 축소."
+    },
+    {
+      "name": "Jet.AI Inc.",
+      "symbol": "JTAI",
+      "mkt": "US",
+      "layer": "preramp",
+      "status": "active",
+      "window": "개방형(1:200 역분할 4/8, $300M 역합병 LOI 7/14~15)",
+      "trigger": "역합병 확정·대상사 공개 / 얇은 float 신테마 발화 / 거래대금 급증",
+      "falsify": "딜 무산·LOI 철회 / float 재확대 / 미발화 소멸",
+      "note": "스캔 2026-08-01(하위, E/C). 1:200 역분할 초박 float+$300M 역합병(reverse takeover) LOI. AI 테마."
+    },
+    {
+      "name": "Global Mofy AI Ltd",
+      "symbol": "GMM",
+      "mkt": "US",
+      "layer": "preramp",
+      "status": "active",
+      "window": "개방형(1:50 역분할 6/11, Class A 유통 8,958만→179만주 초박)",
+      "trigger": "AI/VFX 테마 PR / 얇은 float 임펄스 / 거래대금 급증",
+      "falsify": "float 재확대 / 무테마 저변동 소화 / 미발화",
+      "note": "스캔 2026-08-01(하위, C). 1:50 역분할 초박 float(179만주), 나스닥 상장유지 목적."
+    },
+    {
+      "name": "reAlpha Tech Corp.",
+      "symbol": "AIRE",
+      "mkt": "US",
+      "layer": "preramp",
+      "status": "active",
+      "window": "개방형(1:25 역분할 상장유지 목적, AI 부동산테크)",
+      "trigger": "AI 부동산 신PR·계약 / 얇은 float 발화 / 거래대금 급증",
+      "falsify": "float 확대 / 실매출 정당화 / 미발화",
+      "note": "스캔 2026-08-01(하위, C). 1:25 역분할($1 규정)+AI 부동산 테마 얇은 float 셋업."
+    },
+    {
+      "name": "Micropolis AI Robotics",
+      "symbol": "MCRP",
+      "mkt": "US",
+      "layer": "preramp",
+      "status": "active",
+      "window": "개방형(Cayman 역외 AI로봇 초소형, 20-F 미제출 상장기준 미달 통지)",
+      "trigger": "AI로봇 계약·수주 PR / CB 전환 / 거래대금 급증",
+      "falsify": "상장기준 미달 상폐 / 실매출 정당화 / 미발화",
+      "note": "스캔 2026-08-01(하위, A). NYSE American AI로봇 초소형, 20-F 적시 미제출 상장기준 미달+CB."
+    },
+    {
+      "name": "Magnitude International Ltd",
+      "symbol": "MAGH",
+      "mkt": "US",
+      "layer": "collapse",
+      "status": "active",
+      "window": "개방형(SEC 12(k) 정지 2025-12-05~18 후 Nasdaq 추가정보 halt)",
+      "trigger": "정지해제 시 갭 방향(갭다운=붕괴) OR 상폐결정",
+      "falsify": "무혐의 질서재개·상장유지",
+      "note": "스캔 2026-08-01(하위, A/F). 역외 초소형, SEC 일괄 12(k) 정지군, 직전가 $6.76."
+    },
+    {
+      "name": "Envirotech Vehicles Inc.",
+      "symbol": "EVTV",
+      "mkt": "US",
+      "layer": "preramp",
+      "status": "active",
+      "window": "개방형(Azio AI 합병 완료 7/2, EV→AI데이터센터 전환)",
+      "trigger": "AI데이터센터 계약·capacity PR / 신규 조달 / 거래대금 급증",
+      "falsify": "실계약 AI 매출 실체 확인 / 미발화 소멸",
+      "note": "스캔 2026-08-01(하위, E). EV사→Azio AI 합병으로 'AI 데이터센터 프로바이더' 전환."
     }
   ]
 }
