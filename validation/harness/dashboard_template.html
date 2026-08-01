@@ -169,6 +169,41 @@ tr.det>td{padding:0 12px 15px;background:var(--surface2);border-bottom:1px solid
 .sig p{margin:9px 0 0;font-size:12.5px;color:var(--text);line-height:1.5}
 .sig .ex{margin-top:8px;font-size:11px;color:var(--faint);font-family:ui-monospace,monospace}
 
+/* ignition top5 */
+.ign-sec{margin-top:22px;border:1px solid color-mix(in srgb,var(--accent) 34%,var(--line));border-radius:12px;
+  background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 7%,var(--surface)),var(--surface));overflow:hidden}
+.ign-hd{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid var(--line)}
+.ign-hd .spark{font-size:15px}
+.ign-hd h2{font-size:14px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.ign-hd .sub{font-size:11px;color:var(--muted);font-family:ui-monospace,monospace;margin-left:auto}
+.ign-list{display:flex;flex-direction:column}
+.ign{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;padding:13px 16px;
+  border-bottom:1px solid var(--line2);cursor:pointer}
+.ign:last-child{border-bottom:0}
+.ign:hover{background:var(--surface2)}
+.ign.open{background:var(--surface2)}
+.ign-rk{font-family:ui-monospace,monospace;font-weight:800;font-size:20px;color:var(--accent);text-align:center;line-height:1}
+.ign-main{min-width:0}
+.ign-nm{font-weight:800;color:var(--ink);letter-spacing:-.01em;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.ign-nm .sym{font-family:ui-monospace,monospace;font-size:11px;color:var(--muted);font-weight:600}
+.ign-nm .mkt{font-size:9px;padding:1px 5px}
+.ign-cat{font-size:11.5px;color:var(--muted);margin-top:3px;line-height:1.4}
+.ign-score{text-align:right;flex:0 0 auto}
+.ign-score .sv{font-family:ui-monospace,monospace;font-size:22px;font-weight:800;color:var(--ink);line-height:1}
+.ign-score .sl{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-top:2px}
+.ign-bars{grid-column:2/-1;display:flex;gap:4px;margin-top:9px}
+.fb{flex:1;min-width:0}
+.fb .fbl{font-size:8.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--faint);font-family:ui-monospace,monospace;display:flex;justify-content:space-between;margin-bottom:3px}
+.fb .fbl b{color:var(--muted)}
+.fb .fbt{height:5px;border-radius:3px;background:var(--line2);overflow:hidden}
+.fb .fbf{height:100%;border-radius:3px}
+.ign-det{grid-column:1/-1;display:none;padding-top:11px;margin-top:2px;border-top:1px dashed var(--line)}
+.ign.open .ign-det{display:block}
+.ign-det .thesis{font-size:12.5px;color:var(--text);line-height:1.55}
+.ign-det .counter{font-size:11.5px;color:var(--muted);line-height:1.5;margin-top:7px;padding-left:10px;border-left:2px solid var(--early)}
+.ign-det .ev{margin:9px 0 0;padding-left:16px}
+.ign-det .ev li{font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:3px}
+.ign-det .warn{margin-top:9px;font-size:10.5px;color:var(--accent);font-family:ui-monospace,monospace}
 footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:11.5px;color:var(--faint);line-height:1.7}
 footer b{color:var(--muted)}
 @media (max-width:640px){.wrap{padding:20px 14px 60px}.meta{text-align:left}.masthead{border-bottom-width:1px}}
@@ -192,6 +227,12 @@ footer b{color:var(--muted)}
   <div class="disc">
     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
     <p><b>교육·연구용 · 회피 목적.</b> 모든 종목은 <b>모니터링 후보</b>이며 조작·작전으로 <b>단정하지 않는다.</b> 점수·판정은 <b>보정 전 유사도</b>이지 확률·투자자문·매매신호가 아니다. 공개 데이터만 사용, 실존 개인·세력은 일반화. <b>대부분의 셋업은 급등하지 않는다(거짓양성 지배).</b></p>
+  </div>
+
+  <div class="ign-sec" id="ignsec" hidden>
+    <div class="ign-hd"><span class="spark">🔥</span><h2>폭등(점화) 가능성 Top 5</h2>
+      <span class="sub">ignition-rank · 5팩터 채점 · 행 클릭=근거</span></div>
+    <div class="ign-list" id="ignlist"></div>
   </div>
 
   <div class="kpis" id="kpis"></div>
@@ -254,6 +295,31 @@ const kpis=[
  {n:newN,l:'신규 편입',sub:'2026-07-27 스캔'},
 ];
 $('kpis').innerHTML=kpis.map(k=>`<div class="kpi"><div class="n">${k.n}</div><div class="l">${k.l}</div><div class="sub">${k.sub}</div></div>`).join('');
+
+// ignition top5
+const IGN=D.ignition||[];
+if(IGN.length){
+  $('ignsec').hidden=false;
+  const FB=[['f_anchor','앵커',25,'var(--preramp)'],['f_float','FLOAT',20,'var(--watch)'],['f_structure','구조',25,'var(--accent)'],['f_momentum','모멘텀',15,'var(--hit)'],['f_clean','반증부재',15,'var(--early)']];
+  $('ignlist').innerHTML=IGN.map((d,i)=>{
+    const bars=FB.map(([k,lab,mx,col])=>{const v=d[k]||0;return `<div class="fb"><div class="fbl">${lab}<b>${v}</b></div><div class="fbt"><div class="fbf" style="width:${v/mx*100}%;background:${col}"></div></div></div>`}).join('');
+    const nd=/NO_DATA/i.test(d.current_state||'')?`<span class="warn">⚠ 실시간 시세 NO_DATA(403) — 구조 기반 채점, 모멘텀 보수 적용</span>`:'';
+    const ev=(d.evidence||[]).slice(0,4).map(e=>`<li>${esc(e)}</li>`).join('');
+    return `<div class="ign" data-ig="${i}">
+      <div class="ign-rk">${i+1}</div>
+      <div class="ign-main"><div class="ign-nm">${esc(shortName(d.name))}<span class="sym">${esc(d.symbol)}</span></div>
+        <div class="ign-cat">▸ ${esc(d.key_catalyst||'')}</div></div>
+      <div class="ign-score"><div class="sv">${d.ignition_score}</div><div class="sl">/100</div></div>
+      <div class="ign-bars">${bars}</div>
+      <div class="ign-det">
+        <div class="thesis">${esc(d.thesis||'')}</div>
+        ${d.counter?`<div class="counter"><b>반대해석:</b> ${esc(d.counter)}</div>`:''}
+        ${ev?`<ul class="ev">${ev}</ul>`:''}
+        ${nd}
+      </div></div>`;
+  }).join('');
+  $('ignlist').querySelectorAll('.ign').forEach(el=>el.addEventListener('click',()=>el.classList.toggle('open')));
+}
 
 $('legend').innerHTML=VCODES.map(c=>`<span class="chip v-${c}"><span class="dot"></span>${c}</span>`).join('')
  +`<span class="desc">· 최신 라운드(R${D.rounds.length?D.rounds[D.rounds.length-1].round:''}) 판정을 종목 행에 표기</span>`;

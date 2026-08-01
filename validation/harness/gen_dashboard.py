@@ -60,8 +60,14 @@ def build_data():
     if blocks:
         for row in re.finditer(r"^\| \*\*(HIT|MISS|EARLY|VOID|PENDING|NO_DATA)\*\* \| ([^|]+?) \| ([^|]+?) \|", blocks[-1], re.M):
             verd[row.group(3).strip()] = row.group(1)
+    # ignition ranking (top5 폭등 유력), if present
+    ignition = []
+    rp = os.path.join(HERE, "ignition_rank.json")
+    if os.path.exists(rp):
+        ig = json.load(open(rp, encoding="utf-8"))
+        ignition = ig.get("ranked", [])[:5]
     return {"version": reg["version"], "as_of": reg["as_of"], "targets": reg["targets"],
-            "rounds": rounds, "latest_verdicts": verd}
+            "rounds": rounds, "latest_verdicts": verd, "ignition": ignition}
 
 TPL = os.path.join(HERE, "dashboard_template.html")
 
