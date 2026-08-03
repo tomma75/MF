@@ -1,6 +1,6 @@
 {
-  "version": 16,
-  "as_of": "2026-08-01",
+  "version": 17,
+  "as_of": "2026-08-03",
   "note": "F/U 대상 단일 정본(single source of truth). status: active=재조회 대상, closed=판정 종료(사유 기재). layer: collapse=붕괴 관찰 / preramp=발화 관찰 / collapse-watch=발화 후 디스트리뷰션 관찰. Round 1 판정 반영(v2).",
   "targets": [
     {
@@ -80,10 +80,11 @@
       "symbol": "188260",
       "mkt": "KR",
       "layer": "collapse-watch",
-      "status": "active",
+      "status": "closed",
       "window": "발화창 2026-06-30~07-24(중심 7월 상·중순, med). 앵커=관리종목해제 6/29 + 7월 10억 유증납입",
       "trigger": "50억 CB 전환개시/마이크로바이옴·NGS IR/거래량 급증",
-      "falsify": "정상 경영정상화/상폐로 소멸"
+      "falsify": "정상 경영정상화/상폐로 소멸",
+      "closed_reason": "R10 MISS — 교훈: 유증·CB·관리종목 해제·신사업 선언이라는 셋업 요소는 갖췄으나, 동시에 3/25 가공거래 사기·자본잠식·실질심사 리스크가 상방 내러티브를 상쇄하는 '역촉매 오버행'으로 작동. 자금조달+테마 IR만으로 발화를 예단하면 안 되고, 미해결 실질심사·자본잠식 같은 상폐 리스크가 병존할"
     },
     {
       "name": "파이온엑스(구 애머릿지)",
@@ -319,7 +320,7 @@
       "name": "뉴엔AI(구 알에스엔/RSN)",
       "symbol": "463020",
       "mkt": "KR",
-      "layer": "preramp",
+      "layer": "collapse-watch",
       "status": "active",
       "window": "개방형(상장 첫날 156% 급등 소진, 미상환 CB 전환물량 대기)",
       "trigger": "미상환 CB 전환(전환가능주식 발행총수 대비 30.9%) / AI 테마 재점화 / 거래대금 급증",
@@ -407,7 +408,7 @@
       "name": "CSA코스믹",
       "symbol": "083660",
       "mkt": "KR",
-      "layer": "preramp",
+      "layer": "collapse-watch",
       "status": "active",
       "window": "준개방형. 앵커=93% 무상감자 후 6/4 변경상장·7월 유증(청약 7/13~20) 소진 / 지앤비조합 보호예수 1년 종료 2026말~2027(신주 전량 담보 예정)",
       "trigger": "제주 카지노·레저 통합 플랫폼 등 신테마 인수·MOU / 추가 3자배정·CB 순환조달 / 보호예수 해제 물량 이벤트 / 거래대금 급증",
@@ -452,11 +453,12 @@
       "symbol": "043100",
       "mkt": "KR",
       "layer": "preramp",
-      "status": "active",
+      "status": "closed",
       "window": "개방형(사명변경 2025-07-30, 최대주주 교체 180억)",
       "trigger": "AI 비전데이터 신사업 실체·에이모 협업 공시 / 추가 조달 / 거래대금 급증",
       "falsify": "실적·실사업 정당화 / 미발화 소멸",
-      "note": "스캔 2026-08-01(하위, B). 솔고바이오메디칼→알파AI(알파녹스 경유), 최대주주 MDS테크→에이아이홀딩스 외6인(180억), AI 신사업 부착."
+      "note": "스캔 2026-08-01(하위, B). 솔고바이오메디칼→알파AI(알파녹스 경유), 최대주주 MDS테크→에이아이홀딩스 외6인(180억), AI 신사업 부착.",
+      "closed_reason": "R10 VOID — 교훈(거짓양성·리스크 학습): 사명변경(바이오→AI)+최대주주 교체(180억)+핫테마(비전데이터/에이모) IR이라는 전형적 preramp '외형 시그니처'가 모두 갖춰져도, 실체 없는 신사업은 발화가 아니라 감사의견 거절·거래정지·상폐로 귀결될 수 있다. 시그니처(B) 부착 자체는 발화"
     },
     {
       "name": "다보링크",
@@ -517,7 +519,7 @@
       "name": "Global Mofy AI Ltd",
       "symbol": "GMM",
       "mkt": "US",
-      "layer": "preramp",
+      "layer": "collapse-watch",
       "status": "active",
       "window": "개방형(1:50 역분할 6/11, Class A 유통 8,958만→179만주 초박)",
       "trigger": "AI/VFX 테마 PR / 얇은 float 임펄스 / 거래대금 급증",
@@ -529,11 +531,12 @@
       "symbol": "AIRE",
       "mkt": "US",
       "layer": "preramp",
-      "status": "active",
+      "status": "closed",
       "window": "개방형(1:25 역분할 상장유지 목적, AI 부동산테크)",
       "trigger": "AI 부동산 신PR·계약 / 얇은 float 발화 / 거래대금 급증",
       "falsify": "float 확대 / 실매출 정당화 / 미발화",
-      "note": "스캔 2026-08-01(하위, C). 1:25 역분할($1 규정)+AI 부동산 테마 얇은 float 셋업."
+      "note": "스캔 2026-08-01(하위, C). 1:25 역분할($1 규정)+AI 부동산 테마 얇은 float 셋업.",
+      "closed_reason": "R10 VOID — 교훈: (1) 역분할 후 '상장유지 성공'과 '작전 preramp'는 다르다 — 컴플라이언스 재획득(5/14) 직후 곧바로 희석성 공모($2M, 7/18)가 나오는 패턴은 이그니션이 아니라 러너웨이 연장(자금난) 신호. 초박 float에 대한 공모는 float을 넓혀 셋업 전제를 스스로"
     },
     {
       "name": "Micropolis AI Robotics",
