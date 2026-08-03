@@ -21,7 +21,19 @@ const CTX = `프로젝트: 작전주 선행 시그널 연구(방어적·교육�
 - VOID: 반증조건(falsify) 충족 → 예측 무효
 - PENDING: 창 이전·촉매 미도래, 미발생
 - NO_DATA: 실시간 확인 불가로 판정 불능
-층 정의: collapse=붕괴/디스트리뷰션 관찰, preramp=급등 발화 관찰, collapse-watch=발화 완료 후 오버행 출회·디스트리뷰션 관찰.`
+층 정의: collapse=붕괴/디스트리뷰션 관찰, preramp=급등 발화 관찰, collapse-watch=발화 완료 후 오버행 출회·디스트리뷰션 관찰.
+
+★ 시장보정(market-adjustment) — HIT 판정의 필수 관문 (PCR-MS의 'MS', 베타 오염 차단):
+"올랐다"는 그 자체로 시그널이 아니다. 반드시 벤치마크를 빼라.
+- index_ret: 같은 창의 지수 수익률(KR=코스닥 KQ11 우선, 대형주면 코스피; US=Russell 2000/러셀 마이크로캡 또는 나스닥).
+- sector_ret: 같은 창의 해당 테마·업종 수익률(로봇/바이오/AI데이터센터 등). 추정이면 근사치+근거.
+- excess_ret ≈ 종목수익률 − index_ret − sector_ret(초과수익). 부호·크기를 명시.
+- gate_b: 게이트B 발화 여부(bool) = 거래대금/회전율 폭증 + 장대양봉(상한가급). 지수 상승만으론 페니 셸에서 발생 불가한 미시구조.
+HIT 강화 규칙:
+- preramp/collapse-watch의 발화 HIT는 **excess_ret가 뚜렷한 양(예: 지수+섹터 대비 +15%p↑) AND gate_b=true**일 때만 부여.
+- 종목이 지수·섹터와 비슷하게(±수%p) 움직였고 gate_b=false면 = **베타 상승**이므로 HIT 아님 → PENDING(미발화)로 두고 learning_note에 "베타 상승, 초과수익 없음" 명기. beta_flag=true.
+- 데이터 부족으로 지수·섹터·거래대금을 확인 못하면 HIT 단정 금지 → NO_DATA 또는 PENDING, beta_flag는 unknown.
+- collapse층 붕괴 HIT도 지수 하락장의 동반 하락(베타)과 종목 고유 붕괴를 구분해 excess_ret로 근거화.`
 
 const RC = { type:'object', properties:{
   name:{type:'string'}, symbol:{type:'string'},
@@ -29,6 +41,11 @@ const RC = { type:'object', properties:{
   change_since_baseline:{type:'string'},
   trigger_fired:{type:'string'},
   falsifier_hit:{type:'string'},
+  index_ret:{type:'string', description:'같은 창 지수 수익률(코스닥/코스피/러셀 등)+근거. 불명이면 NO_DATA'},
+  sector_ret:{type:'string', description:'같은 창 테마·업종 수익률(근사 가능, 근거 명시). 불명이면 NO_DATA'},
+  excess_ret:{type:'string', description:'초과수익 ≈ 종목−지수−섹터. 부호·크기 명시. 불명이면 NO_DATA'},
+  gate_b:{type:'string', description:'게이트B 발화 여부: true/false/unknown(+거래대금·회전율·장대양봉 근거)'},
+  beta_flag:{type:'string', description:'true=베타(지수·섹터 동반)만으로 설명됨 / false=고유 초과움직임 / unknown'},
   verdict:{type:'string'},
   learning_note:{type:'string'},
   sources:{type:'array', items:{type:'string'}} },
@@ -50,7 +67,7 @@ if (!Array.isArray(cohort) || cohort.length === 0) { throw new Error('args must 
 
 phase('Recheck')
 const rc = (await parallel(cohort.map(c => () =>
-  agent(`${CTX}\n\n대상: ${c.name} (${c.symbol}, ${c.mkt}) — 층=${c.layer}\n예측/셋업: window=${c.window} · trigger=${c.trigger}\n반증조건: ${c.falsify}\n\nWebSearch(필요시 WebFetch)를 ToolSearch로 불러와 **오늘 기준 최신 상태**를 조사하라: 현재가·최근 등락, 시장경보/거래정지 단계 변화, 신규 공시(CB 전환·유증 납입·최대주주 변경·상폐심사), (US)정지 해제·상폐 진행, 수사·소송 보도.\n산출: current_status, change_since_baseline(직전 라운드 대비; 없으면 '변동 없음'), trigger_fired(yes/no/부분+근거), falsifier_hit(yes/no+근거), verdict(판정 코드로 시작), learning_note(HIT/MISS/VOID/EARLY면 근거·교훈, PENDING이면 다음 관찰 포인트), sources(URL). 확인 불가 항목은 정직하게 NO_DATA.`,
+  agent(`${CTX}\n\n대상: ${c.name} (${c.symbol}, ${c.mkt}) — 층=${c.layer}\n예측/셋업: window=${c.window} · trigger=${c.trigger}\n반증조건: ${c.falsify}\n\nWebSearch(필요시 WebFetch)를 ToolSearch로 불러와 **오늘 기준 최신 상태**를 조사하라: 현재가·최근 등락, 시장경보/거래정지 단계 변화, 신규 공시(CB 전환·유증 납입·최대주주 변경·상폐심사), (US)정지 해제·상폐 진행, 수사·소송 보도. **또한 같은 창의 지수(코스닥/코스피/러셀)와 해당 테마·업종 수익률을 함께 조사해 시장보정에 쓴다.**\n산출: current_status, change_since_baseline(직전 라운드 대비; 없으면 '변동 없음'), trigger_fired(yes/no/부분+근거), falsifier_hit(yes/no+근거), **index_ret·sector_ret·excess_ret·gate_b·beta_flag(★시장보정 규칙 준수 — 베타만으로 설명되면 HIT 금지)**, verdict(판정 코드로 시작), learning_note(HIT/MISS/VOID/EARLY면 근거·교훈, PENDING이면 다음 관찰 포인트; 베타 상승이면 그 사실 명기), sources(URL). 확인 불가 항목은 정직하게 NO_DATA.`,
     { label:`rc:${(c.name||'').slice(0,12)}`, phase:'Recheck', model:'opus', schema:RC })
     .then(v => v ? {...v, layer:c.layer} : null)
 ))).filter(Boolean)

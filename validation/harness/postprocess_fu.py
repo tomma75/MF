@@ -60,6 +60,9 @@ def main():
             "code": verdict_code(x.get("verdict")),
             "one": cl(x.get("change_since_baseline") or x.get("current_status"), 90),
             "note": cl(x.get("learning_note"), 420),
+            "excess": cl(x.get("excess_ret"), 70),
+            "gate_b": cl(x.get("gate_b"), 40),
+            "beta": cl(x.get("beta_flag"), 20),
         })
     items.sort(key=lambda i: (ORDER.get(i["code"], 9), i["layer"], i["name"]))
     dist = {}
@@ -74,6 +77,15 @@ def main():
     L.append("|---|---|---|---|")
     for i in items:
         L.append(f"| **{i['code']}** | {i['layer']} | {i['name']} | {i['one']} |")
+    # 시장보정 요약(발화/붕괴 후보 위주로 초과수익·게이트B·베타 플래그)
+    madj = [i for i in items if i["code"] in ("HIT", "EARLY") or (i.get("excess") and i["excess"] not in ("", "NO_DATA"))]
+    if madj:
+        L.append("\n### 시장보정(market-adjustment) — 베타 vs 초과수익")
+        L.append("| 종목 | 판정 | 초과수익(종목−지수−섹터) | 게이트B | 베타? |")
+        L.append("|---|---|---|---|---|")
+        for i in madj:
+            L.append(f"| {i['name']} | {i['code']} | {i['excess'] or '—'} | {i['gate_b'] or '—'} | {i['beta'] or '—'} |")
+
     nonpend = [i for i in items if i["code"] not in ("PENDING",)]
     if nonpend:
         L.append("\n### 판정 근거·학습노트")

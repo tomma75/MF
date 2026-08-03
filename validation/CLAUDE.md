@@ -50,3 +50,9 @@ validation/
 - 판단: `harness/fu_workflow.js` (서브에이전트 **opus 고정** — 드라이버가 소넷이어도 동일)
 - 기록·상태전이: `harness/postprocess_fu.py` (라운드 번호·로그 블록·registry 전이 전부 결정론적)
 - 전이 규칙(자동): VOID/MISS/EARLY→closed, preramp HIT→collapse-watch
+
+### 시장보정 게이트 (2026-08-03 추가, R11부터 — PCR-MS의 'MS')
+"올랐다=HIT"는 **베타(지수·테마 동반상승) 오염** 위험이 크다(예: 2026-08-03 코스피 −5.1%인데 코스닥 +2.4%·로봇/바이오 로테이션). 그래서 `fu_workflow.js`가 HIT 전에 **시장보정**을 강제한다:
+- `index_ret`(코스닥/코스피/러셀) · `sector_ret`(테마) · `excess_ret`(종목−지수−섹터) · `gate_b`(거래대금·회전율 폭증+장대양봉) · `beta_flag`.
+- **발화 HIT 조건 = 뚜렷한 양(+)의 초과수익 AND gate_b=true.** 지수·섹터만큼(±수%p) 오르고 gate_b=false면 = 베타 → **HIT 금지, PENDING(미발화)** + "베타 상승, 초과수익 없음" 기록.
+- 데이터 부족 시 HIT 단정 금지(NO_DATA/PENDING). `postprocess_fu.py`가 라운드마다 '시장보정' 표(초과수익·게이트B·베타?)를 로그에 남긴다.
