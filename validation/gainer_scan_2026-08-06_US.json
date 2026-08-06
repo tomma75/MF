@@ -1,0 +1,95 @@
+{
+  "as_of": "GAINER-SCAN",
+  "n": 4,
+  "rows": [
+    {
+      "name": "Iovance Biotherapeutics",
+      "symbol": "IOVA",
+      "mkt": "US",
+      "verified": true,
+      "move_today": "+28.8% (약 $4.4→$5.7 부근). Q2 2026 실적 발표(8/6) 반응, 대량 거래 동반. 상업단계 바이오로 유동성 충분.",
+      "index_ret": "나스닥 약 -0.8% (제시된 하락장 기준). 종목은 지수와 무관하게 실적 촉매로 급등.",
+      "excess_ret": "초과수익 약 +29%p 이상(지수 -0.8% 대비). 하락장 속 순수 알파지만, 원인이 실적·규제 호재로 완전 설명됨.",
+      "classification": "LEGIT",
+      "gate_b": "true — 실적일 거래량·거래대금 폭증 및 장대양봉. 단, 이는 명백한 실적 이벤트발 급증으로 구조적 매집·회전율 조작과는 성격이 다름.",
+      "signatures": "없음. A~F(조합 3자배정/셸 재활용/무상감자·역분할/연쇄 CB·BW+사명변경/무자본 M&A/소셜 펌프) 어느 것도 불부합. 실제 매출($99.3M, +66% YoY, GM 56%)과 FDA Fast Track(lifileucel 연조직육종) 보유한 정상 상장 제약사.",
+      "pre_observable": "no — 조작 셋업(감자·최대주주 교체·CB·사명변경 등) 부재. 예측 가능했던 것은 '예정된 실적 발표일'뿐이며, 이는 조작 시그니처가 아닌 공개 이벤트 캘린더. 우리 루브릭으로 사전 관측할 대상 아님.",
+      "why_surged": "2026 2분기 실적 서프라이즈(매출 ~$99.3M, +66% YoY, GM 56%) + lifileucel 연조직육종 FDA Fast Track 지정.",
+      "add_to_cohort": false,
+      "note": "실적·규제 호재로 완전히 설명되는 정상 급등. 나스닥 상장 상업단계 세포치료 바이오(TIL, Amtagvi/Proleukin)로 실매출·파이프라인·기관 커버리지(평균 Buy) 보유. 우리 A~F 작전 시그니처와 구조적으로 불부합하며, 사전관측·재활용 가치가 없어 코호트 비편입. 대상 아님(단정 아닌 구조 판정: 불부합).",
+      "sources": [
+        "https://www.quiverquant.com/news/Iovance+Biotherapeutics+Reports+2Q+2026+Revenue+Growth,+Margin+Expansion+and+FDA+Fast+Track+Designation+for+Lifileucel+in+Soft+Tissue+Sarcomas",
+        "https://stockanalysis.com/stocks/iova/",
+        "https://www.stocktitan.net/sec-filings/IOVA/8-k-iovance-biotherapeutics-inc-reports-material-event-5187c3628574.html",
+        "https://simplywall.st/stocks/us/pharmaceuticals-biotech/nasdaq-iova/iovance-biotherapeutics/news/iovance-biotherapeutics-iova-wins-australia-approval-for-amt"
+      ]
+    },
+    {
+      "name": "Aspen Aerogels, Inc.",
+      "symbol": "ASPN",
+      "mkt": "US",
+      "verified": true,
+      "move_today": "+27.9% 부근 (프리마켓 +28.66% ~$4.60 보도). 8/6 장전 Q2 2026 실적 발표 직후 급등. 정규 시가총액·유동성 큰 NYSE 상장 소재기업으로 거래량 급증 동반(실적 이벤트 전형).",
+      "index_ret": "같은 날 나스닥 약 -0.8% (하락장). 지수는 소폭 약세.",
+      "excess_ret": "초과수익 매우 큼(약 +28%p). 지수가 마이너스인 하락장에서 단독 +28% → 거의 순수 알파. 단, 촉매가 명확한 실적/수주 뉴스라 이벤트-driven 알파이지 구조적 작전 알파가 아님.",
+      "gate_b": "true(부분). 실적 서프라이즈로 거래대금·거래량 폭증하는 것은 맞으나, 얇은 float에 근거 없는 거래량 폭발이 아니라 명확한 뉴스 촉매에 대한 반응. 구조적 게이트B(작전형 회전율 폭증)와는 성격이 다름.",
+      "classification": "LEGIT",
+      "signatures": "없음. A~F 구조 어느 것도 불부합. 조합/SPC 3자배정 경영권이전 없음(A✗), 관리종목 해제·최대주주 교체 없음(B✗), 무상감자·역분할 얇은 float 없음(C✗), 연쇄 CB/BW·AI/로봇 사명변경·최대주주 담보 없음(D✗), 무자본 M&A 순환조달 없음(E✗), 셸 재활용·소셜 펌프 없음(F✗). 실제 매출·고객사(GM, Jaguar Land Rover PyroThin 수주) 보유한 정상 영업기업.",
+      "pre_observable": "no. 사전 관측할 작전 셋업(3자배정·감자·사명변경·CB·최대주주 교체) 자체가 존재하지 않음. 급등의 사전 관측 가능 요소는 8/6 실적발표 일정이 공지돼 있었다는 점뿐이며, 이는 작전 시그니처가 아니라 정규 실적 캘린더. 우리 루브릭 기준 리드타임 없음.",
+      "why_surged": "8/6 장전 Q2 2026 실적/사업 하이라이트 발표. 매출은 YoY 감소($49.8M vs $78.0M)했으나 Thermal Barrier 매출 $29.5M로 QoQ +81% 반등, Q3 2026 가이던스 $65~80M·조정 EBITDA $7~15M 흑자전환 시사, Jaguar Land Rover 차세대 2개 아키텍처 PyroThin 수주, 현금 $175.6M로 개선. 이 개선 전망이 매수를 촉발.",
+      "add_to_cohort": false,
+      "note": "Aspen Aerogels(NYSE:ASPN)는 에어로젤 단열소재/EV 배터리 열폭주 차단재(PyroThin)를 실제 양산·판매하는 정상 영업기업으로, A~F 작전 구조 어느 것에도 부합하지 않는다. 오늘 +28% 급등은 8/6 Q2 실적발표에서의 QoQ 매출 반등·Q3 흑자 가이던스·JLR 수주라는 명확한 펀더멘털 촉매에 대한 반응이다. 하락장 속 단독 급등으로 초과수익은 크지만 이는 이벤트-driven 알파이며 구조적 작전 알파가 아니다. LEGIT으로 분류, 코호트 편입 대상 아님.",
+      "sources": [
+        "https://www.globenewswire.com/news-release/2026/08/06/3340041/0/en/Aspen-Aerogels-Inc-Reports-Second-Quarter-2026-Financial-Results-and-Recent-Business-Highlights.html",
+        "https://www.stocktitan.net/news/ASPN/aspen-aerogels-inc-schedules-second-quarter-2026-earnings-release-vs76lpl8la2x.html",
+        "https://www.stocktitan.net/news/ASPN/aspen-aerogels-inc-reports-first-quarter-2026-financial-results-and-lfmkxmth1nof.html"
+      ]
+    },
+    {
+      "name": "Insmed Incorporated",
+      "symbol": "INSM",
+      "mkt": "US",
+      "verified": true,
+      "move_today": "+28.2% (약 $130/180,949원). 실적 발표 후 대형 바이오 급등, 거래량 평소 대비 대폭 증가(대형주 어닝 무브). 시총 약 $42B급 대형주.",
+      "index_ret": "나스닥 약 -0.8% (하락장)",
+      "excess_ret": "약 +29%p (지수 대비 순수 알파 매우 큼) — 다만 실적·데이터 촉매에 기인한 정상 급등",
+      "classification": "LEGIT",
+      "signatures": "없음 — A~F 구조 어느 것도 불부합. 실적 있는 상업화 단계 대형 제약사(Q2'26 매출 $425.5M, BRINSUPRI +49%), 3자배정·감자·역분할·사명변경·연쇄 CB·최대주주 교체·셸 재활용 정황 전무.",
+      "pre_observable": "no — 조작 셋업(3자배정/감자/사명변경/CB/최대주주 교체) 공시 자체가 존재하지 않음. 촉매는 예정된 Q2 실적 발표 및 7/16 공개된 TPIP(PAH) 확장 데이터로, 우리 시그니처로 사전 관측할 대상이 아님(정상 이벤트).",
+      "why_surged": "2026 2분기 강력한 실적(총매출 $425.5M, BRINSUPRI 매출 $309.2M +49% 성장)과 흑자 기대 재개, TPIP 폐동맥고혈압 12개월 오픈라벨 확장에서 운동능력·심장 바이오마커의 지속적·임상적으로 유의한 개선(환자 25% 이상 무증상 도달) 등 파이프라인 낙관론.",
+      "gate_b": "true(부분) — 어닝 서프라이즈로 거래대금·거래량 폭증 및 장대양봉. 단, 이는 정상 실적 급등의 유동성 확대이며 작전형 회전율 폭증과 구조가 다름.",
+      "add_to_cohort": false,
+      "note": "Insmed은 실적·매출·FDA 승인 제품(BRINSUPRI/ARIKAYCE)을 보유한 대형 호흡기 바이오제약사로, 이번 +28% 급등은 Q2 어닝 및 임상 데이터에 기인한 전형적 LEGIT 급등이다. 하락장 속 큰 초과수익이지만 이는 펀더멘털 촉매 기반 알파이며, 우리 A~F 작전 시그니처와 구조적으로 완전히 불부합한다. 코호트 편입 가치 없음 — 오히려 '정상 급등' 대조 사례로만 참고.",
+      "sources": [
+        "https://www.tipranks.com/news/catalyst/insmed-stock-surges-on-renewed-profit-hopes",
+        "https://www.stocktitan.net/news/INSM/",
+        "https://investor.insmed.com/index",
+        "https://finance.yahoo.com/quote/INSM/news/",
+        "https://www.sec.gov/Archives/edgar/data/1104506/000114036126013659/ef20070042_ex99-1.htm"
+      ]
+    },
+    {
+      "name": "Evolent Health, Inc. (Class A)",
+      "symbol": "EVH",
+      "mkt": "US",
+      "verified": true,
+      "move_today": "+27.2% (태스크 제시 기준, ≈$4대/5,585원 환산). 실측 최근 세션들은 $4.8~$5.51 구간에서 급등 지속 확인. 실적·M&A 촉매로 거래량 폭증 동반(뉴스 기반 대형 이벤트성 거래).",
+      "index_ret": "나스닥 -0.8% (하락장, 태스크 제시)",
+      "excess_ret": "지수 대비 약 +28%p 초과수익. 시장(-0.8%)과 반대로 급등한 순수 종목 알파이나, 촉매가 실적+실체 있는 인수 협상이라 구조적 작전 알파가 아닌 정상 이벤트 알파.",
+      "gate_b": "true — 실적 발표(8/6)와 인수설 보도로 거래대금·거래량 폭증 및 장대양봉 발생. 단, 촉매가 명확한 펀더멘털/M&A 이벤트라 게이트B 통과 자체가 작전 시그널이 되진 않음.",
+      "classification": "LEGIT",
+      "signatures": "없음. A~F(조합 3자배정·관리종목 해제 후 최대주주 교체·무상감자/역분할·연쇄 CB/BW+AI로봇 사명변경·무자본 M&A·셸 재활용 펌프) 어느 것도 불부합. EVH는 NYSE 상장 실체 있는 헬스케어 솔루션 기업(분기매출 약 $6억, 밸류베이스드케어)으로, 한국형 마이크로 셸 조작 구조와 미시구조가 근본적으로 다름.",
+      "pre_observable": "no(작전 시그니처 관점). 3자배정·감자·사명변경·CB·최대주주 교체 등 셋업 공시가 존재하지 않음. 다만 정상 촉매 관점에서는 부분 관측 가능 — 인수설(Elevance/TPG/KKR/CD&R) 보도와 8/6 실적 일정이 사전에 알려져 있었음. 이는 작전 리드타임이 아니라 공개된 이벤트 캘린더.",
+      "why_surged": "Q2 2026 실적(8/6 발표, 매출 YoY +37% 급증 기대·전문진료(종양학) 파트너십 확대)과, Elevance Health(구 Anthem) 및 사모펀드(TPG·KKR·CD&R)에 의한 전부/일부 인수 협상 보도가 결합된 펀더멘털·M&A 촉매.",
+      "add_to_cohort": false,
+      "note": "EVH는 NYSE 상장 실체 기업(밸류베이스드 헬스케어 솔루션)으로, 급등 원인은 실적 개선 기대와 대형 전략적/PE 인수 협상이라는 정상 촉매다. 우리의 A~F 셸·작전 시그니처와 구조적으로 불부합하며 사전관측 가능한 조작 셋업도 없다. 하락장 속 큰 초과수익이지만 순수 이벤트 알파로 판단되어 코호트 편입 대상 아님.",
+      "sources": [
+        "https://telecareaware.com/evolent-health-talking-major-acquisition-by-payer-elevance-private-equity/",
+        "https://markets.financialcontent.com/stocks/article/stockstory-2026-8-5-evolent-health-earnings-what-to-look-for-from-evh",
+        "https://finance.yahoo.com/markets/stocks/articles/strength-seen-evolent-health-evh-145200076.html",
+        "https://www.marketbeat.com/instant-alerts/evolent-health-evh-to-release-earnings-on-thursday-2026-07-30/",
+        "https://ir.evolent.com/"
+      ]
+    }
+  ]
+}
