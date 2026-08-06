@@ -66,8 +66,13 @@ def build_data():
     if os.path.exists(rp):
         ig = json.load(open(rp, encoding="utf-8"))
         ignition = ig.get("ranked", [])[:5]
+    # LR calibration summary, if present
+    lr = None
+    lp = os.path.join(HERE, "lr_summary.json")
+    if os.path.exists(lp):
+        lr = json.load(open(lp, encoding="utf-8"))
     return {"version": reg["version"], "as_of": reg["as_of"], "targets": reg["targets"],
-            "rounds": rounds, "latest_verdicts": verd, "ignition": ignition}
+            "rounds": rounds, "latest_verdicts": verd, "ignition": ignition, "lr": lr}
 
 TPL = os.path.join(HERE, "dashboard_template.html")
 

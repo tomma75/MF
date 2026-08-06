@@ -1,0 +1,304 @@
+{
+  "as_of": "CONTROL-SCAN",
+  "drawn": 16,
+  "valid_controls": 16,
+  "signature": 0,
+  "unclear": 1,
+  "legit": 15,
+  "strict_rate": 0,
+  "soft_rate": 0.0625,
+  "rows": [
+    {
+      "name": "국순당",
+      "symbol": "043650",
+      "verified": true,
+      "is_kosdaq_smallcap": true,
+      "surged_recently": false,
+      "classification": "LEGIT",
+      "signatures": "없음 — A~F 어느 구조도 미보유. A(조합/SPC 3자배정 경영권이전): 없음, 배중호 회장 오너 일가 안정 지배구조. B(관리종목 해제후 최대주주 교체): 없음. C(무상감자·역분할·얇은 float): 없음, 발행주식 약 1,786만주 정상. D(연쇄 CB/BW+AI·로봇 사명변경): 없음, 40년간 사명·주류 본업 불변. E(무자본 M&A 순환조달): 없음. F(셸 재활용): 없음.",
+      "market_cap": "약 682억원",
+      "move_today": "급등 정황 없음(상한가·+15%↑ 아님). 오늘자 정확 등락률은 실시간 확인 불가하나 상승 뉴스 부재",
+      "note": "1983년 설립 전통주(막걸리·백세주) 제조·판매 실물 영업사. 안정 오너 지배구조, CB/BW 순환조달·사명변경·경영권 이전·감자 등 구조적 시그널 전무한 클린 대조군.",
+      "sources": [
+        "https://alphasquare.co.kr/home/stock-summary?code=043650",
+        "https://comp.fnguide.com/SVO2/asp/SVD_Main.asp?gicode=A043650",
+        "https://comp.wisereport.co.kr/company/c1010001.aspx?cmp_cd=043650"
+      ]
+    },
+    {
+      "name": "노바텍",
+      "symbol": "285490",
+      "verified": true,
+      "is_kosdaq_smallcap": true,
+      "market_cap": "약 1,850억원",
+      "move_today": "오늘 급등 근거 없음(상한가·+15%↑ 뉴스 부재). 배당가치주로 17,000~21,500원대 안정 흐름. 당일 정확 등락률은 실시간 확인 불가하나 급등 신호 없음",
+      "surged_recently": false,
+      "classification": "LEGIT",
+      "signatures": "없음. A(3자배정·경영권이전) 없음 / B(관리종목해제·최대주주교체) 없음 / C(무상감자·역분할·얇은 float) 없음 / D(연쇄CB/BW·AI로봇 사명변경·최대주주 담보) 없음 / E(무자본 M&A) 없음 / F(셸 재활용) 없음. CB·사명변경·감자 검색 시 노바텍 관련 결과 전무(타사 누보만 반환)",
+      "note": "코스닥 소형주(시총 ~1,850억) 대조군 적격. 스마트기기용 응용자석·모듈 제조 정상 영업사로 PER~7·PBR 0.86·ROE 12%·270억 현금배당. A~F 구조 시그니처 미보유 → 기저 보유율(LR 분모) 표본으로 LEGIT.",
+      "sources": [
+        "https://comp.fnguide.com/SVO2/ASP/SVD_Main.asp?gicode=A285490",
+        "https://goinsider.kr/stock/01259232",
+        "https://itooza.com/vscore/285490",
+        "https://www.investing.com/equities/novatec-co-ltd"
+      ]
+    },
+    {
+      "name": "디케이앤디",
+      "symbol": "309900",
+      "verified": true,
+      "is_kosdaq_smallcap": true,
+      "market_cap": "약 3,900억원 (2026-03 기준 3,926억)",
+      "move_today": "급등 아님 (오늘 급등주 부각 목록에 없음; 상한가·+15% 근거 없음)",
+      "surged_recently": false,
+      "classification": "UNCLEAR",
+      "signatures": "없음 (A~F 하드구조 부재). A:3자배정 경영권이전 없음. B:관리종목/최대주주교체 없음. C:반대 — 무상감자·역분할 아님, 2025.12 1:1 무상증자(주식수 증가). D:연쇄CB/BW·사명변경 없음(사명 유지, 교환사채도 자기주식 기반 17억 소액)·고비율담보 미확인. E:무자본M&A 아님(자체 현금흐름). F:셸 재활용 아님. 소프트플래그만: '로봇 스킨' 신테마 전환 내러티브 + 무상증자發 상한가(2025.12, 리테일 내러티브 민감).",
+      "note": "합성피혁 제조 정상 영업사(2025 매출 1,425억·2026 1Q 영업익 21억 흑자, 키움 스몰캡 커버리지). 하드구조 A~F 없음. 로봇스킨 테마 전환은 핵심 소재기술(피부 촉감)에서 유기적 파생이라 셸형 테마스왑과 구별되나, 신테마 내러티브+무상증자 상한가라는 소프트플래그가 존재해 UNCLEAR로 채점.",
+      "sources": [
+        "https://v.daum.net/v/pUnKsYJ6yo",
+        "https://www.pinpointnews.co.kr/news/articleView.html?idxno=449227",
+        "https://economist.co.kr/article/view/ecn202605130067",
+        "https://bbn.kiwoom.com/rfCR11975",
+        "https://www.youthdaily.co.kr/news/article.html?no=85754",
+        "https://v.daum.net/v/20260428112932260",
+        "https://www.etoday.co.kr/news/view/2611916"
+      ]
+    },
+    {
+      "name": "링네트",
+      "symbol": "042500",
+      "verified": true,
+      "is_kosdaq_smallcap": true,
+      "surged_recently": false,
+      "classification": "LEGIT",
+      "signatures": "없음 (A~F 구조 전부 부재). A: 3자배정 경영권이전 없음, 최대주주 이정민 외 26.78% 안정. B: 관리종목 해제/최대주주 교체 이력 없음. C: 무상감자·역분할·얇은 float 없음. D: 연쇄 CB/BW·사명변경·대주주 담보 없음(사명 유지). E: 무자본 M&A·순환조달 없음. F: 셸 재활용 아님.",
+      "market_cap": "약 1,350억원",
+      "move_today": "급등 아님(6천원대 안정, 상한가·+15% 신호 없음)",
+      "note": "2000년 설립 네트워크통합(NI)·클라우드·데이터센터 SI 정상 영업사. 실매출·실사업·안정 지배구조로 A~F 구조 시그니처가 전무한 전형적 대조군(base rate 분모) 종목.",
+      "sources": [
+        "https://comp.fnguide.com/SVO2/ASP/SVD_Main.asp?gicode=A042500",
+        "https://www.stockplus.com/m/stocks/KOREA-A042500",
+        "https://itooza.com/vscore/042500",
+        "https://www.k5.co.kr/stock/042500/company_info"
+      ]
+    },
+    {
+      "name": "매커스",
+      "symbol": "093520",
+      "verified": true,
+      "is_kosdaq_smallcap": true,
+      "market_cap": "약 2,073억원",
+      "move_today": "급등 아님 (최근 등락 +3%대 수준, +15%·상한가 아님)",
+      "surged_recently": false,
+      "classification": "LEGIT",
+      "signatures": "없음 — A~F 어느 구조도 미보유. 3자배정/경영권이전(A) 없음, 관리종목 이력·최대주주 교체(B) 없음, 무상감자·역분할(C) 없음, 연쇄 CB/BW·AI/로봇 사명변경(D) 없음, 무자본 M&A 순환조달(E) 없음, 셸 재활용(F) 없음. Xilinx/AMD FPGA 등 반도체 부품 정규 유통 영업사로 매출 약 2,272억·영업이익 약 291억의 실질 사업 보유.",
+      "note": "코스닥 반도체 부품 유통 소형주. 안정적 실적·명확한 본업을 가진 정상 영업사로 A~F 조작 구조 시그니처가 전무하여 대조군(base-rate 분모) 표본으로 적격. 조작 단정 아님 — 구조 부재를 기록.",
+      "sources": [
+        "https://comp.fnguide.com/SVO2/ASP/SVD_Main.asp?gicode=A093520",
+        "https://scoreport.kr/stocks/A093520",
+        "https://www.investing.com/equities/makus-inc",
+        "https://www.antwinner.com/stocks_analysis/%EB%A7%A4%EC%BB%A4%EC%8A%A4"
+      ]
+    },
+    {
+      "name": "비아트론",
+      "symbol": "141000",
+      "verified": true,
+      "is_kosdaq_smallcap": true,
+      "market_cap": "약 1,266억원",
+      "move_today": "급등 신호 없음(안정 장비주). 상한가·+15%↑ 아님. 당일 정확 등락률은 실시간 소스 403으로 분단위 확정 못함이나 급등 정황 전무.",
+      "surged_recently": false,
+      "classification": "LEGIT",
+      "signatures": "없음 — A~F 구조 시그니처 미보유. 3자배정 경영권이전·감자/역분할·셸 사명변경·연쇄 CB/BW·무자본 M&A 정황 검색상 확인 안 됨.",
+      "note": "비아트론은 2012년 상장한 반도체·평판디스플레이 전공정 열처리장비(Flexible Display backplane) 제조사로 실제 영업·매출 기반의 정상 사업회사다. 시총 약 1,266억으로 코스닥 소형주 대조군 대역(300~5,000억) 내이며 오늘 급등 정황이 없어 base rate(LR 분모) 표본으로 적격. A~F 구조 시그니처는 보유하지 않는다. 교육·연구용 참고이며 조작 단정 아님.",
+      "sources": [
+        "https://m.thinkpool.com/item/141000",
+        "https://comp.fnguide.com/SVO2/asp/SVD_Main.asp?gicode=A141000",
+        "https://itooza.com/vscore/141000",
+        "https://www.investing.com/equities/viatron-technologies-inc"
+      ]
+    },
+    {
+      "name": "삼목에스폼",
+      "symbol": "018310",
+      "verified": true,
+      "is_kosdaq_smallcap": true,
+      "market_cap": "약 2,500~2,560억원 (상장주식 1,470만주 × 약 21,000원대)",
+      "move_today": "오늘(2026-08-06) 급등 없음 — 52주 밴드(16,610~24,600) 내 21,000원대 정체. 급등 흔적 없음.",
+      "surged_recently": false,
+      "classification": "LEGIT",
+      "signatures": "없음. A~F 어느 구조도 미보유. (A 경영권이전 3자배정: 없음 — 오히려 2026-05-18 최대주주 '에스폼'이 지배력 강화 목적 공개매수(자기편 매집)를 발표한 정반대 이벤트. B 관리종목해제/최대주주교체: 없음, 1985년 설립·창업가문 안정 지배. C 감자·역분할 얇은 float: 없음, 정상 유통구조. D 연쇄 CB/BW·AI/로봇 사명변경·대주주 고비율 담보: 없음, 사명·업종 불변. E 무자본 M&A 순환조달: 없음, 자체 현금흐름 흑자·배당. F 셸 재활용: 해당 없음.)",
+      "signals": "없음",
+      "note": "1985년 설립 건설용 거푸집(알루미늄폼·판넬폼) 제조 전문업체로, 흑자·주식배당을 지속하는 정상 영업사. PBR 약 0.48의 저평가 밸류주이며 최대주주가 공개매수로 지배력을 '강화'하는 방향(작전 시그니처 A의 정반대)이라 구조적 조작 시그니처 부재. 대조군 기저율(LR 분모) 측정에 적합한 clean LEGIT 표본. 참고: 2026-05-18 공개매수·스페이스X 테마로 일시 +25% 스파이크가 있었으나 약 3개월 전 종료된 일회성 기업이벤트로, 현재는 정체 상태여서 '오늘/최근 급등' 부적격 사유 아님.",
+      "sources": [
+        "https://www.stockplus.com/m/stocks/KOREA-A018310",
+        "https://comp.fnguide.com/SVO2/ASP/SVD_Main.asp?gicode=A018310&MenuYn=Y",
+        "https://markets.hankyung.com/stock/018310",
+        "https://www.sedaily.com/article/14114686",
+        "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02417366645450232"
+      ]
+    },
+    {
+      "name": "옵트론텍",
+      "symbol": "082210",
+      "verified": true,
+      "is_kosdaq_smallcap": true,
+      "market_cap": "약 1,889억",
+      "move_today": "미확인(급등 정황 없음, 최근 2,100원대 안정)",
+      "surged_recently": false,
+      "classification": "LEGIT",
+      "signatures": "없음 — A(3자배정 경영권 이전) 없음, B(관리종목 해제+최대주주 교체) 없음, C(무상감자·역분할) 없음, D(연쇄 CB/BW+AI·로봇 사명변경+담보) 없음, E(무자본 M&A 순환조달) 없음, F(셸 재활용) 없음",
+      "note": "코스닥 광학필터·이미지센서 부품 제조 영업사(삼성전자 등 카메라모듈 부품 공급). 시총 약 1,889억으로 대조군 대역 내, 최근 2,100원대 안정. A~F 구조 시그니처 미보유한 정상 종목 — LR 분모(기저율) 표본으로 유효. 조작 단정 아님.",
+      "sources": [
+        "https://comp.fnguide.com/SVO2/ASP/SVD_Main.asp?gicode=A082210",
+        "https://markets.hankyung.com/stock/082210/financial-summary",
+        "https://m.thinkpool.com/item/082210",
+        "https://www.investing.com/equities/optrontec-inc"
+      ]
+    },
+    {
+      "name": "진성티이씨",
+      "symbol": "036890",
+      "verified": true,
+      "is_kosdaq_smallcap": true,
+      "market_cap": "약 3,100억원",
+      "move_today": "급등 아님(상한가·+15%↑ 해당 없음). 관련 급등 뉴스·공시 없음, 대체로 보합권 추정(정확 종가 미확정)",
+      "surged_recently": false,
+      "classification": "LEGIT",
+      "signatures": "없음",
+      "note": "건설중장비 하부주행체(언더캐리지) 부품 제조업체로 주고객이 미국 캐터필러인 실적 기반 정상 영업사. 안정적 최대주주·본업 매출 구조로 작전 구조 시그니처 미보유. 대조군 기저율 산정에 적격(구조 신호 0/6).",
+      "sources": [
+        "https://comp.fnguide.com/SVO2/ASP/SVD_Main.asp?gicode=A036890",
+        "https://itooza.com/vscore/036890",
+        "https://www.google.com/finance/quote/036890:KOSDAQ",
+        "https://m.thinkpool.com/item/036890"
+      ]
+    },
+    {
+      "name": "참좋은여행",
+      "symbol": "094850",
+      "verified": true,
+      "is_kosdaq_smallcap": true,
+      "surged_recently": false,
+      "classification": "LEGIT",
+      "signatures": "없음 — A(3자배정 경영권이전) 없음, B(관리종목해제+최대주주교체) 없음, C(감자·역분할·얇은float) 없음, D(연쇄CB/BW+AI·로봇 사명변경) 없음, E(무자본M&A 순환조달) 없음, F(셸 재활용) 없음. 소프트플래그도 없음.",
+      "market_cap": "약 640억원",
+      "move_today": "약보합~-4%대(급등 아님)",
+      "note": "삼천리자전거 계열에서 분할된 실체 여행사로 실제 본업 매출(2025년 921억)·영업이익(97.8억)을 내는 정상 영업사. A~F 조작 구조 시그니처 전무한 전형적 LEGIT 대조군 표본.",
+      "sources": [
+        "https://comp.fnguide.com/SVO2/ASP/SVD_Main.asp?gicode=A094850",
+        "https://www.digitaltoday.co.kr/news/articleView.html?idxno=628149",
+        "https://tossinvest.com/stocks/A094850/order"
+      ]
+    },
+    {
+      "name": "코메론 (Komelon)",
+      "symbol": "049430",
+      "verified": true,
+      "is_kosdaq_smallcap": true,
+      "market_cap": "약 1,700억원 (1,687억 내외)",
+      "move_today": "급등 없음 (평상시 변동, +15%·상한가 아님)",
+      "surged_recently": false,
+      "classification": "LEGIT",
+      "signatures": "없음 — A~F 구조 시그니처 모두 부재. A(조합/SPC 3자배정 경영권 이전) 없음: 창업주 일가 안정적 지배구조. B(관리종목 해제·최대주주 교체) 없음. C(무상감자·역분할 얇은 float) 없음 — 오히려 자사주 405억 매입·자본준비금 감소는 주주환원(감자·역분할과 무관). D(연쇄 CB/BW+AI·로봇 사명변경+최대주주 고비율 담보) 없음 — 사명 유지, 무차입 우량 재무. E(무자본 M&A·유증/CB 순환조달) 없음. F(셸 재활용) 없음.",
+      "note": "줄자 세계 3~5위 제조사, 미국 매출비중 60%+·영업이익률 약 25%의 정상 흑자 영업사. 코스닥 소형주(시총 약 1,700억)로 대조군 자격 충족, 오늘 급등 없음. A~F 구조 시그니처 전무 → 기저 보유율(분모) 표본으로 적격.",
+      "sources": [
+        "https://comp.fnguide.com/SVO2/ASP/SVD_Main.asp?gicode=A049430&MenuYn=Y",
+        "https://itooza.com/vscore/049430",
+        "https://www.digitaltoday.co.kr/news/articleView.html?idxno=649999",
+        "https://www.stockplus.com/m/stocks/KOREA-A049430",
+        "https://dolfin.plus/stock/049430/news"
+      ]
+    },
+    {
+      "name": "토비스",
+      "symbol": "051360",
+      "verified": true,
+      "is_kosdaq_smallcap": true,
+      "surged_recently": false,
+      "market_cap": "약 2,560~2,690억원",
+      "move_today": "약 -6.2% (하락)",
+      "classification": "LEGIT",
+      "signatures": "없음 — A~F 구조 시그니처 전무. 3자배정 경영권이전(A)·관리종목해제후 최대주주교체(B)·감자/역분할(C)·연쇄CB+AI로봇 사명변경(D)·무자본M&A(E)·셸재활용(F) 모두 미해당. AI·신테마 사명 등 소프트플래그(UNCLEAR)도 없음.",
+      "note": "산업용 모니터·카지노 게이밍 디스플레이·전장 클러스터를 실제 양산하며 매출·영업이익이 성장하는 정상 영업사. 안정적 창업자 지배구조, 2만원대 주가로 저가권 아님. 오늘 -6.2%로 급등과 무관 — 구조 시그니처 부재 대조군(LR 분모)으로 적격.",
+      "sources": [
+        "https://comp.fnguide.com/SVO2/ASP/SVD_Main.asp?gicode=A051360",
+        "https://www.tfmedia.co.kr/news/article.html?no=172091",
+        "https://stockplus.com/m/stocks/KOREA-A051360",
+        "https://comp.wisereport.co.kr/company/c1010001.aspx?cmp_cd=051360"
+      ]
+    },
+    {
+      "name": "파세코",
+      "symbol": "037070",
+      "verified": true,
+      "is_kosdaq_smallcap": true,
+      "surged_recently": false,
+      "classification": "LEGIT",
+      "signatures": "없음 (A~F 구조 시그니처 전무). A:경영권이전/3자배정 없음·최대주주 신덕균 일가 안정. B:관리종목 이력 없음. C:감자/역분할 없음, 자본구조 정상. D:사명 30년 유지·CB/BW 남발 없음·본업 계절/주방가전 제조. E:무자본 M&A·순환조달 없음(자체 영업현금흐름). F:셸 재활용 아님. 실적부진은 경기민감 제조업 특성일 뿐 구조와 무관.",
+      "market_cap": "약 1,350억~1,760억원 (주가 6,780~8,790원 변동, 소형주 대역 내)",
+      "move_today": "급등 아님 — 7월 대비 하락 약세 추세(6,780원선), +15%↑·상한가 해당 없음",
+      "note": "코스닥 상장 계절/주방/생활가전 제조사(석유스토브·창문형에어컨·인덕션 등)로 전형적 정상 영업사. 오늘 급등 없어 대조군 적격이며 A~F 구조 시그니처 기저 보유율 0/6 표본으로 계상.",
+      "sources": [
+        "https://itooza.com/vscore/037070",
+        "https://comp.wisereport.co.kr/company/c1010001.aspx?cmp_cd=037070",
+        "https://www.investing.com/equities/paseco-co-ltd",
+        "https://www.judal.co.kr/?view=stockAI&shareToken=3nNASdMFg6Xayjoj"
+      ]
+    },
+    {
+      "name": "한네트",
+      "symbol": "052600",
+      "verified": true,
+      "is_kosdaq_smallcap": true,
+      "surged_recently": false,
+      "classification": "LEGIT",
+      "signatures": "없음",
+      "market_cap": "약 320억원",
+      "move_today": "확인 범위 내 급등 없음(무뉴스·저변동 배당주). 정확 일간 등락은 라이브 시세페이지 403으로 미확보",
+      "note": "한네트(052600)는 VAN·무인현금인출기·무인결제 사업의 정상 흑자·현금배당 영업사로, A~F 구조 시그니처가 하나도 없는 전형적 LEGIT 대조군. 시총 약 320억으로 소형주 대역(300~5000억) 하단에 부합하고 오늘 급등·신테마 이벤트 없음.",
+      "sources": [
+        "https://comp.fnguide.com/SVO2/ASP/SVD_Main.asp?gicode=A052600",
+        "https://itooza.com/vscore/052600",
+        "https://news.nate.com/view/20250221n20206",
+        "https://finance.daum.net/domestic/market_cap",
+        "https://www.google.com/finance/quote/052600:KOSDAQ"
+      ]
+    },
+    {
+      "name": "디지털대성",
+      "symbol": "068930",
+      "verified": true,
+      "is_kosdaq_smallcap": true,
+      "surged_recently": false,
+      "classification": "LEGIT",
+      "signatures": "없음 — A~F 구조 시그니처 모두 미보유. 25년 이상 동일 교육 본업(대성마이맥), 최대주주(대성계열) 안정, 관리종목·감자·역분할·사명변경·연쇄CB/BW·무자본M&A·셸재활용 모두 해당 없음. 오히려 자사주 소각+매입(희석의 반대) 및 흑자 실적으로 정상 영업사임이 강화됨.",
+      "market_cap": "약 2,300~2,400억",
+      "move_today": "평이한 등락(급등 아님), 최근가 7,300~7,700원대",
+      "note": "코스닥 교육 소형주로 A~F 구조 시그니처 0개. 자사주 소각·흑자 등 정상 영업 실체 뚜렷한 클린 대조군(base rate 분모용).",
+      "sources": [
+        "https://comp.fnguide.com/SVO2/ASP/SVD_Main.asp?gicode=A068930",
+        "https://view.asiae.co.kr/article/2026073011241627679",
+        "https://www.google.com/finance/beta/quote/068930:KOSDAQ?hl=ko"
+      ]
+    },
+    {
+      "name": "바이오다인",
+      "symbol": "314930",
+      "verified": true,
+      "is_kosdaq_smallcap": true,
+      "surged_recently": false,
+      "classification": "LEGIT",
+      "signatures": "없음 — A(3자배정 경영권이전) 없음, 창업자 임욱빈 대표 40.72% 안정 최대주주 / B(관리종목 해제·최대주주교체) 해당없음 / C(무상감자·역분할) 없음 / D(연쇄CB·AI로봇 사명변경) 없음, 사명 유지·의료기기 본업 / E(무자본M&A) 없음, 창업자 실소유 / F(셸 재활용) 없음",
+      "market_cap": "약 2,500억",
+      "move_today": "+0.57% (14,050원, 전일 13,970원)",
+      "note": "코스닥 의료·정밀기기 소형주. 자궁경부암 액상세포검사(LBC) 진단기기·시약 제조로 로슈(ROCHE)와 글로벌 계약 보유한 실제 영업사. 창업자 임욱빈 대표가 40.72% 안정적으로 보유해 경영권 이전·순환조달 구조가 없는 전형적 정상 영업사이며, A~F 시그니처 기저 보유율 0으로 측정되는 클린 대조군 표본.",
+      "sources": [
+        "https://comp.fnguide.com/SVO2/ASP/SVD_main.asp?gicode=A314930",
+        "https://finance.finup.co.kr/Stock/314930",
+        "https://www.datatooza.com/article/20260706091647602852ef36232b_80",
+        "https://markets.hankyung.com/stock/314930"
+      ]
+    }
+  ]
+}

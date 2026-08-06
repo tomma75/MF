@@ -169,6 +169,27 @@ tr.det>td{padding:0 12px 15px;background:var(--surface2);border-bottom:1px solid
 .sig p{margin:9px 0 0;font-size:12.5px;color:var(--text);line-height:1.5}
 .sig .ex{margin-top:8px;font-size:11px;color:var(--faint);font-family:ui-monospace,monospace}
 
+/* LR calibration */
+.lr-sec{margin-top:22px;border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden}
+.lr-hd{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.lr-hd h2{font-size:14px;font-weight:800;color:var(--ink)}
+.lr-hd .sub{font-size:11px;color:var(--muted);font-family:ui-monospace,monospace;margin-left:auto}
+.lr-body{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:16px;align-items:center}
+@media (max-width:560px){.lr-body{grid-template-columns:1fr}}
+.lr-big{text-align:center;padding:6px 20px 6px 4px;border-right:1px solid var(--line)}
+@media (max-width:560px){.lr-big{border-right:0;border-bottom:1px solid var(--line);padding-bottom:12px}}
+.lr-big .v{font-family:ui-monospace,monospace;font-size:40px;font-weight:800;color:var(--accent);line-height:1}
+.lr-big .u{font-size:12px;color:var(--muted);margin-top:4px}
+.lr-big .cap{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-top:8px}
+.lr-tbl{width:100%;font-size:12.5px}
+.lr-tbl .row{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:8px;padding:5px 0;border-bottom:1px solid var(--line2)}
+.lr-tbl .row:last-child{border-bottom:0}
+.lr-tbl .row.h{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.lr-tbl .row .r{text-align:right;font-family:ui-monospace,monospace}
+.lr-tbl .big{color:var(--ink);font-weight:700}
+.lr-note{padding:0 16px 14px;font-size:11px;color:var(--faint);line-height:1.5}
+.lr-note b{color:var(--accent)}
+
 /* ignition top5 */
 .ign-sec{margin-top:22px;border:1px solid color-mix(in srgb,var(--accent) 34%,var(--line));border-radius:12px;
   background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 7%,var(--surface)),var(--surface));overflow:hidden}
@@ -227,6 +248,15 @@ footer b{color:var(--muted)}
   <div class="disc">
     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
     <p><b>교육·연구용 · 회피 목적.</b> 모든 종목은 <b>모니터링 후보</b>이며 조작·작전으로 <b>단정하지 않는다.</b> 점수·판정은 <b>보정 전 유사도</b>이지 확률·투자자문·매매신호가 아니다. 공개 데이터만 사용, 실존 개인·세력은 일반화. <b>대부분의 셋업은 급등하지 않는다(거짓양성 지배).</b></p>
+  </div>
+
+  <div class="lr-sec" id="lrsec" hidden>
+    <div class="lr-hd"><span>🎯</span><h2>변별력 — 우도비(LR) 첫 실측</h2><span class="sub" id="lrdate"></span></div>
+    <div class="lr-body">
+      <div class="lr-big"><div class="v" id="lrval"></div><div class="u">배 (odds)</div><div class="cap">시그니처 있으면 급등 승산</div></div>
+      <div class="lr-tbl" id="lrtbl"></div>
+    </div>
+    <div class="lr-note" id="lrnote"></div>
   </div>
 
   <div class="ign-sec" id="ignsec" hidden>
@@ -295,6 +325,21 @@ const kpis=[
  {n:newN,l:'신규 편입',sub:'2026-07-27 스캔'},
 ];
 $('kpis').innerHTML=kpis.map(k=>`<div class="kpi"><div class="n">${k.n}</div><div class="l">${k.l}</div><div class="sub">${k.sub}</div></div>`).join('');
+
+// LR calibration
+const LR=D.lr;
+if(LR){
+  $('lrsec').hidden=false;
+  $('lrdate').textContent='as-of '+LR.as_of+' · 잠정(표본 극소)';
+  $('lrval').textContent='≈'+LR.lr_strict+'×';
+  const pct=x=>(x*100).toFixed(x<0.1?1:0)+'%';
+  $('lrtbl').innerHTML=
+    `<div class="row h"><span>시그니처율</span><span class="r">케이스(상한가)</span><span class="r">대조군(비급등)</span></div>`+
+    `<div class="row"><span>엄격 (A~F 구조)</span><span class="r big">${pct(LR.case.strict_rate)}</span><span class="r">${pct(LR.control.strict_rate)}</span></div>`+
+    `<div class="row"><span>소프트 (+UNCLEAR)</span><span class="r">${pct(LR.case.soft_rate)}</span><span class="r">${pct(LR.control.soft_rate)}</span></div>`+
+    `<div class="row"><span>표본 n</span><span class="r">${LR.case.n}</span><span class="r">${LR.control.n}</span></div>`;
+  $('lrnote').innerHTML=`평범한 코스닥 소형주 ${LR.control.n}개 중 A~F 구조 보유 <b>${LR.control.signature}개</b> vs 상한가 top10 중 <b>${LR.case.signature}개(${pct(LR.case.strict_rate)})</b> → LR ≈ ${LR.lr_strict}× (소프트 ${LR.lr_soft}×, OR ${LR.or_strict}~${LR.or_soft}×). ⚠️ 결과변수는 '급등'이지 '조작'이 아님 · 표본 극소·단일일 → <b>잠정 신호</b>, 다회 반복·조작앵커 대비 측정 필요.`;
+}
 
 // ignition top5
 const IGN=D.ignition||[];
