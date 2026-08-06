@@ -1,5 +1,5 @@
 {
-  "version": 18,
+  "version": 19,
   "as_of": "2026-08-06",
   "note": "F/U 대상 단일 정본(single source of truth). status: active=재조회 대상, closed=판정 종료(사유 기재). layer: collapse=붕괴 관찰 / preramp=발화 관찰 / collapse-watch=발화 후 디스트리뷰션 관찰. Round 1 판정 반영(v2).",
   "targets": [
