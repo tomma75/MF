@@ -1,5 +1,5 @@
 {
-  "version": 20,
+  "version": 21,
   "as_of": "2026-08-07",
   "note": "F/U 대상 단일 정본(single source of truth). status: active=재조회 대상, closed=판정 종료(사유 기재). layer: collapse=붕괴 관찰 / preramp=발화 관찰 / collapse-watch=발화 후 디스트리뷰션 관찰. Round 1 판정 반영(v2).",
   "targets": [
@@ -636,6 +636,17 @@
       "trigger": "역병합 얇은 float / 224억 3자배정 유증(신주상장 9/9)·나스닥 듀얼상장 스토리 / 대표 장내매수 시그널",
       "falsify": "할증가 유증·대표 매수=예신뢰(정상)로 귀결 / 식품 본업 정당화",
       "note": "급상승 역스캔 2026-08-07(UNCLEAR, 부분 C). 역병합→최대주주 변경→224억 유증→나스닥 스토리 순차 적층(사전관측 가능). 단 오늘 촉매가 대표 장내매수+할증가 유증참여라 저가희석형과 방향 상반 → 단정 보류."
+    },
+    {
+      "name": "MasterBeef Group",
+      "symbol": "MB",
+      "mkt": "US",
+      "layer": "collapse-watch",
+      "status": "active",
+      "window": "발화 확인 2026-08-07 +267%(하락장 순수 알파 ~+268%p) → 램프 후 디스트리뷰션 감시. 게이트B 종가 재검증",
+      "trigger": "초박막 float(공모 ~2.15M) 소셜/모멘텀 램프 반복 스윙 / 20-F 지연 불투명성 / 무촉매 스파이크→덤프",
+      "falsify": "실적·사업 실체 정당화 / float 확대·질서 안정",
+      "note": "급상승 역스캔 2026-08-07(SIGNATURE F, C인접). HK 대만식 훠궈/BBQ 마이크로캡, 2025-04 나스닥 IPO($8M·유통 2.15M), 20-F 지연. ★유형 반복: HCHL(HK 훠궈 마이크로캡 소셜펌프)과 동일 타이폴로지 — 아시아계 저유동 식당 IPO 램프앤덤프."
     }
   ]
 }
