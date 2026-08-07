@@ -105,6 +105,16 @@ section{margin-top:34px}
 .v-NO_DATA{background:var(--nodata-bg);color:var(--nodata)} .v-NO_DATA .dot{background:var(--nodata)}
 .legend .desc{font-size:11px;color:var(--muted);font-weight:400;font-family:system-ui}
 
+.mkt-tabs{display:flex;gap:6px;margin-bottom:14px}
+.mkt-tab{font-size:12.5px;font-weight:700;font-family:system-ui;color:var(--muted);
+  background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:7px 14px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:7px;transition:border-color .12s,color .12s}
+.mkt-tab:hover{border-color:var(--accent)}
+.mkt-tab.active{color:var(--ink);border-color:var(--ink);background:var(--surface2)}
+.mkt-tab .cnt{font-family:ui-monospace,monospace;font-size:11px;color:var(--faint);
+  background:var(--line2);border-radius:999px;padding:1px 7px}
+.mkt-tab.active .cnt{color:var(--accent)}
+.mkt-hint{font-size:11px;color:var(--faint);margin:-6px 0 12px;line-height:1.5}
 .layer{margin-bottom:22px}
 .layer-h{display:flex;align-items:center;gap:10px;margin-bottom:9px}
 .layer-h .swatch{width:10px;height:10px;border-radius:2px}
@@ -276,6 +286,8 @@ footer b{color:var(--muted)}
   <section>
     <div class="sec-h"><h2>모니터링 코호트</h2><span class="tag">cohort_registry.json</span><div class="rule"></div>
       <button class="exall" id="exall" type="button">모두 펼치기</button></div>
+    <div class="mkt-tabs" id="mkttabs"></div>
+    <div class="mkt-hint" id="mkthint"></div>
     <div id="layers"></div>
   </section>
 
@@ -383,8 +395,14 @@ function vchip(name){const v=VL[shortName(name)];return v?`<span class="chip v-$
 function fld(cls,label,val){ if(!val)return ''; return `<div class="fld ${cls}"><div class="k"><span class="kb"></span>${label}</div><div class="val">${esc(val)}</div></div>`; }
 const caret='<svg class="caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>';
 
-$('layers').innerHTML=LAYERS.map(L=>{
-  const rows=D.targets.filter(t=>t.layer===L.k).sort((a,b)=>(a.status===b.status?0:a.status==='active'?-1:1));
+const MKTS=[
+ {k:'KR',label:'🇰🇷 국내(코스닥)',hint:'셸 재활용·무상감자/역분할·조합 3자배정·연쇄 CB·무자본 M&A 구조. 우리 A~F 시그니처의 본산(상한가 채널 시그니처율 30%·LR≈10×).'},
+ {k:'US',label:'🇺🇸 미국',hint:'표적은 아시아계 저유동 마이크로 IPO 소셜펌프(F)·12(k) 정지군뿐(HCHL·MB·EMPG류). 실적주 급등은 표적 아님 — 무촉매 극단 급등 채널만 유효.'}];
+let curMkt='KR';
+
+function renderLayers(mkt){
+ $('layers').innerHTML=LAYERS.map(L=>{
+  const rows=D.targets.filter(t=>t.layer===L.k && t.mkt===mkt).sort((a,b)=>(a.status===b.status?0:a.status==='active'?-1:1));
   if(!rows.length)return '';
   const act=rows.filter(t=>t.status==='active').length;
   const body=rows.map((t,i)=>{
@@ -418,20 +436,35 @@ $('layers').innerHTML=LAYERS.map(L=>{
     <div class="twrap"><table>
       <thead><tr><th>종목</th><th>시장</th><th>상태</th><th>최신판정</th><th>발화창 / 종료사유</th><th>트리거</th></tr></thead>
       <tbody>${body}</tbody></table></div></div>`;
-}).join('');
+ }).filter(Boolean).join('') || `<div class="mkt-hint">이 시장에 등록된 종목이 없습니다.</div>`;
+}
 
+// market tabs
+function mktCount(k){return D.targets.filter(t=>t.mkt===k && t.status==='active').length}
+$('mkttabs').innerHTML=MKTS.map(m=>`<button class="mkt-tab${m.k===curMkt?' active':''}" data-mkt="${m.k}" type="button">${m.label}<span class="cnt">${mktCount(m.k)}</span></button>`).join('');
+function selectMkt(mkt){
+  curMkt=mkt; allOpen=false; $('exall').textContent='모두 펼치기';
+  $('mkttabs').querySelectorAll('.mkt-tab').forEach(b=>b.classList.toggle('active',b.dataset.mkt===mkt));
+  $('mkthint').textContent=(MKTS.find(m=>m.k===mkt)||{}).hint||'';
+  renderLayers(mkt);
+}
+$('mkttabs').addEventListener('click',e=>{const b=e.target.closest('.mkt-tab');if(b)selectMkt(b.dataset.mkt)});
+
+// delegated row toggle (survives re-render)
 function toggle(sum,force){
-  const det=document.querySelector(`tr.det[data-for="${sum.dataset.i}"]`);
+  const det=$('layers').querySelector(`tr.det[data-for="${sum.dataset.i}"]`);
   const open=force!=null?force:!sum.classList.contains('open');
   sum.classList.toggle('open',open); if(det)det.classList.toggle('show',open);
 }
-document.querySelectorAll('tr.sum').forEach(s=>s.addEventListener('click',()=>toggle(s)));
+$('layers').addEventListener('click',e=>{const s=e.target.closest('tr.sum');if(s)toggle(s)});
 let allOpen=false;
 $('exall').addEventListener('click',()=>{
   allOpen=!allOpen;
-  document.querySelectorAll('tr.sum').forEach(s=>toggle(s,allOpen));
+  $('layers').querySelectorAll('tr.sum').forEach(s=>toggle(s,allOpen));
   $('exall').textContent=allOpen?'모두 접기':'모두 펼치기';
 });
+
+selectMkt(curMkt);
 
 const SIGS=[
  {c:'A',t:'신설법인·투자조합·SPC 대상 소규모 3자배정으로 경영권 이전 + 저가권(페니) + 신테마(AI·로봇·2차전지) 부착',ex:'디에이치엑스 · 손오공'},
