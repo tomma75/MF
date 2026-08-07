@@ -1,12 +1,12 @@
 {
-  "as_of": "2026-08-06",
+  "as_of": "2026-08-07 (2일 누적)",
   "case": {
-    "channel": "KR 코스닥 상한가 top10",
-    "n": 10,
-    "signature": 2,
-    "soft": 5,
-    "strict_rate": 0.2,
-    "soft_rate": 0.5
+    "channel": "KR 코스닥 상한가 top10 ×2일",
+    "n": 20,
+    "signature": 6,
+    "soft": 11,
+    "strict_rate": 0.3,
+    "soft_rate": 0.55
   },
   "control": {
     "channel": "코스닥 소형주 비급등 표본",
@@ -16,90 +16,8 @@
     "strict_rate": 0.0,
     "soft_rate": 0.0625
   },
-  "lr_strict": 7.7,
-  "lr_soft": 5.7,
-  "or_strict": 9.7,
-  "or_soft": 10.3,
-  "control_rows": [
-    {
-      "name": "국순당",
-      "symbol": "043650",
-      "cls": "LEGIT"
-    },
-    {
-      "name": "노바텍",
-      "symbol": "285490",
-      "cls": "LEGIT"
-    },
-    {
-      "name": "디케이앤디",
-      "symbol": "309900",
-      "cls": "UNCLEAR"
-    },
-    {
-      "name": "링네트",
-      "symbol": "042500",
-      "cls": "LEGIT"
-    },
-    {
-      "name": "매커스",
-      "symbol": "093520",
-      "cls": "LEGIT"
-    },
-    {
-      "name": "비아트론",
-      "symbol": "141000",
-      "cls": "LEGIT"
-    },
-    {
-      "name": "삼목에스폼",
-      "symbol": "018310",
-      "cls": "LEGIT"
-    },
-    {
-      "name": "옵트론텍",
-      "symbol": "082210",
-      "cls": "LEGIT"
-    },
-    {
-      "name": "진성티이씨",
-      "symbol": "036890",
-      "cls": "LEGIT"
-    },
-    {
-      "name": "참좋은여행",
-      "symbol": "094850",
-      "cls": "LEGIT"
-    },
-    {
-      "name": "코메론 (Komelon)",
-      "symbol": "049430",
-      "cls": "LEGIT"
-    },
-    {
-      "name": "토비스",
-      "symbol": "051360",
-      "cls": "LEGIT"
-    },
-    {
-      "name": "파세코",
-      "symbol": "037070",
-      "cls": "LEGIT"
-    },
-    {
-      "name": "한네트",
-      "symbol": "052600",
-      "cls": "LEGIT"
-    },
-    {
-      "name": "디지털대성",
-      "symbol": "068930",
-      "cls": "LEGIT"
-    },
-    {
-      "name": "바이오다인",
-      "symbol": "314930",
-      "cls": "LEGIT"
-    }
-  ]
+  "lr_strict": 10.5,
+  "lr_soft": 6.2,
+  "or_strict": 14.8,
+  "or_soft": 12.5
 }
