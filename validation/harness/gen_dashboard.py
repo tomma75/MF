@@ -60,19 +60,24 @@ def build_data():
     if blocks:
         for row in re.finditer(r"^\| \*\*(HIT|MISS|EARLY|VOID|PENDING|NO_DATA)\*\* \| ([^|]+?) \| ([^|]+?) \|", blocks[-1], re.M):
             verd[row.group(3).strip()] = row.group(1)
-    # ignition ranking (top5 폭등 유력), if present
+    # ignition ranking (top5 폭등 유력), if present — 현재 active+preramp 종목만(스테일 방지)
     ignition = []
+    ig_asof = None
     rp = os.path.join(HERE, "ignition_rank.json")
     if os.path.exists(rp):
         ig = json.load(open(rp, encoding="utf-8"))
-        ignition = ig.get("ranked", [])[:5]
+        ig_asof = ig.get("as_of")
+        live = {norm(t.get("symbol")) for t in reg["targets"]
+                if t.get("status") == "active" and t.get("layer") == "preramp"}
+        ranked = [d for d in ig.get("ranked", []) if norm(d.get("symbol")) in live]
+        ignition = ranked[:5]
     # LR calibration summary, if present
     lr = None
     lp = os.path.join(HERE, "lr_summary.json")
     if os.path.exists(lp):
         lr = json.load(open(lp, encoding="utf-8"))
     return {"version": reg["version"], "as_of": reg["as_of"], "targets": reg["targets"],
-            "rounds": rounds, "latest_verdicts": verd, "ignition": ignition, "lr": lr}
+            "rounds": rounds, "latest_verdicts": verd, "ignition": ignition, "ignition_asof": ig_asof, "lr": lr}
 
 TPL = os.path.join(HERE, "dashboard_template.html")
 
