@@ -1,5 +1,5 @@
 {
-  "version": 22,
+  "version": 23,
   "as_of": "2026-08-10",
   "note": "F/U 대상 단일 정본(single source of truth). status: active=재조회 대상, closed=판정 종료(사유 기재). layer: collapse=붕괴 관찰 / preramp=발화 관찰 / collapse-watch=발화 후 디스트리뷰션 관찰. Round 1 판정 반영(v2).",
   "targets": [
@@ -60,10 +60,11 @@
       "symbol": "344860",
       "mkt": "KR",
       "layer": "preramp",
-      "status": "active",
+      "status": "closed",
       "window": "발화창 2026-07-27~08-14(핵심 납입 7/27→신주상장·주총, low-med). 선행 7/06~24 IR float-up",
       "trigger": "7/27 유증 납입 성사 → 게이트B 발화(거래량 폭증·급등) / 콘텐츠 IR 릴레이",
-      "falsify": "7/27 납입 실패·철회 → VOID / 미발화 지속"
+      "falsify": "7/27 납입 실패·철회 → VOID / 미발화 지속",
+      "closed_reason": "사용자 판단 제외(2026-08-10) — 반복 PENDING/NO_DATA, 발화창 소진. 넘김."
     },
     {
       "name": "아미코젠",
@@ -243,11 +244,12 @@
       "symbol": "009730",
       "mkt": "KR",
       "layer": "preramp",
-      "status": "active",
+      "status": "closed",
       "window": "발화창 2026-07-20(재개)~08월 중순. 앵커=88.89% 무상감자 후 7/20 재개 + 주주배정 유증 청약 8/5~6",
       "trigger": "얇아진 float(806만주)에서 리튬·2차전지 신테마 재부착 거래대금 급증 / 유증 청약 성사 / 상장적격성 실질심사 해소 반등",
       "falsify": "실질심사 상폐결정·장기 거래정지 / 유증 대량실권·미달·철회 / 재개 후 거래대금 지속 저조",
-      "note": "스캔 2026-07-27(셋업80, C/F). 최대주주=에스앤티제1호투자조합(조합 지배구조), 순차 조달. 실질심사 병존 리스크."
+      "note": "스캔 2026-07-27(셋업80, C/F). 최대주주=에스앤티제1호투자조합(조합 지배구조), 순차 조달. 실질심사 병존 리스크.",
+      "closed_reason": "사용자 판단 제외(2026-08-10) — 반복 PENDING/NO_DATA, 발화창 소진. 넘김."
     },
     {
       "name": "엣지파운드리(구 트루윈)",
