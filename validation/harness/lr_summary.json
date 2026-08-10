@@ -1,12 +1,12 @@
 {
-  "as_of": "2026-08-07 (2일 누적)",
+  "as_of": "2026-08-10 (3일 누적)",
   "case": {
-    "channel": "KR 코스닥 상한가 top10 ×2일",
-    "n": 20,
-    "signature": 6,
-    "soft": 11,
-    "strict_rate": 0.3,
-    "soft_rate": 0.55
+    "channel": "KR 코스닥 상한가 top10 ×3일",
+    "n": 30,
+    "signature": 10,
+    "soft": 18,
+    "strict_rate": 0.3333333333333333,
+    "soft_rate": 0.6
   },
   "control": {
     "channel": "코스닥 소형주 비급등 표본",
@@ -16,8 +16,8 @@
     "strict_rate": 0.0,
     "soft_rate": 0.0625
   },
-  "lr_strict": 10.5,
-  "lr_soft": 6.2,
-  "or_strict": 14.8,
-  "or_soft": 12.5
+  "lr_strict": 11.5,
+  "lr_soft": 6.8,
+  "or_strict": 16.9,
+  "or_soft": 15.3
 }

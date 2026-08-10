@@ -1,6 +1,6 @@
 {
-  "version": 21,
-  "as_of": "2026-08-07",
+  "version": 22,
+  "as_of": "2026-08-10",
   "note": "F/U 대상 단일 정본(single source of truth). status: active=재조회 대상, closed=판정 종료(사유 기재). layer: collapse=붕괴 관찰 / preramp=발화 관찰 / collapse-watch=발화 후 디스트리뷰션 관찰. Round 1 판정 반영(v2).",
   "targets": [
     {
@@ -647,6 +647,50 @@
       "trigger": "초박막 float(공모 ~2.15M) 소셜/모멘텀 램프 반복 스윙 / 20-F 지연 불투명성 / 무촉매 스파이크→덤프",
       "falsify": "실적·사업 실체 정당화 / float 확대·질서 안정",
       "note": "급상승 역스캔 2026-08-07(SIGNATURE F, C인접). HK 대만식 훠궈/BBQ 마이크로캡, 2025-04 나스닥 IPO($8M·유통 2.15M), 20-F 지연. ★유형 반복: HCHL(HK 훠궈 마이크로캡 소셜펌프)과 동일 타이폴로지 — 아시아계 저유동 식당 IPO 램프앤덤프."
+    },
+    {
+      "name": "에이비온",
+      "symbol": "203400",
+      "mkt": "KR",
+      "layer": "collapse-watch",
+      "status": "active",
+      "window": "발화 확인 2026-08-10 상한가(+29.9%, 하락장 ~+34%p 알파) → 감시. 5:1 병합 거래정지 9/11~10/7",
+      "trigger": "5대1 역병합(8/14 주총, 9010만→1802만주) 얇은 float / 텔콘 연쇄 CB(4·5회차 180억) 전환 / 793억 유증·제3자배정 매각추진",
+      "falsify": "ABN501 실기술이전 실체 정당화(순수 셸 아님) / 유증·매각 무산",
+      "note": "급상승 역스캔 2026-08-10(SIGNATURE A강/C강/D부분). 조합(에스티-스타셋조합)→텔콘 최대주주 이전 반복, 연쇄 CB, 매각추진, 임박 역병합. 실체 바이오라 LEGIT 혼재."
+    },
+    {
+      "name": "크리스탈신소재",
+      "symbol": "900250",
+      "mkt": "KR",
+      "layer": "collapse-watch",
+      "status": "active",
+      "window": "발화 확인 2026-08-10 상한가(+29.9%) → 감시. 실적 급감(Q1 매출-48%) = LEGIT 배제",
+      "trigger": "4:1 병합 얇은 float / GAO YU 등 외국계 3자배정 / GeneVision AI 현물출자 무자본 M&A / 그래핀·AI 신테마",
+      "falsify": "신소재 본업 실적 정당화 / 현물출자·M&A 무산",
+      "note": "급상승 역스캔 2026-08-10(SIGNATURE A/C/E다중). ★중국계 KOSDAQ 셸 유형(마스터비프·HCHL 아시아 마이크로캡 인접). 신소재→AI/그래핀 테마 전환, 현물출자 순환조달."
+    },
+    {
+      "name": "파라택시스이더리움(구 신시웨이)",
+      "symbol": "290560",
+      "mkt": "KR",
+      "layer": "collapse-watch",
+      "status": "active",
+      "window": "발화 확인 2026-08-10 상한가(+29.9%, DAT 반사성) → 감시",
+      "trigger": "ETH 추가매입·'아시아 최대 ETH 보유' IR 반복 / 코인가↔주가↔순자산 반사루프 / 조합·펀드 순환조달",
+      "falsify": "트레저리 실체 회계 정당화 / ETH 급락·IR 소진",
+      "note": "급상승 역스캔 2026-08-10(SIGNATURE A강/E/F). ★크립토 트레저리 셸 유형(US NAKA 인접, KR 최초 관측). 상폐위기 신시웨이(DB보안) 인수→사명변경→ETH 트레저리, Parataxis 펀드 지배. 주식이라 crypto 제외 스코프 아님."
+    },
+    {
+      "name": "해성옵틱스",
+      "symbol": "076610",
+      "mkt": "KR",
+      "layer": "collapse-watch",
+      "status": "active",
+      "window": "발화 확인 2026-08-10 상한가(+28.9%, 투자경고 이력) → 감시",
+      "trigger": "오에이치얼머스조합 269억 3자배정 경영권 이전 / 타법인취득 순환조달·이화전기/코아스 무자본 M&A 클러스터 / 연쇄 CB / 로봇AI 신테마",
+      "falsify": "삼성 S26 OIS 공급·월매출 실적 정당화 / 오버행 미출회",
+      "note": "급상승 역스캔 2026-08-10(SIGNATURE A핵심/E/D). 조합 3자배정 경영권 이전(843원 저가)+로봇AI IR. 이화전기·코아스 적대적 M&A 행위자 클러스터 연결."
     }
   ]
 }
