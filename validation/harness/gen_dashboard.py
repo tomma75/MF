@@ -67,8 +67,11 @@ def build_data():
     if os.path.exists(rp):
         ig = json.load(open(rp, encoding="utf-8"))
         ig_asof = ig.get("as_of")
+        def _tradeable(t):
+            f = t.get("note_flag", "") or ""
+            return not ("정지" in f or "상방" in f)  # 거래정지·이미 급등(상방제한)은 폭등 Top 제외
         live = {norm(t.get("symbol")) for t in reg["targets"]
-                if t.get("status") == "active" and t.get("layer") == "preramp"}
+                if t.get("status") == "active" and t.get("layer") == "preramp" and _tradeable(t)}
         ranked = [d for d in ig.get("ranked", []) if norm(d.get("symbol")) in live]
         ignition = ranked[:5]
     # LR calibration summary, if present
