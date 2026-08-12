@@ -270,7 +270,7 @@ footer b{color:var(--muted)}
   </div>
 
   <div class="ign-sec" id="ignsec" hidden>
-    <div class="ign-hd"><span class="spark">🔥</span><h2>폭등(점화) 가능성 Top 5</h2>
+    <div class="ign-hd"><span class="spark">🔥</span><h2>더 오를 여력 Top 5</h2>
       <span class="sub" id="ignsub">ignition-rank · 5팩터 채점 · 행 클릭=근거</span></div>
     <div class="ign-list" id="ignlist"></div>
   </div>
@@ -358,7 +358,7 @@ const IGN=D.ignition||[];
 if(IGN.length){
   $('ignsec').hidden=false;
   if(D.ignition_asof)$('ignsub').textContent=`as-of ${D.ignition_asof} · 5팩터 채점 · 현 active preramp만`;
-  const FB=[['f_anchor','앵커',25,'var(--preramp)'],['f_float','FLOAT',20,'var(--watch)'],['f_structure','구조',25,'var(--accent)'],['f_momentum','모멘텀',15,'var(--hit)'],['f_clean','반증부재',15,'var(--early)']];
+  const FB=[['f_position','잔여상방',25,'var(--preramp)'],['f_catalyst','촉매임박',25,'var(--watch)'],['f_structure','구조',20,'var(--accent)'],['f_float','FLOAT',15,'var(--hit)'],['f_tradeable','거래·반증',15,'var(--early)']];
   $('ignlist').innerHTML=IGN.map((d,i)=>{
     const bars=FB.map(([k,lab,mx,col])=>{const v=d[k]||0;return `<div class="fb"><div class="fbl">${lab}<b>${v}</b></div><div class="fbt"><div class="fbf" style="width:${v/mx*100}%;background:${col}"></div></div></div>`}).join('');
     const nd=/NO_DATA/i.test(d.current_state||'')?`<span class="warn">⚠ 실시간 시세 NO_DATA(403) — 구조 기반 채점, 모멘텀 보수 적용</span>`:'';
@@ -367,7 +367,7 @@ if(IGN.length){
       <div class="ign-rk">${i+1}</div>
       <div class="ign-main"><div class="ign-nm">${esc(shortName(d.name))}<span class="sym">${esc(d.symbol)}</span></div>
         <div class="ign-cat">▸ ${esc(d.key_catalyst||'')}</div></div>
-      <div class="ign-score"><div class="sv">${d.ignition_score}</div><div class="sl">/100</div></div>
+      <div class="ign-score"><div class="sv">${d.upside_score ?? d.ignition_score}</div><div class="sl">/100</div></div>
       <div class="ign-bars">${bars}</div>
       <div class="ign-det">
         <div class="thesis">${esc(d.thesis||'')}</div>
