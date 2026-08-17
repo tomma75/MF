@@ -1,0 +1,4 @@
+control_id,control_type,matched_event_id,asset_class,symbol,name,placebo_t0,match_market_cap,match_sector,match_period,observed_at,notes
+CTL-C1-EXAMPLE,C1,KR-2023-EXAMPLE,kr_stock,EXAMPLE111,예시대조군(합성),2023-05-02,52000000000,바이오,2023Q2,2026-07-01T09:00:00+09:00,무조건부 매칭 대조군(placebo-t0 이식)
+CTL-C2-EXAMPLE,C2,KR-2023-EXAMPLE,kr_stock,EXAMPLE222,예시hype대조군(합성),2023-05-02,48000000000,바이오,2023Q2,2026-07-01T09:00:00+09:00,급등+거래량이상 만족하나 코어 양성 아님(PVAR 생성)
+CTL-C3-EXAMPLE,C3,KR-2023-EXAMPLE,kr_stock,EXAMPLE333,예시silent(합성),,51000000000,바이오,2023Q2,2026-07-01T09:00:00+09:00,PCR-MS 양성인데 당국이벤트 없음(검출누락률 산출용)

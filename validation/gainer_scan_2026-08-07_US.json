@@ -1,0 +1,73 @@
+{
+  "as_of": "GAINER-SCAN",
+  "n": 3,
+  "rows": [
+    {
+      "name": "마스터비프 그룹 (MasterBeef Group)",
+      "symbol": "MB",
+      "mkt": "US",
+      "verified": true,
+      "move_today": "오늘 나스닥 +267.4% 극단 급등(제공 스크린 기준). 거래대금/거래량 정확치는 egress 차단으로 실시간 인용 불가하나, 공모 유통주식 ~2.15M(공모 2.0M+오버앨롯 0.155M)에 불과한 초저유동 종목으로 이 등락은 거래량·회전율 폭증을 전제로만 성립. 과거에도 ±40%대 인트라데이 스윙(저유동 램프) 반복 기록.",
+      "index_ret": "나스닥 -0.8% (하락장)",
+      "excess_ret": "초과수익 ≈ +267.4% − (−0.8%) ≈ +268%p. 하락장에서 나온 사실상 순수 알파(지수·업종 무관), 극단적 특이 이벤트.",
+      "gate_b": "true(추정) — 유통주식 ~2.15M의 초저유동 종목이 하루 +267% 가려면 거래량·회전율 수백% 폭증과 장대양봉이 필수 동반. 정확 거래대금 수치는 소스 접근 차단으로 unknown, 단 구조상 폭증 없이는 불가능.",
+      "classification": "SIGNATURE",
+      "signatures": "F 부합(부분) — '소셜 프로모션 펌프' 성분에 해당하는 아시아계 마이크로캡 저유동 IPO 램프앤덤프 원형. 뉴스·실적 촉매 없이 초저 float(~2.15M)에서 극단 스파이크+반복 스윙은 전형적 low-float ramp/소셜펌프 패턴. C 인접(얇은 float) — 단 감자·역분할이 아니라 소규모 IPO 태생적 박막유동(구조적으로는 C 불부합). A·B·D·E(조합 3자배정/관리종목 해제/CB·BW·사명변경/무자본 M&A)는 한국형 코퍼레이트액션 구조로 본건 미해당.",
+      "pre_observable": "부분 yes — 사전 '유니버스'는 관측 가능했으나 '타이밍'은 아님. ①초박막 float(공모 2.15M) 구조는 2025-04-10 IPO 시점부터 스크리닝 가능(약 16개월 리드), ②20-F 연차보고 지연(2026-04-30 시점 delinquent)은 불투명성 사전 플래그. 그러나 3자배정·감자·사명변경 같은 '날짜 특정 셋업 공시'가 없어 정확한 램프 발생일 예측 리드타임은 사실상 없음(램프는 무공시로 터짐).",
+      "why_surged": "확인된 실적·M&A·공시 촉매 없음. HK 대만식 훠궈/바베큐 식당 마이크로캡, 20-F 지연 상태. 저유동 IPO의 소셜/모멘텀 주도 램프(ramp-and-dump)로 추정되는 무촉매 스파이크. 조작 단정 아님 — 구조가 low-float 소셜펌프 원형(F)에 부합.",
+      "add_to_cohort": true,
+      "note": "MasterBeef(MB)는 HK 대만식 식당 마이크로캡으로 2025-04 나스닥 IPO($4, 총 $8M, 유통 ~2.15M) 후 20-F 연차보고까지 지연한 초저유동·불투명 종목. 오늘 하락장(-0.8%)에서 +267% 무촉매 급등은 사실상 순수 알파로, 아시아계 마이크로캡 low-float IPO 램프앤덤프/소셜펌프(시그니처 F, C 인접) 원형에 구조적으로 부합. 한국형 A~E 코퍼레이트액션 셋업은 없어 사전 '타이밍' 관측가는 낮으나, '초박막 float + 아시아 마이크로 IPO + 연차보고 지연'은 사전 스크리닝 가능한 재활용 유니버스라 별도 유형(저유동 IPO 램프) 참고 코호트로 편입 가치 있음. 교육·회피용, 매매신호 아님.",
+      "sources": [
+        "https://www.nasdaq.com/articles/masterbeef-group-raises-620000-through-additional-share-issuance-following-ipo",
+        "https://www.nasdaq.com/market-activity/ipos/overview?dealId=1314488-111996",
+        "https://www.stocktitan.net/news/MB/masterbeef-group-announces-closing-of-us-8-0-million-initial-public-hrnobyjoqn3m.html",
+        "https://seekingalpha.com/news/4486568-masterbeef-soars-43-as-the-volatile-swings-continue",
+        "https://www.tickerreport.com/banking-finance/13499404/masterbeef-group-nasdaqmb-stock-price-crosses-below-two-hundred-day-moving-average-whats-next.html"
+      ]
+    },
+    {
+      "name": "독시미티 (Doximity)",
+      "symbol": "DOCS",
+      "mkt": "US",
+      "verified": true,
+      "move_today": "8/6 장마감 후 실적발표로 애프터마켓 +70~72% 급등(Benzinga $35.55, 일부 리스트는 +103%/환산 59,504원으로 표기). 실적 서프라이즈에 따른 대량 거래 동반",
+      "index_ret": "나스닥 약 -0.8%(하락장), 개별 이벤트는 실적 발표 후 애프터마켓 반응",
+      "excess_ret": "지수 대비 +70%p 이상 순수 알파. 다만 원인이 예정된 실적발표라 구조적 알파 아님(이벤트성)",
+      "classification": "LEGIT",
+      "signatures": "없음 — A~F 구조 전무. 대형 정상 영업기업, 셸·역합병·CB/BW·사명변경·최대주주 교체·감자 이력 없음",
+      "pre_observable": "부분 — 실적발표일 자체는 예정 공지로 알려졌으나, 이는 우리 작전 시그니처(3자배정·감자·사명변경·CB·최대주주 교체)와 무관. 우리 루브릭 기준 사전관측 대상 셋업은 no(리드타임 없음)",
+      "why_surged": "2026 회계 Q1 실적 서프라이즈: 매출 $156.6M(예상 $151.7M 상회), 전년비 +7%, 연간 가이던스 상향, AI 의사 참여/신규 상업 AI 제품 및 리더십 변경 언급. 순수 펀더멘털 촉매",
+      "gate_b": "true — 실적 서프라이즈로 거래량·변동성 폭증 추정. 다만 게이트B 충족이 곧 작전 의미 아님(실적 이벤트 정상 반응)",
+      "add_to_cohort": false,
+      "sources": [
+        "https://www.benzinga.com/markets/earnings/26/08/61025835/why-doximity-stock-is-up-more-than-70-in-after-hours-trading-thursday",
+        "https://stockstory.org/us/stocks/nyse/docs/news/earnings/doximitys-nysedocs-q2-cy2026-beats-on-revenue",
+        "https://stockanalysis.com/stocks/docs/"
+      ],
+      "note": "Doximity(DOCS)는 NYSE 상장 디지털 헬스케어/의사 SNS 실적 기업으로, 8/6 장마감 후 Q1 실적 서프라이즈(매출·가이던스 상회, AI 참여 급증)를 촉매로 애프터마켓 +70%대 급등한 전형적 LEGIT 사례다. 셸 재활용·무자본 M&A·CB/BW·사명변경 등 A~F 구조 시그니처가 전혀 없고, 예정된 실적발표에 따른 정상 반응이므로 우리 작전 코호트 편입 대상이 아니다. 상한가/대폭등이라도 실적 촉매가 명확하면 시그니처와 구분해 제외한다."
+    },
+    {
+      "name": "INNOVATE Corp (이노베이트)",
+      "symbol": "VATE",
+      "mkt": "US",
+      "verified": true,
+      "move_today": "+60~84% 급등(보도별 60/63/150% 편차, 인트라데이 스파이크). NYSE:VATE, 종가 약 $8~11대. 국내앱 표기 약 19,394원(KRW 환산가). 거래량·거래대금 폭증.",
+      "index_ret": "나스닥 약 -0.8%(하락장)",
+      "excess_ret": "지수 대비 +60%p 이상 순수 알파(하락장 속 단독 급등, 종목 고유 호재 기인)",
+      "classification": "LEGIT",
+      "signatures": "없음 — A~F 구조 어느 것도 부합하지 않음. 조합/SPC 3자배정·경영권이전(A) 없음, 관리종목해제+최대주주교체(B) 없음, 무상감자·역분할 후 얇은 float(C) 아님, 연쇄CB/BW+사명변경(AI·로봇)(D) 없음, 무자본 M&A 순환조달(E) 없음, 셸 재활용·소셜펌프(F) 아님. NYSE 상장 실체 지주회사(구 HC2 Holdings)로 실사업 자회사 보유.",
+      "pre_observable": "no(우리 시그니처 기준). 급등 촉매가 구조적 셋업이 아니라 FDA 승인이라는 이산적 규제 이벤트. 3자배정·감자·CB·사명변경·최대주주교체 등 공시 셋업이 사전 존재하지 않음 → A~F 프레임으로는 사전 관측 대상 아님. (다만 MediBeacon FDA 심사 일정 자체는 펀더멘털 이벤트로 추적 가능했으나 이는 우리 회피 시그니처와 무관.)",
+      "why_surged": "자회사 MediBeacon Transdermal GFR 시스템 FDA 승인이라는 실질 규제 호재. 동일 시점 Q2 2026 실적 발표.",
+      "gate_b": "true — 거래대금·거래량 폭증 + FDA 승인 갭업 장대양봉(60%+ 스파이크). 다만 촉매가 명확한 정상 뉴스라 게이트B 자체는 작전 시그널이 아님.",
+      "add_to_cohort": false,
+      "note": "정체 확인: NYSE:VATE, INNOVATE Corp(구 HC2 Holdings), 실사업 자회사(DBM Global 인프라·MediBeacon 생명과학·스펙트럼)를 가진 상장 지주회사로 레버리지/인버스 ETP 아님. 오늘 급등은 MediBeacon 신장기능측정기 FDA 승인이라는 정상 펀더멘털 촉매에 의한 것으로, 우리 A~F 작전 시그니처와 구조적으로 불부합 → LEGIT 판정. 과거 Falcone/HC2 시절 금융공학 이력은 있으나 금번 이벤트는 조작 시그니처와 무관하여 모니터링 코호트 편입 불필요.",
+      "sources": [
+        "https://finance.yahoo.com/news/innovate-shares-surge-63-following-194238686.html",
+        "https://www.investing.com/news/stock-market-news/innovate-corp-stock-soars-on-fda-approval-93CH-3822441",
+        "https://www.tipranks.com/news/company-announcements/innovate-corps-medibeacon-system-gains-fda-approval",
+        "https://finance.yahoo.com/quote/VATE/",
+        "https://www.stocktitan.net/overview/VATE/"
+      ]
+    }
+  ]
+}

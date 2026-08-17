@@ -1,0 +1,3 @@
+obs_id,event_id,asset_class,symbol,signal_name,fold,window,value,ref_percentile,asof_cutoff,published_at_min,leakage_test_pass,loo_applied,notes
+OBS-EXAMPLE-BCI,KR-2023-EXAMPLE,kr_stock,EXAMPLE000,BCI,kr,t_start-40~t_start-1,0.38,96,2023-04-14,2023-04-18T18:00:00+09:00,true,false,합성 예시 — 창구 순매수 집중도(HHI)
+OBS-EXAMPLE-PV1,KR-2023-EXAMPLE,kr_stock,EXAMPLE000,PV1,kr,t_start-60~t_start-6,1.0,,2023-04-06,2023-04-06T15:30:00+09:00,true,false,합성 예시 — 횡보 중 거래량 다이버전스(1=조건충족)

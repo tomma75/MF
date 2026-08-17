@@ -1,0 +1,2 @@
+event_id,label_version,asset_class,symbol,name,t_start,t0,Wd,collapse_stratum,gate_A_catalyst,gate_B_car_pct,gate_D_verdict,gate_D_kappa,gray_zone,detection_time,evidence_url,observed_at,notes
+KR-2023-EXAMPLE,v0.2,kr_stock,EXAMPLE000,예시종목(합성),2023-04-15,2023-05-02,20,collapsed,제3자배정유증,120.5,yes,0.72,false,,https://example.invalid/evidence,2026-07-01T09:00:00+09:00,합성 예시 행 — 실제 종목 아님
