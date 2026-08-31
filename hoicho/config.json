@@ -1,0 +1,5 @@
+{
+  "poll_interval_sec": 0.5,
+  "claude_model": "haiku",
+  "min_decision_interval_sec": 8.0
+}
