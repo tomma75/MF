@@ -1,5 +1,8 @@
 import base64
+import shlex
 import subprocess
+
+from .local_client import _is_shell_safe
 
 
 class AdbClient:
@@ -56,15 +59,18 @@ class AdbClient:
     def key(self, keycode):
         self.shell(f"input keyevent {int(keycode)}")
 
-    def input_text(self, text):
-        """한글 입력은 ADBKeyboard IME의 base64 브로드캐스트를 사용한다.
+    def install_apk(self, apk_path, timeout=120):
+        return self.run(["install", "-r", apk_path], timeout=timeout)
 
+    def input_text(self, text):
+        """텍스트 입력. adb shell도 원격 sh를 거치므로 인용 처리가 필요하다.
+
+        한글이거나 특수문자가 섞이면 ADBKeyboard IME의 base64 브로드캐스트를 쓴다.
         기기에 ADBKeyboard.apk가 설치되어 있고 IME로 활성화되어 있어야 한다.
         (README_HOICHO.md 참고)
         """
-        if text.isascii():
-            escaped = text.replace(" ", "%s")
-            self.shell(f"input text {escaped}")
+        if _is_shell_safe(text):
+            self.shell(f"input text {shlex.quote(text.replace(' ', '%s'))}")
             return
         b64 = base64.b64encode(text.encode("utf-8")).decode("ascii")
         self.shell(f"am broadcast -a ADB_INPUT_B64 --es msg {b64}")

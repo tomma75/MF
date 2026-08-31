@@ -54,11 +54,15 @@ def ensure_shell_access(client):
         who = "root" if "uid=0" in identity else "shell(Shizuku)"
         print(f"권한 확인: {who} — 기기 조작 가능")
         return True
+    detail = result.stderr.decode(errors="replace").strip()
     raise RuntimeError(
-        "shell 권한이 없습니다 (현재: {}).\n"
-        "폰 안에서 화면을 조작하려면 Shizuku가 필요합니다. "
-        "README_ONDEVICE.md의 설정을 따라 Shizuku를 켠 뒤, rish 셸에서 실행하거나 "
-        "config.json에 rish 경로를 지정하세요.".format(identity or "알 수 없음"))
+        "shell 권한이 없습니다 (현재: {}){}\n"
+        "폰 안에서 화면을 조작하려면 Shizuku가 필요합니다:\n"
+        "  1) Shizuku 앱이 '실행 중'인지 확인 (재부팅하면 꺼집니다)\n"
+        "  2) 처음이라면 rish 실행 시 뜨는 Shizuku 권한 요청을 허용\n"
+        "  3) `~/rish -c id` 가 uid=2000 을 내는지 확인\n"
+        "자세한 설정은 README_ONDEVICE.md 참고.".format(
+            identity or "알 수 없음", f"\n  {detail}" if detail else ""))
 
 
 def find_adb(configured_path=None):
@@ -140,9 +144,12 @@ def ensure_adb_keyboard(adb, cache_dir):
                 print(f"ADBKeyboard 다운로드 실패({e}) — 한글 채팅 입력이 제한됩니다.")
                 return False
         print("ADBKeyboard 설치 중...")
-        install = adb.run(["install", "-r", apk_path], timeout=60)
+        install = adb.install_apk(apk_path, timeout=120)
         if install.returncode != 0:
-            print("ADBKeyboard 설치 실패 — 한글 채팅 입력이 제한됩니다.")
+            detail = install.stderr.decode(errors="replace").strip()
+            print(f"ADBKeyboard 설치 실패 — 한글 채팅 입력이 제한됩니다. {detail}")
+            print("  수동 설치: 브라우저로 ADBKeyboard.apk를 받아 설치한 뒤 다시 실행하세요.\n"
+                  f"  {ADBKEYBOARD_APK_URL}")
             return False
     adb.shell(f"ime enable {ADBKEYBOARD_IME}")
     adb.shell(f"ime set {ADBKEYBOARD_IME}")

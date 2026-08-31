@@ -67,6 +67,10 @@ class HoichoAgent:
             mode = "ondevice" if bootstrap.is_android() else "adb"
 
         if mode == "ondevice":
+            if not bootstrap.is_android():
+                raise RuntimeError(
+                    "온디바이스 모드는 폰(Termux) 안에서만 동작합니다. "
+                    "PC에서 실행 중이라면 --mode adb 를 쓰세요.")
             from .local_client import LocalShellClient
             rish = bootstrap.find_rish(config.get("rish_path"))
             self.adb = LocalShellClient(rish)

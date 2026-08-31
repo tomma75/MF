@@ -91,7 +91,9 @@ class OcrEngine:
         rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
         data = pytesseract.image_to_data(
             rgb, lang="kor+eng", output_type=pytesseract.Output.DICT)
-        tokens = []
+
+        # tesseract는 단어 단위로 주므로, 줄 단위로 묶어 다른 백엔드와 입자를 맞춘다.
+        lines = {}
         for i in range(len(data["text"])):
             text = (data["text"][i] or "").strip()
             if not text:
@@ -102,9 +104,20 @@ class OcrEngine:
                 conf = -1.0
             if conf < 30:
                 continue
+            key = (data["block_num"][i], data["par_num"][i], data["line_num"][i])
             x, y = data["left"][i], data["top"][i]
             w, h = data["width"][i], data["height"][i]
-            tokens.append(OcrToken(text, x + w / 2, y + h / 2, (x, y, x + w, y + h)))
+            entry = lines.setdefault(key, {"words": [], "box": [x, y, x + w, y + h]})
+            entry["words"].append(text)
+            box = entry["box"]
+            box[0], box[1] = min(box[0], x), min(box[1], y)
+            box[2], box[3] = max(box[2], x + w), max(box[3], y + h)
+
+        tokens = []
+        for entry in lines.values():
+            x1, y1, x2, y2 = entry["box"]
+            tokens.append(OcrToken(
+                " ".join(entry["words"]), (x1 + x2) / 2, (y1 + y2) / 2, (x1, y1, x2, y2)))
         return tokens
 
     def _read_easyocr(self, image_bgr):
