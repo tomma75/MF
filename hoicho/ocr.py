@@ -29,6 +29,13 @@ class OcrEngine:
             except ImportError:
                 if backend == "winocr":
                     raise
+        if self.backend is None and backend in ("auto", "tesseract"):
+            try:
+                import pytesseract  # noqa: F401
+                self.backend = "tesseract"
+            except ImportError:
+                if backend == "tesseract":
+                    raise
         if self.backend is None and backend in ("auto", "easyocr"):
             try:
                 import easyocr
@@ -48,6 +55,8 @@ class OcrEngine:
         """BGR 이미지에서 OcrToken 목록을 y, x 순으로 정렬해 반환."""
         if self.backend == "winocr":
             tokens = self._read_winocr(image_bgr)
+        elif self.backend == "tesseract":
+            tokens = self._read_tesseract(image_bgr)
         else:
             tokens = self._read_easyocr(image_bgr)
         tokens.sort(key=lambda t: (t.y, t.x))
@@ -72,6 +81,30 @@ class OcrEngine:
                 ys += [rect.get("y", 0), rect.get("y", 0) + rect.get("height", 0)]
             x1, y1, x2, y2 = min(xs), min(ys), max(xs), max(ys)
             tokens.append(OcrToken(text, (x1 + x2) / 2, (y1 + y2) / 2, (x1, y1, x2, y2)))
+        return tokens
+
+    def _read_tesseract(self, image_bgr):
+        """Termux 등 폰 환경용. tesseract 바이너리 + kor.traineddata 필요."""
+        import cv2
+        import pytesseract
+
+        rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
+        data = pytesseract.image_to_data(
+            rgb, lang="kor+eng", output_type=pytesseract.Output.DICT)
+        tokens = []
+        for i in range(len(data["text"])):
+            text = (data["text"][i] or "").strip()
+            if not text:
+                continue
+            try:
+                conf = float(data["conf"][i])
+            except (TypeError, ValueError):
+                conf = -1.0
+            if conf < 30:
+                continue
+            x, y = data["left"][i], data["top"][i]
+            w, h = data["width"][i], data["height"][i]
+            tokens.append(OcrToken(text, x + w / 2, y + h / 2, (x, y, x + w, y + h)))
         return tokens
 
     def _read_easyocr(self, image_bgr):

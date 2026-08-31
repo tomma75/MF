@@ -26,7 +26,9 @@ from .reflex import ReflexEngine
 from .ui_reader import UiDumpReader
 
 DEFAULT_CONFIG = {
+    "mode": "auto",                 # "auto" | "adb"(PC→폰) | "ondevice"(폰 단독)
     "adb_path": None,               # None이면 자동 탐색
+    "rish_path": None,              # 온디바이스 전용. None이면 자동 탐색
     "reader": "auto",               # "auto" | "ui" | "ocr"
     "poll_interval_sec": 0.5,       # 읽기 주기 (실시간)
     "chat_region": [0, 300, 1080, 1700],   # 기준 해상도(1080x2400) 좌표, 자동 스케일링됨
@@ -59,10 +61,23 @@ class HoichoAgent:
         self.dry_run = dry_run
 
         # ---- 제로 세팅 부트스트랩 ----
-        adb_path = bootstrap.find_adb(config.get("adb_path"))
-        if device_id is None:
-            device_id = bootstrap.wait_for_device(adb_path)
-        self.adb = AdbClient(adb_path, device_id)
+        # mode: "adb"(PC에서 폰 조작) | "ondevice"(폰 안에서 직접) | "auto"(자동 판별)
+        mode = config.get("mode", "auto")
+        if mode == "auto":
+            mode = "ondevice" if bootstrap.is_android() else "adb"
+
+        if mode == "ondevice":
+            from .local_client import LocalShellClient
+            rish = bootstrap.find_rish(config.get("rish_path"))
+            self.adb = LocalShellClient(rish)
+            print(f"실행 모드: 온디바이스 (rish={rish or '불필요 — 이미 shell 권한'})")
+            bootstrap.ensure_shell_access(self.adb)
+        else:
+            adb_path = bootstrap.find_adb(config.get("adb_path"))
+            if device_id is None:
+                device_id = bootstrap.wait_for_device(adb_path)
+            self.adb = AdbClient(adb_path, device_id)
+            print("실행 모드: adb (PC → 폰)")
 
         width, height = bootstrap.get_resolution(self.adb)
         self.config = bootstrap.scale_config_coords(dict(config), width, height)

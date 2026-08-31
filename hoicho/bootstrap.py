@@ -15,6 +15,52 @@ ADBKEYBOARD_IME = "com.android.adbkeyboard/.AdbIME"
 BASE_WIDTH, BASE_HEIGHT = 1080, 2400
 
 
+def is_android():
+    """지금 이 파이썬이 안드로이드(폰) 위에서 돌고 있는지 판별한다."""
+    if "ANDROID_ROOT" in os.environ or "ANDROID_DATA" in os.environ:
+        return True
+    # Termux는 PREFIX가 /data/data/com.termux/... 로 잡힌다
+    if "com.termux" in os.environ.get("PREFIX", ""):
+        return True
+    return os.path.exists("/system/build.prop")
+
+
+def find_rish(configured_path=None):
+    """Shizuku의 rish 스크립트를 찾는다. 없으면 None (이미 shell 권한일 수 있음)."""
+    candidates = []
+    if configured_path:
+        candidates.append(configured_path)
+    home = os.environ.get("HOME", "")
+    candidates += [
+        os.path.join(home, "rish"),
+        os.path.join(home, "shizuku", "rish"),
+        "./rish",
+    ]
+    for path in candidates:
+        if path and os.path.exists(path):
+            return path
+    return shutil.which("rish")
+
+
+def ensure_shell_access(client):
+    """기기 조작에 필요한 shell 권한(uid 2000)이 있는지 확인한다.
+
+    일반 앱 권한(uid 10xxx)으로는 screencap/input이 전부 막히므로,
+    여기서 미리 걸러 Shizuku 설정을 안내한다.
+    """
+    result = client.shell("id")
+    identity = result.stdout.decode(errors="replace").strip()
+    if "uid=2000" in identity or "uid=0" in identity:
+        who = "root" if "uid=0" in identity else "shell(Shizuku)"
+        print(f"권한 확인: {who} — 기기 조작 가능")
+        return True
+    raise RuntimeError(
+        "shell 권한이 없습니다 (현재: {}).\n"
+        "폰 안에서 화면을 조작하려면 Shizuku가 필요합니다. "
+        "README_ONDEVICE.md의 설정을 따라 Shizuku를 켠 뒤, rish 셸에서 실행하거나 "
+        "config.json에 rish 경로를 지정하세요.".format(identity or "알 수 없음"))
+
+
 def find_adb(configured_path=None):
     """설정 경로 → 저장소 동봉 adb → PATH 순으로 adb를 찾는다."""
     candidates = []
@@ -113,6 +159,22 @@ def pip_install(*packages):
 
 def ensure_ocr_backend():
     """플랫폼에 맞는 OCR 백엔드를 확보한다. 없으면 자동 설치."""
+    if is_android():
+        # 폰에서는 easyocr(torch)가 사실상 설치 불가라 tesseract를 쓴다.
+        if shutil.which("tesseract"):
+            try:
+                import pytesseract  # noqa: F401
+                return "tesseract"
+            except ImportError:
+                if pip_install("pytesseract"):
+                    return "tesseract"
+        raise RuntimeError(
+            "폰에서 OCR을 쓰려면 tesseract가 필요합니다:\n"
+            "  pkg install tesseract\n"
+            "  pip install pytesseract\n"
+            "한국어 인식에는 kor.traineddata도 필요합니다 "
+            "(README_ONDEVICE.md 참고).\n"
+            "※ UI 덤프만으로 화면이 읽히면 OCR은 없어도 됩니다.")
     if sys.platform == "win32":
         try:
             import winocr  # noqa: F401
